@@ -247,11 +247,13 @@ body {
     color: #e74c3c;
     margin-left: 10px;
     white-space: nowrap;
-    background: rgba(231, 76, 60, 0.08);
-    border: 1px solid rgba(231, 76, 60, 0.25);
+    background: #fff5f4;
+    border: 1px solid #f1c4bf;
     padding: 4px 10px;
-    border-radius: 8px;
+    border-radius: 999px; /* pill */
     line-height: 1;
+    min-width: 70px;
+    text-align: center;
 }
 
 .seva-item:hover .seva-name {
