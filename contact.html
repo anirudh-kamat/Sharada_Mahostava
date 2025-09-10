@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact Us - Sri Venkataramana Temple</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+    <div class="header">
+        <p>Official Website Of Sri Venkataramana Temple, Carstreet, Mangalore</p>
+    </div>
+
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-left">
+                <div class="logo" onclick="openLogoModal()">
+                    <img src="images/IMG_4735.JPG" alt="Temple Deity" class="logo-image" />
+                </div>
+                <div class="temple-title">
+                    <h1 class="temple-name">SRI VENKATARAMANA</h1>
+                    <h2 class="temple-subtitle">TEMPLE</h2>
+                </div>
+            </div>
+            <button class="nav-toggle" aria-label="Toggle navigation" onclick="toggleNav()"><span></span><span></span><span></span></button>
+            <div class="nav-right">
+                <ul class="nav-menu">
+                    <li><a href="index.html" class="nav-link">HOME</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="nav-link dropdown-toggle">ABOUT</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="history.html" class="dropdown-link">HISTORY</a></li>
+                            <li><a href="contact.html" class="dropdown-link active">CONTACT US</a></li>
+                            <li><a href="#" class="dropdown-link">ANNOUNCEMENTS</a></li>
+                            <li><a href="#" class="dropdown-link">UPDATES</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="nav-link dropdown-toggle">SEVA LIST</a>
+                        <ul class="dropdown-menu seva-menu">
+                            <li><a href="#" class="dropdown-link seva-item"><span class="seva-name">ಕರ್ಪೂರಾರತಿ (Karpoora Aarti)</span><span class="seva-price">₹10.00</span></a></li>
+                            <li><a href="#" class="dropdown-link seva-item"><span class="seva-name">ಪಂಚಕಜ್ಜಾಯ (Panchakajjaya)</span><span class="seva-price">₹10.00</span></a></li>
+                            <li><a href="#" class="dropdown-link seva-item"><span class="seva-name">ಕುಂಕುಮಾರ್ಚನೆ (Kumkumarchana)</span><span class="seva-price">₹100.00</span></a></li>
+                            <li><a href="#" class="dropdown-link seva-item"><span class="seva-name">ಲಡ್ಡು ಪ್ರಸಾದ (Laddu Prasada)</span><span class="seva-price">₹100.00</span></a></li>
+                            <li><a href="#" class="dropdown-link seva-item"><span class="seva-name">ಅಲಂಕಾರ ಪೂಜೆ (Alankara Pooja)</span><span class="seva-price">₹600.00</span></a></li>
+                            <li><a href="#" class="dropdown-link seva-item"><span class="seva-name">ವಿಶೇಷ ಸೇವೆ (Vishesha Seva)</span><span class="seva-price">₹1000.00</span></a></li>
+                            <li><a href="#" class="dropdown-link seva-item"><span class="seva-name">ರಂಗ ಪೂಜೆ (Ranga Pooja)</span><span class="seva-price">₹6000.00</span></a></li>
+                            <li><a href="#" class="dropdown-link seva-item special"><span class="seva-name">ಜಲಕರ ದಿನ ವಿಶೇಷ ವಿನ ಪೂಜೆ</span><span class="seva-price">₹2000.00</span></a></li>
+                        </ul>
+                    </li>
+                    <li><a href="donation.html" class="nav-link">DONATION</a></li>
+                    <li><a href="gallery.html" class="nav-link">PHOTO GALLERY</a></li>
+                    <li><a href="#" class="live-btn">LIVE</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Contact Photo Banner -->
+    <section class="contact-hero-photo">
+        <div class="container">
+            <img src="images/IMG_4739.JPG" alt="Temple Banner" class="contact-hero-image" />
+            <a href="#contact-cards" class="down-arrow" aria-label="Scroll to contact details">⌄</a>
+        </div>
+    </section>
+
+    <!-- Contact Cards (three columns) -->
+    <section class="contact-cards" id="contact-cards">
+        <div class="container contact-grid">
+            <div class="contact-card">
+                <a href="https://www.google.com/maps?q=Sri+Venkataramana+Temple,+Carstreet,+Mangalore+575001" target="_blank" rel="noopener" class="contact-icon contact-icon-link" aria-label="Open location in Google Maps">📍</a>
+                <h3>LOCATION</h3>
+                <p><a href="https://www.google.com/maps?q=Sri+Venkataramana+Temple,+Carstreet,+Mangalore+575001" target="_blank" rel="noopener" class="contact-address">Sri Venkataramana Temple, Carstreet,<br/>Mangalore – 575001.<br/>Karnataka, India.</a></p>
+            </div>
+            <div class="contact-card">
+                <div class="contact-icon">✉️</div>
+                <h3>E-MAIL</h3>
+                <p><a href="mailto:ssms_mangalore@gmail.com" class="contact-mail">ssms_mangalore@gmail.com</a></p>
+            </div>
+            <div class="contact-card">
+                <a href="https://m.me/ssms_mangaluru" target="_blank" rel="noopener" class="contact-icon contact-icon-link" aria-label="Message us on Facebook"><img class="contact-brand" src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGNpcmNsZSBjeD0iMTIiIGN5PSIxMiIgcj0iMTIiIGZpbGw9IiMxODc3RjIiLz4KPHBhdGggZD0iTTE1LjUgMTJIMTMuNVYyMEg5LjVWMTJIOFY4LjVIOS41VjYuNUM5LjUgNC44IDEwLjggMy41IDEyLjUgMy41SDE1VjdIMTMuNUM5LjUgNyAxMy41IDcgMTMuNSA4LjVWOC41SDE1LjVMMTUgMTJaIiBmaWxsPSJ3aGl0ZSIvPgo8L3N2Zz4K" alt="Facebook"/></a>
+                <h3>FACEBOOK</h3>
+                <p><a href="https://www.facebook.com/share/1NVFAXvu71/" target="_blank" class="contact-mail">DM on Facebook </a></p>
+            </div>
+            <div class="contact-card">
+                <a href="https://ig.me/m/ssms_mangaluru" target="_blank" rel="noopener" class="contact-icon contact-icon-link" aria-label="Message us on Instagram"><img class="contact-brand" src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGRlZnM+CjxsaW5lYXJHcmFkaWVudCBpZD0iaW5zdGFncmFtIiB4MT0iMCUiIHkxPSIwJSIgeDI9IjEwMCUiIHkyPSIxMDAlIj4KPHN0b3Agb2Zmc2V0PSIwJSIgc3R5bGU9InN0b3AtY29sb3I6IzgzNEE5QiIvPgo8c3RvcCBvZmZzZXQ9IjUwJSIgc3R5bGU9InN0b3AtY29sb3I6I0Q2Mjk3NiIvPgo8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0eWxlPSJzdG9wLWNvbG9yOiNGNTY0NDAiLz4KPC9saW5lYXJHcmFkaWVudD4KPC9kZWZzPgo8cmVjdCB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHJ4PSI2IiBmaWxsPSJ1cmwoI2luc3RhZ3JhbSkiLz4KPGNpcmNsZSBjeD0iMTIiIGN5PSIxMiIgcj0iNCIgc3Ryb2tlPSJ3aGl0ZSIgc3Ryb2tlLXdpZHRoPSIyIiBmaWxsPSJub25lIi8+CjxjaXJjbGUgY3g9IjE4IiBjeT0iNiIgcj0iMS41IiBmaWxsPSJ3aGl0ZSIvPgo8L3N2Zz4K" alt="Instagram"/></a>
+                <h3>INSTAGRAM</h3>
+                <p><a href="https://www.instagram.com/ssms_mangaluru?igsh=MTY3Mnc0YWtleXlraA==" target="_blank" class="contact-mail">DM on Instagram</a></p>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>📍 ADDRESS</h3>
+                    <a href="https://www.google.com/maps?q=Sri+Venkataramana+Temple,+Carstreet,+Mangalore+575001" target="_blank" rel="noopener" class="map-link">
+                        <p>Sri Venkataramana Temple,</p>
+                        <p>Carstreet, Mangalore - 575 001.</p>
+                        <p>Karnataka, India.</p>
+                    </a>
+                </div>
+                <div class="footer-section">
+                    <h3>📧 EMAIL</h3>
+                    <a href="mailto:ssms_mangalore@gmail.com" class="email-link">
+                        <p class="email-with-logo">
+                            <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTIwIDRINEMyLjkgNCAyIDQuOSAyIDZWMThDMiAxOS4xIDIuOSAyMCA0IDIwSDIwQzIxLjEgMjAgMjIgMTkuMSAyMiAxOFY2QzIyIDQuOSAyMS4xIDQgMjAgNFoiIGZpbGw9IiNFQTQzMzUiLz4KPHBhdGggZD0iTTIwIDZMMTIgMTNMNCA2SDE2SDIwWiIgZmlsbD0iI0ZCQkMwNCIvPgo8cGF0aCBkPSJNMjAgNkwxMiAxM0w0IDZWMThIMjBWNloiIGZpbGw9IiMzNEE4NTMiLz4KPHBhdGggZD0iTTQgNkwxMiAxM0wyMCA2SDE2SDRaIiBmaWxsPSIjRkJCQzA0Ii8+Cjwvc3ZnPgo=" alt="Gmail" class="gmail-icon" />
+                            ssms_mangalore@gmail.com
+                        </p>
+                    </a>
+                    <div class="social-icons">
+                        <a href="https://www.facebook.com/share/1NVFAXvu71/" target="_blank" class="social-icon facebook"><img class="social-logo" src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGNpcmNsZSBjeD0iMTIiIGN5PSIxMiIgcj0iMTIiIGZpbGw9IiMxODc3RjIiLz4KPHBhdGggZD0iTTE1LjUgMTJIMTMuNVYyMEg5LjVWMTJIOFY4LjVIOS41VjYuNUM5LjUgNC44IDEwLjggMy41IDEyLjUgMy41SDE1VjdIMTMuNUM5LjUgNyAxMy41IDcgMTMuNSA4LjVWOC41SDE1LjVMMTUgMTJaIiBmaWxsPSJ3aGl0ZSIvPgo8L3N2Zz4K" /></a>
+                        <a href="https://youtube.com/@mangalurusarvajanikashrees3669?feature=shared" target="_blank" class="social-icon youtube"><img class="social-logo" src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjI0IiBoZWlnaHQ9IjI0IiByeD0iNCIgZmlsbD0iI0ZGMDAwMCIvPgo8cGF0aCBkPSJNMTAuNSA4LjVMMTUuNSAxMkwxMC41IDE1LjVWOC41WiIgZmlsbD0id2hpdGUiLz4KPC9zdmc+Cg==" /></a>
+                        <a href="https://www.instagram.com/ssms_mangaluru?igsh=MTY3Mnc0YWtleXlraA==" target="_blank" class="social-icon instagram"><img class="social-logo" src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGRlZnM+CjxsaW5lYXJHcmFkaWVudCBpZD0iaW5zdGFncmFtIiB4MT0iMCUiIHkxPSIwJSIgeDI9IjEwMCUiIHkyPSIxMDAlIj4KPHN0b3Agb2Zmc2V0PSIwJSIgc3R5bGU9InN0b3AtY29sb3I6IzgzNEE5QiIvPgo8c3RvcCBvZmZzZXQ9IjUwJSIgc3R5bGU9InN0b3AtY29sb3I6I0Q2Mjk3NiIvPgo8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0eWxlPSJzdG9wLWNvbG9yOiNGNTY0NDAiLz4KPC9saW5lYXJHcmFkaWVudD4KPC9kZWZzPgo8cmVjdCB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHJ4PSI2IiBmaWxsPSJ1cmwoI2luc3RhZ3JhbSkiLz4KPGNpcmNsZSBjeD0iMTIiIGN5PSIxMiIgcj0iNCIgc3Ryb2tlPSJ3aGl0ZSIgc3Ryb2tlLXdpZHRoPSIyIiBmaWxsPSJub25lIi8+CjxjaXJjbGUgY3g9IjE4IiBjeT0iNiIgcj0iMS41IiBmaWxsPSJ3aGl0ZSIvPgo8L3N2Zz4K" /></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; ಶ್ರೀ ಶಾರದಾ ಮಹೋತ್ಸವ ಸಮಿತಿ (ರಿ)
+ಆಚಾರ್ಯ ಮಠ ವಠಾರ, ಶ್ರೀ ವೆಂಕಟರಮಣ ದೇವಸ್ಥಾನ, ರಥಬೀದಿ, ಮಂಗಳೂರು</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

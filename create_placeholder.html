@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Create Placeholder Image</title>
+</head>
+<body>
+    <canvas id="canvas" width="800" height="600" style="border: 1px solid #ccc;"></canvas>
+    <script>
+        const canvas = document.getElementById('canvas');
+        const ctx = canvas.getContext('2d');
+        
+        // Create gradient background
+        const gradient = ctx.createLinearGradient(0, 0, 800, 600);
+        gradient.addColorStop(0, '#8b4513');
+        gradient.addColorStop(0.5, '#a0522d');
+        gradient.addColorStop(1, '#8b4513');
+        
+        ctx.fillStyle = gradient;
+        ctx.fillRect(0, 0, 800, 600);
+        
+        // Add text
+        ctx.fillStyle = 'white';
+        ctx.font = 'bold 48px Arial';
+        ctx.textAlign = 'center';
+        ctx.fillText('TEMPLE DEITY', 400, 250);
+        
+        ctx.font = '24px Arial';
+        ctx.fillText('Add your image here', 400, 300);
+        ctx.fillText('temple-deity.jpg', 400, 350);
+        
+        // Add decorative elements
+        ctx.strokeStyle = 'gold';
+        ctx.lineWidth = 4;
+        ctx.strokeRect(50, 50, 700, 500);
+        
+        // Download the image
+        const link = document.createElement('a');
+        link.download = 'temple-deity.jpg';
+        link.href = canvas.toDataURL('image/jpeg');
+        link.click();
+    </script>
+</body>
+</html>
