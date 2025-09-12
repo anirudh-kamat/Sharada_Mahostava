@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Deepalankar Photos - Sri Venkataramana Temple</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+    <div class="header">
+        <p>Official Website Of Shree Mangaluru Sarvajanika Shree Sharada Mahotsava, Carstreet, Mangalore</p>
+    </div>
+
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-left">
+                <div class="logo" onclick="openLogoModal()">
+                    <img src="images/L1.jpeg" alt="Temple Deity" class="logo-image" />
+                </div>
+                <div class="temple-title">
+                    <h1 class="temple-name">SRI VENKATARAMANA</h1>
+                    <h2 class="temple-subtitle">TEMPLE</h2>
+                </div>
+            </div>
+            <button class="nav-toggle" aria-label="Toggle navigation" onclick="toggleNav()"><span></span><span></span><span></span></button>
+            <div class="nav-right">
+                <ul class="nav-menu">
+                    <li><a href="index.html" class="nav-link">HOME</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="nav-link dropdown-toggle">ABOUT</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="history.html" class="dropdown-link">HISTORY</a></li>
+                            <li><a href="contact.html" class="dropdown-link">CONTACT US</a></li>
+                            <li><a href="announcements.html" class="dropdown-link">ANNOUNCEMENTS</a></li>
+                            <li><a href="deepalankar-photos.html" class="dropdown-link active">DEEPALANKAR PHOTOS</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="nav-link dropdown-toggle">SEVA LIST</a>
+                        <ul class="dropdown-menu seva-menu">
+                            <li><a href="#" class="dropdown-link seva-item"><span class="seva-name">ಕರ್ಪೂರಾರತಿ (Karpoora Aarti)</span><span class="seva-price">₹10.00</span></a></li>
+                            <li><a href="#" class="dropdown-link seva-item"><span class="seva-name">ಪಂಚಕಜ್ಜಾಯ (Panchakajjaya)</span><span class="seva-price">₹10.00</span></a></li>
+                            <li><a href="#" class="dropdown-link seva-item"><span class="seva-name">ಕುಂಕುಮಾರ್ಚನೆ (Kumkumarchana)</span><span class="seva-price">₹100.00</span></a></li>
+                            <li><a href="#" class="dropdown-link seva-item"><span class="seva-name">ಲಡ್ಡು ಪ್ರಸಾದ (Laddu Prasada)</span><span class="seva-price">₹100.00</span></a></li>
+                            <li><a href="#" class="dropdown-link seva-item"><span class="seva-name">ಅಲಂಕಾರ ಪೂಜೆ (Alankara Pooja)</span><span class="seva-price">₹600.00</span></a></li>
+                            <li><a href="#" class="dropdown-link seva-item"><span class="seva-name">ವಿಶೇಷ ಸೇವೆ (Vishesha Seva)</span><span class="seva-price">₹1000.00</span></a></li>
+                            <li><a href="#" class="dropdown-link seva-item"><span class="seva-name">ರಂಗ ಪೂಜೆ (Ranga Pooja)</span><span class="seva-price">₹6000.00</span></a></li>
+                            <li><a href="#" class="dropdown-link seva-item special"><span class="seva-name">ಜಲಕರ ದಿನ ವಿಶೇಷ ವಿನ ಪೂಜೆ</span><span class="seva-price">₹2000.00</span></a></li>
+                        </ul>
+                    </li>
+                    <li><a href="donation.html" class="nav-link">DONATION</a></li>
+                    <li><a href="gallery.html" class="nav-link">PHOTO GALLERY</a></li>
+                    <li><a href="#" class="live-btn">LIVE</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section class="gallery-section">
+        <div class="container">
+            <div class="gallery-header">
+                <h1>Deepalankar Photos</h1>
+                <p>Curated moments from WhatsApp images captured around 8 PM</p>
+            </div>
+            <div class="gallery-grid">
+                <!-- Deepalankara set: D1 - D18 -->
+                <div class="gallery-item" onclick="openImageModal('images/D1.JPG','D1')"><img src="images/D1.JPG" alt="D1" class="gallery-image" /></div>
+                <div class="gallery-item" onclick="openImageModal('images/D2.JPG','D2')"><img src="images/D2.JPG" alt="D2" class="gallery-image" /></div>
+                <div class="gallery-item" onclick="openImageModal('images/D3.JPG','D3')"><img src="images/D3.JPG" alt="D3" class="gallery-image" /></div>
+                <div class="gallery-item" onclick="openImageModal('images/D4.JPG','D4')"><img src="images/D4.JPG" alt="D4" class="gallery-image" /></div>
+                <div class="gallery-item" onclick="openImageModal('images/D5.JPG','D5')"><img src="images/D5.JPG" alt="D5" class="gallery-image" /></div>
+                <div class="gallery-item" onclick="openImageModal('images/D6.JPG','D6')"><img src="images/D6.JPG" alt="D6" class="gallery-image" /></div>
+                <div class="gallery-item" onclick="openImageModal('images/D7.JPG','D7')"><img src="images/D7.JPG" alt="D7" class="gallery-image" /></div>
+                <div class="gallery-item" onclick="openImageModal('images/D8.JPG','D8')"><img src="images/D8.JPG" alt="D8" class="gallery-image" /></div>
+                <div class="gallery-item" onclick="openImageModal('images/D9.JPG','D9')"><img src="images/D9.JPG" alt="D9" class="gallery-image" /></div>
+                <div class="gallery-item" onclick="openImageModal('images/D10.JPG','D10')"><img src="images/D10.JPG" alt="D10" class="gallery-image" /></div>
+                <div class="gallery-item" onclick="openImageModal('images/D11.JPG','D11')"><img src="images/D11.JPG" alt="D11" class="gallery-image" /></div>
+                <div class="gallery-item" onclick="openImageModal('images/D12.JPG','D12')"><img src="images/D12.JPG" alt="D12" class="gallery-image" /></div>
+                <div class="gallery-item" onclick="openImageModal('images/D13.JPG','D13')"><img src="images/D13.JPG" alt="D13" class="gallery-image" /></div>
+                <div class="gallery-item" onclick="openImageModal('images/D14.jpeg','D14')"><img src="images/D14.jpeg" alt="D14" class="gallery-image" /></div>
+                <div class="gallery-item" onclick="openImageModal('images/D15.jpeg','D15')"><img src="images/D15.jpeg" alt="D15" class="gallery-image" /></div>
+                <div class="gallery-item" onclick="openImageModal('images/D16.jpeg','D16')"><img src="images/D16.jpeg" alt="D16" class="gallery-image" /></div>
+                <div class="gallery-item" onclick="openImageModal('images/D17.jpeg','D17')"><img src="images/D17.jpeg" alt="D17" class="gallery-image" /></div>
+                <div class="gallery-item" onclick="openImageModal('images/D18.jpeg','D18')"><img src="images/D18.jpeg" alt="D18" class="gallery-image" /></div>
+
+                <!-- Deepalankar Video (inline) -->
+                <div class="gallery-item">
+                    <video src="images/V1.mp4" controls playsinline style="width:100%; height:250px; object-fit:cover; display:block; border-radius:16px;"></video>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>📍 ADDRESS</h3>
+                    <a href="https://www.google.com/maps?q=Sri+Venkataramana+Temple,+Carstreet,+Mangalore+575001" target="_blank" rel="noopener" class="map-link">
+                        <p>Sri Venkataramana Temple,</p>
+                        <p>Carstreet, Mangalore - 575 001.</p>
+                        <p>Karnataka, India.</p>
+                    </a>
+                </div>
+
+                <div class="footer-section">
+                    <h3>📧 EMAIL</h3>
+                    <a href="mailto:ssms_mangalore@gmail.com" class="email-link">
+                        <p class="email-with-logo">
+                            <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTIwIDRINEMyLjkgNCAyIDQuOSAyIDZWMThDMiAxOS4xIDIuOSAyMCA0IDIwSDIwQzIxLjEgMjAgMjIgMTkuMSAyMiAxOFY2QzIyIDQuOSAyMS4xIDQgMjAgNFoiIGZpbGw9IiNFQTQzMzUiLz4KPHBhdGggZD0iTTIwIDZMMTIgMTNMNCA2SDE2SDIwWiIgZmlsbD0iI0ZCQkMwNCIvPgo8cGF0aCBkPSJNMjAgNkwxMiAxM0w0IDZWMThIMjBWNloiIGZpbGw9IiMzNEE4NTMiLz4KPHBhdGggZD0iTTQgNkwxMiAxM0wyMCA2SDE2SDRaIiBmaWxsPSIjRkJCQzA0Ii8+Cjwvc3ZnPgo=" alt="Gmail" class="gmail-icon" />
+                            ssms_mangalore@gmail.com
+                        </p>
+                    </a>
+                    <div class="social-icons">
+                        <a href="https://www.facebook.com/share/1NVFAXvu71/" target="_blank" class="social-icon facebook">
+                            <img class="social-logo" src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGNpcmNsZSBjeD0iMTIiIGN5PSIxMiIgcj0iMTIiIGZpbGw9IiMxODc3RjIiLz4KPHBhdGggZD0iTTE1LjUgMTJIMTMuNVYyMEg5LjVWMTJIOFY4LjVIOS41VjYuNUM5LjUgNC44IDEwLjggMy41IDEyLjUgMy41SDE1VjdIMTMuNUM5LjUgNyAxMy41IDcgMTMuNSA4LjVWOC41SDE1LjVMMTUgMTJaIiBmaWxsPSJ3aGl0ZSIvPgo8L3N2Zz4K" />
+                        </a>
+                        <a href="https://youtube.com/@mangalurusarvajanikashrees3669?feature=shared" target="_blank" class="social-icon youtube">
+                            <img class="social-logo" src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjI0IiBoZWlnaHQ9IjI0IiByeD0iNCIgZmlsbD0iI0ZGMDAwMCIvPgo8cGF0aCBkPSJNMTAuNSA4LjVMMTUuNSAxMkwxMC41IDE1LjVWOC41WiIgZmlsbD0id2hpdGUiLz4KPC9zdmc+Cg==" />
+                        </a>
+                        <a href="https://www.instagram.com/ssms_mangaluru?igsh=MTY3Mnc0YWtleXlraA==" target="_blank" class="social-icon instagram">
+                            <img class="social-logo" src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGRlZnM+CjxsaW5lYXJHcmFkaWVudCBpZD0iaW5zdGFncmFtIiB4MT0iMCUiIHkxPSIwJSIgeDI9IjEwMCUiIHkyPSIxMDAlIj4KPHN0b3Agb2Zmc2V0PSIwJSIgc3R5bGU9InN0b3AtY29sb3I6IzgzNEE5QiIvPgo8c3RvcCBvZmZzZXQ9IjUwJSIgc3R5bGU9InN0b3AtY29sb3I6I0Q2Mjk3NiIvPgo8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0eWxlPSJzdG9wLWNvbG9yOiNGNTY0NDAiLz4KPC9saW5lYXJHcmFkaWVudD4KPC9kZWZzPgo8cmVjdCB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHJ4PSI2IiBmaWxsPSJ1cmwoI2luc3RhZ3JhbSkiLz4KPGNpcmNsZSBjeD0iMTIiIGN5PSIxMiIgcj0iNCIgc3Ryb2tlPSJ3aGl0ZSIgc3Ryb2tlLXdpZHRoPSIyIiBmaWxsPSJub25lIi8+CjxjaXJjbGUgY3g9IjE4IiBjeT0iNiIgcj0iMS41IiBmaWxsPSJ3aGl0ZSIvPgo8L3N2Zz4K" />
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; ಶ್ರೀ ಶಾರದಾ ಮಹೋತ್ಸವ ಸಮಿತಿ (ರಿ)
+ಆಚಾರ್ಯ ಮಠ ವಠಾರ, ಶ್ರೀ ವೆಂಕಟರಮಣ ದೇವಸ್ಥಾನ, ರಥಬೀದಿ, ಮಂಗಳೂರು</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Image Modal for Gallery -->
+    <div id="imageModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeImageModal()">&times;</span>
+            <button class="modal-nav prev" onclick="prevGalleryImage()" aria-label="Previous image">‹</button>
+            <div class="modal-image-container">
+                <img id="modalImage" src="" alt="" class="modal-image">
+            </div>
+            <button class="modal-nav next" onclick="nextGalleryImage()" aria-label="Next image">›</button>
+        </div>
+    </div>
+
+    <!-- Video Modal -->
+    <div id="videoModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeVideoModal()">&times;</span>
+            <button class="modal-nav prev" onclick="prevGalleryImage()" aria-label="Previous media">‹</button>
+            <div class="modal-image-container">
+                <video id="modalVideo" src="" controls playsinline style="width:100%; height:100%; object-fit:contain; border-radius: 15px;"></video>
+            </div>
+            <button class="modal-nav next" onclick="nextGalleryImage()" aria-label="Next media">›</button>
+        </div>
+    </div>
+
+    <!-- Logo Modal -->
+    <div id="logoModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeLogoModal()">&times;</span>
+            <div class="modal-image-container">
+                <img src="images/L1.jpeg" alt="Temple Deity - Enlarged View" class="modal-image">
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

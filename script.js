@@ -4,6 +4,7 @@ let currentSlideIndex = 0;
 let slideInterval;
 let isTransitioning = false;
 let slides = [];
+let hoverPauseArmed = false; // avoid pausing on initial page load when cursor is already over slideshow
 
 // Initialize slideshow when page loads
 document.addEventListener('DOMContentLoaded', function() {
@@ -42,6 +43,9 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Setup gallery functionality
     setupGalleryEvents();
+
+    // Apply lazy loading to gallery images to speed up first paint
+    applyLazyLoadingToGallery();
 });
 
 // Logo Modal Functions
@@ -58,40 +62,75 @@ function closeLogoModal() {
 }
 
 // Gallery Image Modal with carousel support
-let galleryImageSources = [];
+let galleryMediaSources = [];
+let galleryMediaTypes = []; // 'image' | 'video'
 let galleryCurrentIndex = 0;
 
 function cacheGalleryImages() {
-    const galleryItems = document.querySelectorAll('.gallery-item img');
-    galleryImageSources = Array.from(galleryItems).map(img => img.getAttribute('src'));
+    const galleryItems = document.querySelectorAll('.gallery-item img, .gallery-item video');
+    galleryMediaSources = [];
+    galleryMediaTypes = [];
+    galleryItems.forEach(el => {
+        const tag = el.tagName.toLowerCase();
+        if (tag === 'img' || tag === 'video') {
+            const src = el.getAttribute('src');
+            if (src) {
+                galleryMediaSources.push(src);
+                galleryMediaTypes.push(tag === 'img' ? 'image' : 'video');
+            }
+        }
+    });
 }
 
 function openImageModal(imageSrc, imageTitle) {
     const modal = document.getElementById('imageModal');
     const modalImage = document.getElementById('modalImage');
 
-    if (!galleryImageSources || galleryImageSources.length === 0) {
+    if (!galleryMediaSources || galleryMediaSources.length === 0) {
         cacheGalleryImages();
     }
-    const idx = galleryImageSources.indexOf(imageSrc);
+    const idx = galleryMediaSources.indexOf(imageSrc);
     if (idx >= 0) galleryCurrentIndex = idx;
-    
-    if (modal && modalImage) {
-        modalImage.src = imageSrc;
-        modalImage.alt = imageTitle || '';
-        modal.style.display = 'block';
-        document.body.style.overflow = 'hidden';
-    }
+
+    openMediaByIndex(galleryCurrentIndex, imageTitle);
 }
 
 function showGalleryImageByIndex(index) {
-    if (!galleryImageSources || galleryImageSources.length === 0) return;
-    if (index < 0) index = galleryImageSources.length - 1;
-    if (index >= galleryImageSources.length) index = 0;
+    openMediaByIndex(index);
+}
+
+function openMediaByIndex(index, title) {
+    if (!galleryMediaSources || galleryMediaSources.length === 0) return;
+    if (index < 0) index = galleryMediaSources.length - 1;
+    if (index >= galleryMediaSources.length) index = 0;
     galleryCurrentIndex = index;
+
+    const imageModal = document.getElementById('imageModal');
     const modalImage = document.getElementById('modalImage');
-    if (modalImage) {
-        modalImage.src = galleryImageSources[galleryCurrentIndex];
+    const videoModal = document.getElementById('videoModal');
+    const modalVideo = document.getElementById('modalVideo');
+
+    // Close both first
+    if (imageModal) imageModal.style.display = 'none';
+    if (videoModal) videoModal.style.display = 'none';
+    // Ensure any playing video is stopped when we navigate away
+    if (modalVideo) {
+        try { modalVideo.pause(); } catch (_) {}
+        modalVideo.currentTime = 0;
+    }
+
+    const src = galleryMediaSources[galleryCurrentIndex];
+    const type = galleryMediaTypes[galleryCurrentIndex];
+    if (type === 'video' && videoModal && modalVideo) {
+        if (modalVideo.getAttribute('src') !== src) modalVideo.src = src;
+        videoModal.style.display = 'block';
+        document.body.style.overflow = 'hidden';
+        try { modalVideo.play(); } catch (_) {}
+    } else if (imageModal && modalImage) {
+        modalImage.src = src;
+        modalImage.alt = title || '';
+        imageModal.style.display = 'block';
+        document.body.style.overflow = 'hidden';
     }
 }
 
@@ -113,6 +152,8 @@ function closeImageModal() {
 function setupModalEvents() {
     const logoModal = document.getElementById('logoModal');
     const imageModal = document.getElementById('imageModal');
+    const videoModal = document.getElementById('videoModal');
+    const modalVideo = document.getElementById('modalVideo');
     
     // Close logo modal when clicking outside
     if (logoModal) {
@@ -131,12 +172,21 @@ function setupModalEvents() {
             }
         });
     }
+    // Close video modal when clicking outside
+    if (videoModal) {
+        videoModal.addEventListener('click', function(e) {
+            if (e.target === videoModal) {
+                closeVideoModal();
+            }
+        });
+    }
     
     // Close modals with Escape key
     document.addEventListener('keydown', function(e) {
         if (e.key === 'Escape') {
             closeLogoModal();
             closeImageModal();
+            closeVideoModal();
         } else if (e.key === 'ArrowRight') {
             nextGalleryImage();
         } else if (e.key === 'ArrowLeft') {
@@ -145,10 +195,44 @@ function setupModalEvents() {
     });
 }
 
+// Video modal helpers
+function openVideoModal(videoSrc) {
+    const modal = document.getElementById('videoModal');
+    const video = document.getElementById('modalVideo');
+    if (!galleryMediaSources || galleryMediaSources.length === 0) {
+        cacheGalleryImages();
+    }
+    const idx = galleryMediaSources.indexOf(videoSrc);
+    if (idx >= 0) galleryCurrentIndex = idx;
+    openMediaByIndex(galleryCurrentIndex);
+}
+
+function closeVideoModal() {
+    const modal = document.getElementById('videoModal');
+    const video = document.getElementById('modalVideo');
+    if (modal) modal.style.display = 'none';
+    if (video) {
+        try { video.pause(); } catch (_) {}
+        video.currentTime = 0;
+    }
+    document.body.style.overflow = 'auto';
+}
+
 // Setup gallery events
 function setupGalleryEvents() {
     // Gallery items are handled by onclick attributes in HTML
     console.log('Gallery events setup complete');
+}
+
+// Add native lazy-loading and async decoding to all gallery images
+function applyLazyLoadingToGallery() {
+    const images = document.querySelectorAll('.gallery-image');
+    images.forEach((img, index) => {
+        if (!img.hasAttribute('loading')) img.setAttribute('loading', 'lazy');
+        if (!img.hasAttribute('decoding')) img.setAttribute('decoding', 'async');
+        // The very first image in a section can keep default priority
+        if (index > 2 && !img.hasAttribute('fetchpriority')) img.setAttribute('fetchpriority', 'low');
+    });
 }
 
 // Setup dropdown menu functionality
@@ -231,7 +315,7 @@ function showSlide(index) {
     // Reset transition flag after animation
     setTimeout(() => {
         isTransitioning = false;
-    }, 1500); // Match CSS transition time
+    }, 900); // Match CSS transition time (~0.8s)
 }
 
 // Start automatic slideshow (changes every 4 seconds)
@@ -242,7 +326,7 @@ function startSlideshow() {
         if (!isTransitioning && slides && slides.length > 0) {
             nextSlide();
         }
-    }, 4000); // 4 seconds
+    }, 3000); // 3 seconds per user request
 }
 
 // Stop automatic slideshow
@@ -338,7 +422,10 @@ function setupHoverEvents() {
     const heroSlideshow = document.querySelector('.hero-slideshow');
     
     if (heroSlideshow) {
+        // Arm hover pause shortly after load to prevent immediate pause on refresh
+        setTimeout(() => { hoverPauseArmed = true; }, 800);
         heroSlideshow.addEventListener('mouseenter', function() {
+            if (!hoverPauseArmed) return;
             console.log('Mouse entered slideshow - pausing');
             stopSlideshow();
         });
@@ -409,6 +496,8 @@ window.closeImageModal = closeImageModal;
 window.nextGalleryImage = nextGalleryImage;
 window.prevGalleryImage = prevGalleryImage;
 window.toggleNav = toggleNav;
+window.openVideoModal = openVideoModal;
+window.closeVideoModal = closeVideoModal;
 
 // Debug function
 function debugSlideshow() {
