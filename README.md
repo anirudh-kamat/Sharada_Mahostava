@@ -80,3 +80,4 @@ All styling is in `styles.css`. Key sections:
 ## Support
 
 This is a template created for easy customization. All code is well-commented for easy understanding and modification.
+# Sharada_Mahostava
