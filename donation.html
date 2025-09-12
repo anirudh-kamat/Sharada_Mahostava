@@ -96,10 +96,10 @@
         <div class="container">
 
             <!-- Main Content Grid -->
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start; max-width: 1400px; margin: 0 auto;">
+            <div class="donation-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start; max-width: 1400px; margin: 0 auto;">
 
                 <!-- Left Column - Banking Details -->
-                <div id="bank-details" style="background: linear-gradient(135deg, #ff6b35, #ff8c42); color: white; padding: 40px; border-radius: 15px; box-shadow: 0 12px 40px rgba(255,107,53,0.3);">
+                <div id="bank-details" class="bank-details" style="background: linear-gradient(135deg, #ff6b35, #ff8c42); color: white; padding: 40px; border-radius: 15px; box-shadow: 0 12px 40px rgba(255,107,53,0.3);">
                     <h2 style="font-size: 2em; margin: 0 0 30px 0; font-weight: 700; text-align: center;">BANK DETAILS</h2>
                     
                     <!-- Bank List removed: single bank details below -->
@@ -139,7 +139,7 @@
                         <div style="margin-top: 10px; font-weight: 700; display: flex; align-items: center; justify-content: center; gap: 8px;">
                             <span>UPI ID:</span>
                             <span id="upiId" style="font-family: monospace;">90175255042515@cnrb</span>
-                            <button id="copyUpiBtn" type="button" onclick="copyUpi()" style="padding:6px 12px;border-radius:6px;border:none;background:#ffffff;color:#ff6b35;font-weight:700;cursor:pointer;">COPY</button>
+                            <button id="copyUpiBtn" type="button" onclick="copyUpi(event)" style="padding:6px 12px;border-radius:6px;border:none;background:#ffffff;color:#ff6b35;font-weight:700;cursor:pointer;">COPY</button>
                         </div>
                         <div style="margin-top: 10px;">
                             <button id="upiBtn" type="button" onclick="openUpi()" style="display:inline-block;background:#ffffff;color:#ff6b35;padding:8px 14px;border-radius:6px;font-weight:700;border:none;cursor:pointer;">Pay with UPI app</button>
@@ -149,7 +149,7 @@
                 </div>
 
                 <!-- Right Column - Donation Form -->
-                <div style="background: white; padding: 40px; border-radius: 15px; box-shadow: 0 8px 30px rgba(0,0,0,0.1);">
+                <div class="donation-form" style="background: white; padding: 40px; border-radius: 15px; box-shadow: 0 8px 30px rgba(0,0,0,0.1);">
                     <h2 style="font-size: 2em; margin: 0 0 30px 0; font-weight: 700; text-align: center; color: #333;">
                         PLEASE FILL THE DETAILS
                     </h2>
@@ -220,20 +220,7 @@
                 </div>
             </div>
 
-            <!-- Additional Information -->
-            <div style="margin-top: 60px; text-align: center; background: white; padding: 40px; border-radius: 15px; box-shadow: 0 8px 30px rgba(0,0,0,0.1);">
-                <h3 style="color: #ff6b35; font-size: 1.8em; margin-bottom: 20px;">Your Contribution Matters</h3>
-                <p style="font-size: 1.1em; line-height: 1.8; color: #666; max-width: 800px; margin: 0 auto;">
-                    Your generous donations help us maintain the temple, conduct regular pujas, organize festivals, 
-                    and serve the community. Every contribution, big or small, is a step towards preserving our 
-                    spiritual heritage and supporting devotional activities.
-                </p>
-                <div style="margin-top: 30px;">
-                    <p style="color: #ff6b35; font-weight: 600; font-size: 1.1em;">
-                        🙏 May Lord Venkataramana bless you for your generous contribution 🙏
-                    </p>
-                </div>
-            </div>
+            
         </div>
     </section>
 
@@ -298,11 +285,11 @@
 
     <script src="script.js"></script>
     <script>
-        function copyUpi() {
+        function copyUpi(e) {
             const upi = document.getElementById('upiId').textContent;
             const btn = document.getElementById('copyUpiBtn');
             if (!btn) return;
-            navigator.clipboard.writeText(upi).then(() => {
+            const doSuccess = () => {
                 const original = btn.textContent;
                 btn.textContent = 'COPIED';
                 btn.style.background = '#2ecc71';
@@ -312,7 +299,26 @@
                     btn.style.background = '#ffffff';
                     btn.style.color = '#ff6b35';
                 }, 1500);
-            });
+            };
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+                navigator.clipboard.writeText(upi).then(doSuccess).catch(() => {
+                    // Fallback for some mobile browsers
+                    const temp = document.createElement('textarea');
+                    temp.value = upi; document.body.appendChild(temp);
+                    temp.select(); temp.setSelectionRange(0, 99999);
+                    try { document.execCommand('copy'); } catch(_) {}
+                    document.body.removeChild(temp);
+                    doSuccess();
+                });
+            } else {
+                // Legacy fallback
+                const temp = document.createElement('textarea');
+                temp.value = upi; document.body.appendChild(temp);
+                temp.select(); temp.setSelectionRange(0, 99999);
+                try { document.execCommand('copy'); } catch(_) {}
+                document.body.removeChild(temp);
+                doSuccess();
+            }
         }
 
         function openUpi() {
