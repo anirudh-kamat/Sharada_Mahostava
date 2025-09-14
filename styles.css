@@ -951,6 +951,13 @@ img, video { max-width: 100%; height: auto; }
     .bank-details { order: 1; }
     .donation-form { order: 2; }
 
+    /* Donation form fields: stack one per line on mobile */
+    .donation-form form > div[style*='grid-template-columns'] { grid-template-columns: 1fr !important; }
+    /* Ensure comfortable text size in inputs on mobile */
+    .donation-form input, .donation-form textarea { font-size: 16px; }
+    /* Captcha row: keep in a single line on mobile */
+    .donation-form form > div[style*='display: flex'] { flex-direction: row; align-items: center; gap: 12px; justify-content: center; }
+
     /* History page: stack all cards vertically on mobile to avoid horizontal scroll */
     .history-cards { grid-template-columns: 1fr !important; gap: 18px !important; }
     /* History heading scale down on tablets/phones */

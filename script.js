@@ -46,6 +46,11 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Apply lazy loading to gallery images to speed up first paint
     applyLazyLoadingToGallery();
+
+    // Initialize YouTube embeds safely with current origin
+    initializeYouTubeEmbeds();
+
+    // Skip loading YouTube API since we're using a local video for the featured slot
 });
 
 // Logo Modal Functions
@@ -235,6 +240,121 @@ function applyLazyLoadingToGallery() {
     });
 }
 
+// Initialize YouTube iframes with origin param to avoid config errors
+function initializeYouTubeEmbeds() {
+    try {
+        const origin = window.location.origin;
+        document.querySelectorAll('.yt-embed').forEach(iframe => {
+            const videoId = iframe.getAttribute('data-video-id');
+            if (!videoId) return;
+            const params = [
+                'rel=0',
+                'modestbranding=1',
+                'playsinline=1',
+                'enablejsapi=1',
+                'origin=' + encodeURIComponent(origin)
+            ].join('&');
+            const src = 'https://www.youtube.com/embed/' + encodeURIComponent(videoId) + '?' + params;
+            if (iframe.getAttribute('src') !== src) iframe.setAttribute('src', src);
+        });
+    } catch (_) { /* no-op */ }
+}
+
+// ---- YouTube Iframe API integration with graceful fallback ----
+let ytApiLoaded = false;
+let ytInitTried = false;
+const ytPlayers = new Map(); // iframeEl -> { player, attempts }
+
+function loadYouTubeIframeApi() {
+    if (ytInitTried) return; ytInitTried = true;
+    const script = document.createElement('script');
+    script.src = 'https://www.youtube.com/iframe_api';
+    script.async = true;
+    script.onload = function() { /* onYouTubeIframeAPIReady will be called */ };
+    document.head.appendChild(script);
+}
+
+// Called by YouTube API
+window.onYouTubeIframeAPIReady = function() {
+    ytApiLoaded = true;
+    try { setupYouTubePlayers(); } catch (_) {}
+};
+
+function setupYouTubePlayers() {
+    const origin = window.location.origin;
+    document.querySelectorAll('.yt-embed').forEach(iframe => {
+        const videoId = iframe.getAttribute('data-video-id');
+        if (!videoId) return;
+        // Avoid duplicate player creation
+        if (ytPlayers.has(iframe)) return;
+        const state = { attempts: 0, player: null };
+        ytPlayers.set(iframe, state);
+        createPlayerWithHost(iframe, videoId, 'https://www.youtube.com', origin);
+    });
+}
+
+function createPlayerWithHost(iframe, videoId, host, origin) {
+    const state = ytPlayers.get(iframe) || { attempts: 0 };
+    state.attempts += 1;
+    try {
+        const player = new YT.Player(iframe, {
+            videoId: videoId,
+            host: host,
+            playerVars: {
+                rel: 0,
+                modestbranding: 1,
+                playsinline: 1,
+                origin: origin
+            },
+            events: {
+                onError: function(e) {
+                    handleYouTubeError(iframe, videoId, origin, e && e.data);
+                }
+            }
+        });
+        state.player = player;
+        ytPlayers.set(iframe, state);
+    } catch (err) {
+        // If player init fails, fallback immediately
+        showYouTubeFallbackLink(iframe);
+    }
+}
+
+function handleYouTubeError(iframe, videoId, origin, code) {
+    // YouTube error codes of interest: 2, 5, 101, 150, 153
+    // Try alternate host once, then fallback to link
+    const state = ytPlayers.get(iframe) || { attempts: 0 };
+    if (state.attempts === 1) {
+        // Try nocookie domain
+        try { createPlayerWithHost(iframe, videoId, 'https://www.youtube-nocookie.com', origin); return; } catch(_) {}
+    }
+    showYouTubeFallbackLink(iframe);
+}
+
+function showYouTubeFallbackLink(iframe) {
+    try {
+        iframe.style.display = 'none';
+        const container = iframe.parentElement;
+        if (!container) return;
+        // Prefer local MP4 fallback if present
+        const local = container.querySelector('.yt-local-fallback');
+        if (local) {
+            local.style.display = 'block';
+            // Also hide the external link button to avoid duplicate controls
+            const link = container.querySelector('a[href*="youtu"]');
+            if (link) link.style.display = 'none';
+            return;
+        }
+        const link = container.querySelector('a[href*="youtu"]');
+        if (link) {
+            link.style.display = 'inline-flex';
+            link.style.padding = '10px 12px';
+            link.style.background = 'rgba(0,0,0,.65)';
+            link.style.borderRadius = '10px';
+        }
+    } catch (_) {}
+}
+
 // Setup dropdown menu functionality
 function setupDropdownMenu() {
     const dropdowns = document.querySelectorAll('.dropdown');
@@ -276,9 +396,6 @@ function setupDropdownMenu() {
                 // Add active class to clicked dropdown link
                 this.classList.add('active');
                 
-                // Close dropdown
-                dropdown.classList.remove('active');
-                
                 console.log('Dropdown link clicked:', this.textContent);
             });
         });
@@ -286,6 +403,9 @@ function setupDropdownMenu() {
     
     // Close dropdowns when clicking outside
     document.addEventListener('click', function(e) {
+        const isMobile = window.matchMedia('(max-width: 768px)').matches;
+        // Keep menu open on mobile; only the toggle should close it
+        if (isMobile) return;
         if (!e.target.closest('.dropdown')) {
             dropdowns.forEach(dropdown => {
                 dropdown.classList.remove('active');
