@@ -9,6 +9,16 @@ let hoverPauseArmed = false; // avoid pausing on initial page load when cursor i
 // Initialize slideshow when page loads
 document.addEventListener('DOMContentLoaded', function() {
     console.log('Initializing slideshow with logo modal and gallery...');
+    // If this page was reloaded and it's not the homepage, redirect to homepage
+    try {
+        const navEntry = (performance && performance.getEntriesByType) ? performance.getEntriesByType('navigation')[0] : null;
+        const isReload = navEntry ? (navEntry.type === 'reload') : (performance && performance.navigation && performance.navigation.type === performance.navigation.TYPE_RELOAD);
+        const path = window.location.pathname || '';
+        if (isReload && !path.endsWith('index.html') && path !== '/') {
+            window.location.replace('index.html');
+            return; // Prevent running the rest of the scripts on this page
+        }
+    } catch (_) {}
     
     // Get slides after DOM is loaded
     slides = document.querySelectorAll('.slide');
@@ -237,6 +247,9 @@ function applyLazyLoadingToGallery() {
         if (!img.hasAttribute('decoding')) img.setAttribute('decoding', 'async');
         // The very first image in a section can keep default priority
         if (index > 2 && !img.hasAttribute('fetchpriority')) img.setAttribute('fetchpriority', 'low');
+        // Add width/height hints if missing to reduce layout shift
+        if (!img.getAttribute('width')) img.setAttribute('width', '600');
+        if (!img.getAttribute('height')) img.setAttribute('height', '400');
     });
 }
 
