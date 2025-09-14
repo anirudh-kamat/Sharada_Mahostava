@@ -57,6 +57,24 @@ document.addEventListener('DOMContentLoaded', function() {
     // Apply lazy loading to gallery images to speed up first paint
     applyLazyLoadingToGallery();
 
+    // Instant jump for tabs (no smooth scroll lag)
+    document.querySelectorAll('.tab-link[data-instant="true"]').forEach(a => {
+        a.addEventListener('click', function(e){
+            const id = this.getAttribute('href');
+            if (id && id.startsWith('#')) {
+                e.preventDefault();
+                document.querySelectorAll('.gallery-tabs .tab-link').forEach(l=>l.classList.remove('is-active'));
+                this.classList.add('is-active');
+                const el = document.querySelector(id);
+                if (el) {
+                    el.setAttribute('tabindex','-1');
+                    el.focus({ preventScroll: true });
+                    window.location.hash = id.substring(1);
+                }
+            }
+        });
+    });
+
     // Initialize YouTube embeds safely with current origin
     initializeYouTubeEmbeds();
 
@@ -144,6 +162,12 @@ function openMediaByIndex(index, title) {
     } else if (imageModal && modalImage) {
         modalImage.src = src;
         modalImage.alt = title || '';
+        // If D14, rotate in modal by 90deg
+        if (src && src.indexOf('D14') !== -1) {
+            modalImage.style.transform = 'rotate(90deg)';
+        } else {
+            modalImage.style.transform = '';
+        }
         imageModal.style.display = 'block';
         document.body.style.overflow = 'hidden';
     }

@@ -10,7 +10,7 @@
 <body>
     <!-- Header Section -->
     <div class="header">
-        <p>Official Website Of  Mangaluru Sarvajanika Shree Sharada Mahotsava, Carstreet, Mangalore</p>
+        <p>Welcome to Official Website Of  Mangaluru Sarvajanika Shree Sharada Mahotsava</p>
     </div>
 
     <!-- Navigation Bar -->
@@ -21,8 +21,8 @@
                     <img src="images/L1.jpeg" alt="Temple Deity" class="logo-image">
                 </a>
                 <div class="temple-title">
-                    <h1 class="temple-name">Shree Sharadha</h1>
-                    <h2 class="temple-subtitle">Mahotsava</h2>
+                    <h1 class="temple-name">Mangaluru</h1>
+                    <h2 class="temple-subtitle">Sharade</h2>
                 </div>
             </div>
             <button class="nav-toggle" aria-label="Toggle navigation" onclick="toggleNav()"><span></span><span></span><span></span></button>
@@ -34,7 +34,6 @@
                         <ul class="dropdown-menu">
                             <li><a href="history.html" class="dropdown-link">HISTORY</a></li>
                             <li><a href="contact.html" class="dropdown-link">CONTACT US</a></li>
-                            <li><a href="announcements.html" class="dropdown-link">ANNOUNCEMENTS</a></li>
                         </ul>
                     </li>
                     <li class="dropdown">
@@ -74,11 +73,12 @@
                             </a></li>
                         </ul>
                     </li>
-                    <li><a href="donation.html" class="nav-link">DONATION</a></li>
+                    <li><a href="donation.html" class="nav-link">KANIKE</a></li>
+                    <li><a href="announcements.html" class="nav-link">ANNOUNCEMENTS</a></li>
                     <li class="dropdown">
                         <a href="#" class="nav-link dropdown-toggle active">GALLERY</a>
                         <ul class="dropdown-menu">
-                            <li><a href="gallery.html" class="dropdown-link active">SHARADA PHOTOS</a></li>
+                            <li><a href="gallery.html" class="dropdown-link active">ALANKAR PHOTOS</a></li>
                             <li><a href="deepalankar-photos.html" class="dropdown-link">DEEPALANKAR PHOTOS</a></li>
                         </ul>
                     </li>
@@ -95,6 +95,13 @@
                 <h1>Sacred Glimpses of Shree Sharada Mata</h1>
                 <p>Discover the divine grace of Shree Sharada Mata and her many sacred avatars through these moments.</p>
             </div>
+
+            <!-- Year Tabs -->
+            <div class="gallery-tabs">
+                <a href="#y2022" class="tab-link" data-instant="true">2022</a>
+                <a href="#y2023" class="tab-link" data-instant="true">2023</a>
+                <a href="#yold" class="tab-link" data-instant="true">Old Photos</a>
+            </div>
             <div class="video-intro">
                 <h3>Centenary Year celebrations – 2022 of Mangaluru Shree Sharada Mahotsava</h3>
                 <div class="sub">DIVINE MEMORIES TO CHERISH</div>
@@ -110,7 +117,7 @@
                 </div>
             </div>
                 
-            <div class="year-heading">2022</div>
+            <div class="year-heading" id="y2022">2022</div>
             <div class="gallery-grid">
                 <!-- 2022 set: 221-229, 2210-2220 -->
                 <div class="gallery-item" onclick="openImageModal('images/221.JPG','221')"><img src="images/221.JPG" alt="221" class="gallery-image"></div>
@@ -135,7 +142,7 @@
                 <div class="gallery-item" onclick="openImageModal('images/2220.JPG','2220')"><img src="images/2220.JPG" alt="2220" class="gallery-image"></div>
                 </div>
                 
-            <div class="year-heading">2023</div>
+            <div class="year-heading" id="y2023">2023</div>
             <div class="gallery-grid">
                 <!-- 2023 set: 231-239, 2310-2322 -->
                 <div class="gallery-item" onclick="openImageModal('images/231.jpg','231')"><img src="images/231.jpg" alt="231" class="gallery-image"></div>
@@ -162,7 +169,7 @@
                 <div class="gallery-item" onclick="openImageModal('images/2322.jpg','2322')"><img src="images/2322.jpg" alt="2322" class="gallery-image"></div>
                 </div>
                 
-            <div class="year-heading">Old Photos</div>
+            <div class="year-heading" id="yold">Old Photos</div>
             <div class="gallery-grid">
                 <!-- Old set: SO1 - SO32 -->
                 <div class="gallery-item" onclick="openImageModal('images/SO1.jpeg','SO1')"><img src="images/SO1.jpeg" alt="SO1" class="gallery-image"></div>

@@ -11,6 +11,7 @@ body {
     line-height: 1.6;
     color: #333;
     overflow-x: hidden;
+    padding-top: 117px; /* offset for fixed header (33px) + navbar (75px) + gap */
 }
 html { overflow-x: hidden; }
 img, video { max-width: 100%; height: auto; }
@@ -30,14 +31,21 @@ img, video { max-width: 100%; height: auto; }
     font-size: 13px;
     font-weight: 500;
     letter-spacing: 0.3px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1100;
 }
 
 /* Navigation Styles - Clean White Bar */
 .navbar {
     background-color: white;
     box-shadow: 0 2px 6px rgba(0,0,0,0.06);
-    position: sticky;
-    top: 0;
+    position: fixed;
+    top: 34px; /* sits below fixed header */
+    left: 0;
+    right: 0;
     z-index: 1000;
 }
 
@@ -57,6 +65,15 @@ img, video { max-width: 100%; height: auto; }
 @media (max-width: 768px){
   .nav-toggle{display:flex; transform: rotate(90deg); transform-origin: center; margin-left: auto; z-index: 1001;}
   .nav-toggle span{background:#ff7a00;}
+}
+
+/* Adjust body offset on small screens where navbar height reduces */
+@media (max-width: 768px) {
+  .header { font-size: 12px; padding: 6px 8px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  body { padding-top: 110px; }
+  .navbar { top: 32px; }
+  .temple-name { font-size: 20px; }
+  .temple-subtitle { font-size: 20px; }
 }
 
 /* Nav link active polish */
@@ -96,8 +113,10 @@ img, video { max-width: 100%; height: auto; }
 
 .temple-title {
     display: flex;
-    flex-direction: column;
-    gap: 1px;
+    flex-direction: row;
+    align-items: baseline;
+    gap: 6px;
+    white-space: nowrap;
 }
 
 .temple-name {
@@ -107,16 +126,18 @@ img, video { max-width: 100%; height: auto; }
     margin: 0;
     line-height: 1.1;
     font-family: 'Playfair Display', serif;
+    display: inline;
 }
 
 .temple-subtitle {
-    color: #3498db;
-    font-size: 16px;
-    font-weight: 700;
+    color: #2c3e50; /* match Mangaluru (black/dark) */
+    font-size: 26px; /* equal to .temple-name */
+    font-weight: 800; /* equal weight */
     margin: 0;
-    line-height: 1;
-    letter-spacing: 1px;
-    font-family: 'Crimson Pro', serif;
+    line-height: 1.1;
+    letter-spacing: 0;
+    font-family: 'Playfair Display', serif; /* same font as Mangaluru */
+    display: inline;
 }
 
 .nav-right {
@@ -352,8 +373,8 @@ img, video { max-width: 100%; height: auto; }
 .slide-image {
     width: 100%;
     height: 100%;
-    object-fit: cover;
-    object-position: center  middle;
+    object-fit: cover ;
+    object-position: center 20%;
     border-radius: 8px;
     box-shadow: 0 10px 30px rgba(0,0,0,0.3);
 }
@@ -436,6 +457,23 @@ img, video { max-width: 100%; height: auto; }
     margin: 14px auto 0;
 }
 
+/* Tabs for year navigation */
+.gallery-tabs { display:flex; justify-content:center; gap:12px; margin: 10px 0 24px; }
+.gallery-tabs .tab-link {
+    text-decoration: none;
+    color: #ffffff;
+    font-weight: 800;
+    padding: 10px 18px;
+    border-radius: 9999px;
+    background: linear-gradient(135deg, #ff7a00, #ff9e2c);
+    box-shadow: 0 8px 18px rgba(255,122,0,.25);
+    border: 0;
+    cursor: pointer;
+    letter-spacing: .3px;
+}
+.gallery-tabs .tab-link:hover { filter: brightness(1.05); transform: translateY(-1px); box-shadow: 0 10px 22px rgba(255,122,0,.3); }
+.gallery-tabs .tab-link.is-active { background: linear-gradient(135deg, #ff9e2c, #ff7a00); box-shadow: 0 12px 26px rgba(255,122,0,.35); }
+
 /* Simple centered year headings within gallery sections */
 .year-heading {
     text-align: center;
@@ -481,6 +519,18 @@ img, video { max-width: 100%; height: auto; }
     object-position: center;
     transition: transform 0.3s ease;
 }
+
+/* Rotate specific portrait shots */
+.rotate90 { transform: rotate(90deg); transform-origin: center center; }
+.contain-image { object-fit: contain; background: #0b1220; }
+.rotate90-fit { height: 250px; width: 100%; object-fit: contain; background:#0b1220; transform: rotate(90deg); transform-origin: center center; }
+.center-fit { display:flex; align-items:center; justify-content:center; }
+
+/* Emphasize top area (faces) for specific image */
+.focus-top { object-position: center top; }
+
+/* Rotate inline video 90deg and fit */
+.rotate-video-90 { width: 100%; height: 250px; object-fit: cover; transform: rotate(90deg); transform-origin: center center; }
 
 .gallery-item:hover .gallery-image {
     transform: scale(1.05);
@@ -532,7 +582,7 @@ img, video { max-width: 100%; height: auto; }
 
 /* Contact Hero (contact.html) */
 .contact-hero { display:none; }
-.contact-hero-photo { background: linear-gradient(135deg, #0b1220, #111827); padding: 30px 0 10px; }
+.contact-hero-photo { background: linear-gradient(135deg, #0b1220, #111827); padding: 0 0 10px; }
 .contact-hero-image { width: 100%; max-width: 1100px; height: 420px; object-fit: cover; object-position: center; border-radius: 14px; display:block; margin: 0 auto; box-shadow: 0 24px 60px rgba(0,0,0,.35); background:#0b1220; }
 .history-hero { background: linear-gradient(135deg, #0b1220, #111827); padding: 20px; border-radius: 16px; box-shadow: 0 24px 60px rgba(0,0,0,.25); }
 .down-arrow { display:flex; align-items:center; justify-content:center; width:44px; height:44px; border-radius:50%; border:2px solid rgba(255,255,255,.6); color:#fff; text-decoration:none; position: relative; left: 50%; transform: translateX(-50%); margin-top: 14px; background: rgba(255,255,255,.12); backdrop-filter: blur(2px); box-shadow: 0 10px 26px rgba(0,0,0,.35); font-size:26px; transition: transform .2s ease, background .2s ease; }
@@ -1152,12 +1202,23 @@ html { scroll-behavior: smooth; }
 .seva-menu .dropdown-link:hover { background: transparent; color: inherit; border-left-color: transparent; }
 .seva-menu .seva-item:hover { background: transparent; }
 .seva-menu .dropdown-link:focus, .seva-menu .dropdown-link:focus-visible { outline: none; }
+/* Keep inner texts static too */
+.seva-menu .seva-item:hover .seva-name { color: inherit; }
+.seva-menu .seva-item:hover .seva-price { color: #c0392b; background: #fdecea; border-color: #f3b0a9; }
+/* Non-interactive cursor to feel static */
+.seva-menu .dropdown-link, .seva-menu .seva-item { cursor: default; }
 
 /* Desktop-only adjustments for main slideshow images */
 @media (min-width: 1024px) {
     .hero-slideshow { height: 70vh; }
     /* Desktop: fill frame edge-to-edge */
-    .slide-image { object-fit: cover; object-position: center; }
+    .slide-image { object-fit: cover; object-position: center 42%; }
+}
+
+/* Desktop: hide down-arrow only on contact and donation hero banners */
+@media (min-width: 1024px) {
+    .contact-hero-photo .down-arrow { display: none; }
+    .contact-hero-photo { padding: 0 0 12px; }
 }
 
 

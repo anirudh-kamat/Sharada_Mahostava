@@ -10,7 +10,7 @@
 <body>
     <!-- Header Section -->
     <div class="header">
-        <p>Official Website Of  Mangaluru Sarvajanika Shree Sharada Mahotsava, Carstreet, Mangalore</p>
+        <p>Welcome to Official Website Of  Mangaluru Sarvajanika Shree Sharada Mahotsava</p>
     </div>
 
     <!-- Navigation Bar -->
@@ -21,8 +21,7 @@
                     <img src="images/L1.jpeg" alt="Temple Deity" class="logo-image">
                 </a>
                 <div class="temple-title">
-                    <h1 class="temple-name">Shree Sharadha</h1>
-                    <h2 class="temple-subtitle">Mahotsava</h2>
+                   
                 </div>
             </div>
             <button class="nav-toggle" aria-label="Toggle navigation" onclick="toggleNav()"><span></span><span></span><span></span></button>
@@ -34,7 +33,6 @@
                         <ul class="dropdown-menu">
                             <li><a href="history.html" class="dropdown-link">HISTORY</a></li>
                             <li><a href="contact.html" class="dropdown-link">CONTACT US</a></li>
-                            <li><a href="announcements.html" class="dropdown-link">ANNOUNCEMENTS</a></li>
                         </ul>
                     </li>
                     <li class="dropdown">
@@ -74,14 +72,15 @@
                             </a></li>
                         </ul>
                     </li>
-                    <li><a href="donation.html" class="nav-link active">DONATION</a></li>
+                    <li><a href="donation.html" class="nav-link active">KANIKE</a></li>
                     <li class="dropdown">
                         <a href="#" class="nav-link dropdown-toggle">GALLERY</a>
                         <ul class="dropdown-menu">
-                            <li><a href="gallery.html" class="dropdown-link">SHARADA PHOTOS</a></li>
+                            <li><a href="gallery.html" class="dropdown-link">ALANKAR PHOTOS</a></li>
                             <li><a href="deepalankar-photos.html" class="dropdown-link">DEEPALANKAR PHOTOS</a></li>
                         </ul>
                     </li>
+                    <li><a href="announcements.html" class="nav-link">ANNOUNCEMENTS</a></li>
                     <li><a href="#" class="live-btn">LIVE</a></li>
                 </ul>
             </div>
@@ -101,15 +100,15 @@
         <div class="container">
 
             <!-- Main Content Grid -->
-            <div class="donation-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start; max-width: 1400px; margin: 0 auto;">
+            <div class="donation-grid" style="display: grid; grid-template-columns: 1fr; gap: 24px; align-items: start; max-width: 780px; margin: 0 auto;">
 
                 <!-- Left Column - Banking Details -->
-                <div id="bank-details" class="bank-details" style="background: linear-gradient(135deg, #ff6b35, #ff8c42); color: white; padding: 40px; border-radius: 15px; box-shadow: 0 12px 40px rgba(255,107,53,0.3);">
-                    <h2 style="font-size: 2em; margin: 0 0 30px 0; font-weight: 700; text-align: center;">BANK DETAILS</h2>
+                <div id="bank-details" class="bank-details" style="background: linear-gradient(135deg, #ff6b35, #ff8c42); color: white; padding: 36px; border-radius: 16px; box-shadow: 0 10px 28px rgba(255,107,53,0.25);">
+                    <h2 style="font-size: 2em; margin: 0 0 20px 0; font-weight: 700; text-align: center;">BANK DETAILS</h2>
                     
                     <!-- Bank List removed: single bank details below -->
 
-                    <h3 style="font-size: 1.5em; margin: 30px 0 20px 0; font-weight: 600; text-align: center;">ALL ONLINE PAYMENTS ONLY AT</h3>
+                    <h3 style="font-size: 1.2em; margin: 6px 0 18px 0; font-weight: 600; text-align: center; letter-spacing:.3px; opacity:.95;">ALL ONLINE PAYMENTS ONLY AT</h3>
                     
                     <!-- Banking Details Table -->
                     <div style="background: rgba(255,255,255,0.1); border-radius: 10px; overflow: hidden; border: 2px solid rgba(255,255,255,0.2);">
@@ -138,7 +137,7 @@
                     </div>
 
                     <!-- QR Pay Section -->
-                    <div style="text-align: center; margin-top: 24px;">
+                    <div style="text-align: center; margin-top: 20px;">
                         <p style="margin: 0 0 12px 0; font-weight: 700; letter-spacing: .3px;">You can also scan and pay using the QR below</p>
                         <img src="images/QR1.png" alt="SRI SHARADA MAHOTSAV SAMITHI UPI QR" style="width:260px;height:260px;object-fit: contain;background:#ffffff;border-radius:12px;padding:8px;box-shadow:0 6px 20px rgba(0,0,0,0.15);" />
                         <div style="margin-top: 10px; font-weight: 700; display: flex; align-items: center; justify-content: center; gap: 8px;">
@@ -153,76 +152,7 @@
                     </div>
                 </div>
 
-                <!-- Right Column - Donation Form -->
-                <div class="donation-form" style="background: white; padding: 40px; border-radius: 15px; box-shadow: 0 8px 30px rgba(0,0,0,0.1);">
-                    <h2 style="font-size: 2em; margin: 0 0 30px 0; font-weight: 700; text-align: center; color: #333;">
-                        PLEASE FILL THE DETAILS
-                    </h2>
-                    <div style="width: 60px; height: 3px; background: #ff6b35; margin: 0 auto 40px auto;"></div>
-                    
-                    <form id="donationForm" style="display: grid; gap: 20px;">
-                        <!-- First Row -->
-                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
-                            <div>
-                                <input type="number" 
-                                       placeholder="DONATION AMOUNT*" 
-                                       required
-                                       style="width: 100%; padding: 15px; border: 2px solid #e0e0e0; border-radius: 5px; font-size: 1em; background: #f9f9f9; color: #666; font-weight: 500; box-sizing: border-box;">
-                            </div>
-                            <div>
-                                <input type="text" 
-                                       placeholder="YOUR NAME*" 
-                                       required
-                                       style="width: 100%; padding: 15px; border: 2px solid #e0e0e0; border-radius: 5px; font-size: 1em; background: #f9f9f9; color: #666; font-weight: 500; box-sizing: border-box;">
-                            </div>
-                        </div>
-
-                        <!-- Second Row -->
-                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
-                            <div>
-                                <input type="email" 
-                                       placeholder="YOUR EMAIL*" 
-                                       required
-                                       style="width: 100%; padding: 15px; border: 2px solid #e0e0e0; border-radius: 5px; font-size: 1em; background: #f9f9f9; color: #666; font-weight: 500; box-sizing: border-box;">
-                            </div>
-                            <div>
-                                <input type="tel" 
-                                       placeholder="YOUR CONTACT NO.*" 
-                                       required
-                                       style="width: 100%; padding: 15px; border: 2px solid #e0e0e0; border-radius: 5px; font-size: 1em; background: #f9f9f9; color: #666; font-weight: 500; box-sizing: border-box;">
-                            </div>
-                        </div>
-
-                        <!-- Address -->
-                        <div>
-                            <textarea placeholder="ADDRESS*" 
-                                      required
-                                      rows="4"
-                                      style="width: 100%; padding: 15px; border: 2px solid #e0e0e0; border-radius: 5px; font-size: 1em; background: #f9f9f9; color: #666; font-weight: 500; resize: vertical; font-family: 'Poppins', sans-serif; box-sizing: border-box;"></textarea>
-                        </div>
-
-                        <!-- Captcha -->
-                        <div style="display: flex; align-items: center; gap: 20px; justify-content: center;">
-                            <div style="background: #f0f0f0; padding: 15px 20px; border-radius: 5px; font-size: 1.2em; font-weight: 600; color: #333; border: 2px solid #ddd;">
-                                2+5=?
-                            </div>
-                            <input type="number" 
-                                   placeholder="Answer" 
-                                   required
-                                   style="width: 120px; padding: 15px; border: 2px solid #e0e0e0; border-radius: 5px; font-size: 1em; text-align: center; background: #f9f9f9; color: #666; font-weight: 500;">
-                        </div>
-
-                        <!-- Submit Button -->
-                        <div style="text-align: center; margin-top: 20px;">
-                            <button type="submit" 
-                                    style="background: #ff6b35; color: white; padding: 15px 40px; border: none; border-radius: 5px; font-size: 1.1em; font-weight: 600; cursor: pointer; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(255,107,53,0.3);"
-                                    onmouseover="this.style.background='#e55a2b'; this.style.transform='translateY(-2px)'"
-                                    onmouseout="this.style.background='#ff6b35'; this.style.transform='translateY(0)'">
-                                SUBMIT
-                            </button>
-                        </div>
-                    </form>
-                </div>
+                
             </div>
 
             
@@ -363,11 +293,9 @@
         document.getElementById('donationForm').addEventListener('submit', function(e) {
             e.preventDefault();
             
-            // Get form values
             const inputs = this.querySelectorAll('input, textarea');
             let isValid = true;
             
-            // Basic validation
             inputs.forEach(input => {
                 if (input.hasAttribute('required') && !input.value.trim()) {
                     isValid = false;
@@ -376,15 +304,6 @@
                     input.style.borderColor = '#e0e0e0';
                 }
             });
-            
-            // Check captcha
-            const captchaInput = this.querySelector('input[type="number"]:last-of-type');
-            if (captchaInput.value != '7') {
-                isValid = false;
-                captchaInput.style.borderColor = '#ff4444';
-                alert('Please solve the captcha correctly: 2+5=7');
-                return;
-            }
             
             if (isValid) {
                 alert('Thank you for your donation details! Our team will contact you soon for further processing.');
