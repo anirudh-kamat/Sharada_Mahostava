@@ -1,0 +1,39 @@
+/* Mobile-only overrides for all main hero photos
+   Edit object-position values here to tweak MOBILE crop only.
+   Desktop is unaffected because this file loads with media="(max-width:768px)". */
+
+/* Contact/Kanike hero banner */
+.contact-hero-photo { height: 72vh; padding: 0 !important; position: relative; overflow: hidden; }
+.contact-hero-photo .container { padding: 0; max-width: none; height: 100%; position: relative; overflow: visible; }
+.contact-hero-image { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center center; display: block; border-radius: 0; box-shadow: none;z-index: 1; }
+/* Kanike (Donation) hero only: match Contact-Us framing on mobile */
+.kanike-hero .contact-hero-image { object-position: center center; }
+.contact-hero-photo .down-arrow { position: absolute; bottom: 18px; left: 50%; transform: translateX(-50%); margin-top: 0; z-index: 20; }
+/* Reduce gap after banner so white space doesn’t show under photo */
+.contact-cards { padding-top: 8px; }
+
+/* Home slideshow */
+.hero-slideshow { height: 66vh; }
+/* Home slideshow: tune each slide independently for mobile */
+.slide-image { object-fit: cover; transform: scale(1.05); }
+.slideshow-container .slide:nth-child(1) .slide-image { object-position: center 6%; }
+.slideshow-container .slide:nth-child(2) .slide-image { object-position: 55% 6%; }
+.slideshow-container .slide:nth-child(3) .slide-image { object-position: 45% 35%; }
+.slideshow-container .slide:nth-child(4) .slide-image { object-position: center 37%; }
+.slideshow-container .slide:nth-child(5) .slide-image { object-position: center 6%; }
+
+/* History page hero */
+.history-hero img { object-position: 50% center; }
+
+/* Mobile navigation - move burger icon to the right */
+.nav-toggle { 
+    margin-right: -15px !important; 
+}
+
+/* Reduce gap between header and gallery heading on mobile only */
+.gallery-section {
+    padding-top: 10px !important;
+}
+
+
+

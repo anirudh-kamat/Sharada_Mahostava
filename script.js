@@ -644,6 +644,23 @@ function toggleNav() {
     if (navbar) navbar.classList.toggle('open');
 }
 
+// Close mobile nav when clicking outside (mobile only)
+document.addEventListener('click', function(e) {
+    const isMobile = window.matchMedia('(max-width: 768px)').matches;
+    if (!isMobile) return;
+    
+    const navbar = document.querySelector('.navbar');
+    const navToggle = document.querySelector('.nav-toggle');
+    const navMenu = document.querySelector('.nav-menu');
+    
+    // If navbar is open and click is outside nav elements, close it
+    if (navbar && navbar.classList.contains('open')) {
+        if (!navToggle.contains(e.target) && !navMenu.contains(e.target)) {
+            navbar.classList.remove('open');
+        }
+    }
+});
+
 // Make functions globally available
 window.changeSlide = changeSlide;
 window.openLogoModal = openLogoModal;

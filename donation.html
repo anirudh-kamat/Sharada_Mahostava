@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Donation - Sri Venkataramana Temple</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles.mobile.css" media="only screen and (max-width: 768px)">
+    <link rel="stylesheet" href="styles.desktop.css" media="only screen and (min-width: 1024px)">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -21,7 +23,8 @@
                     <img src="images/L1.jpeg" alt="Temple Deity" class="logo-image">
                 </a>
                 <div class="temple-title">
-                   
+                    <h1 class="temple-name">Mangaluru</h1>
+                    <h2 class="temple-subtitle">Sharade</h2>
                 </div>
             </div>
             <button class="nav-toggle" aria-label="Toggle navigation" onclick="toggleNav()"><span></span><span></span><span></span></button>
@@ -88,7 +91,7 @@
     </nav>
 
     <!-- Donation Hero Image with Down Arrow (full width like contact) -->
-    <section class="contact-hero-photo" style="padding: 30px 0 10px;">
+    <section class="contact-hero-photo kanike-hero" style="padding: 30px 0 10px;">
         <div class="container">
             <img src="images/8.JPG" alt="Donation Banner" class="contact-hero-image" />
             <a href="#bank-details" class="down-arrow" aria-label="Scroll to bank details">⌄</a>
@@ -96,7 +99,7 @@
     </section>
 
     <!-- Donation Section -->
-    <section class="donation-section" style="padding: 40px 0 80px; background: #f8f9fa;">
+    <section class="donation-section" style="padding: 24px 0 64px; background: #f8f9fa;">
         <div class="container">
 
             <!-- Main Content Grid -->
@@ -162,7 +165,7 @@
     <!-- Contact Us Section -->
     <section class="contact-us-section" id="contact">
         <div class="container">
-            <h2 class="contact-heading">FOR ANY QUERIES/QUESTIONS</h2>
+            <h2 class="contact-heading">FOR QUERIES</h2>
             <a href="contact.html" class="contact-btn">CONTACT US</a>
         </div>
     </section>
