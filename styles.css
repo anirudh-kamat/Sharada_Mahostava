@@ -1323,6 +1323,161 @@ html { scroll-behavior: smooth; }
   .history-cards > div { height: 100%; }
 }
 
+/* Announcements Content Section */
+.announcements-content {
+    background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+    padding: 50px 0;
+}
+
+.announcements-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.announcements-header h2 {
+    color: #2c3e50;
+    font-size: 2.2rem;
+    font-weight: 700;
+    margin-bottom: 12px;
+    letter-spacing: 0.5px;
+}
+
+.announcements-header p {
+    color: #e76f51;
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin: 0;
+}
+
+.events-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 24px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.event-card {
+    background: #fff;
+    border-radius: 16px;
+    padding: 24px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    border: 1px solid rgba(0,0,0,0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.event-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.12);
+}
+
+.event-header {
+    margin-bottom: 16px;
+    border-bottom: 2px solid #ff6b35;
+    padding-bottom: 12px;
+}
+
+.event-header h3 {
+    color: #2c3e50;
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin: 0 0 8px 0;
+}
+
+.event-datetime {
+    color: #ff6b35;
+    font-weight: 600;
+    font-size: 0.95rem;
+    background: #fff5f3;
+    padding: 6px 12px;
+    border-radius: 20px;
+    display: inline-block;
+}
+
+.event-content {
+    color: #555;
+    line-height: 1.7;
+}
+
+.event-content p {
+    margin: 0 0 12px 0;
+}
+
+.event-content p:last-child {
+    margin-bottom: 0;
+}
+
+.sanskrit-verse {
+    background: #faf7f0;
+    border-left: 4px solid #ff6b35;
+    padding: 12px 16px;
+    margin: 0 0 16px 0;
+    font-family: 'Noto Sans Devanagari', serif;
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #8b4513;
+    border-radius: 0 8px 8px 0;
+    font-style: italic;
+}
+
+/* Mobile responsive adjustments */
+@media (max-width: 768px) {
+    .announcements-content {
+        padding: 30px 0;
+    }
+    
+    .announcements-header h2 {
+        font-size: 1.8rem;
+    }
+    
+    .events-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        padding: 0 16px;
+    }
+    
+    .event-card {
+        padding: 20px;
+    }
+    
+    .event-header h3 {
+        font-size: 1.2rem;
+    }
+    
+    .sanskrit-verse {
+        font-size: 0.9rem;
+        padding: 10px 14px;
+    }
+}
+
+/* Announcements Page - Invitation Images Specific Styling */
+/* Fix white space and improve image positioning for all invitation images */
+.announcements-page .gallery-section .gallery-image {
+    object-fit: cover;
+    object-position: center center;
+    height: 320px; /* Increased height to cover white space better */
+}
+
+/* Mobile-only: Adjust invitation images to not cover god's head */
+@media (max-width: 768px) {
+    .announcements-page .gallery-section .gallery-image {
+        object-position: center 30%; /* Focus on middle-upper area to avoid covering head */
+        height: 280px; /* Increased height for mobile to cover white space */
+    }
+}
+/* Fix white line/space after invitation images */
+.announcements-page .gallery-section .gallery-item {
+    line-height: 0; /* Remove line height that causes white space */
+    overflow: hidden; /* Ensure clean container */
+}
+
+.announcements-page .gallery-section .gallery-image {
+    display: block; /* Remove inline spacing */
+    margin: 0; /* Remove default margins */
+    padding: 0; /* Remove default padding */
+    width: 100%;
+    vertical-align: top; /* Prevent baseline alignment white space */
+}
 
 
 
