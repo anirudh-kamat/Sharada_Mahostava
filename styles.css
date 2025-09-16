@@ -461,17 +461,25 @@ img, video { max-width: 100%; height: auto; }
 }
 
 .gallery-header h1 {
-    color: #2c3e50;
-    font-size: 2.5rem; /* reduced for more breathing room */
-    font-weight: 800;
-    margin-bottom: 10px;
+    text-align: center;
     font-family: 'Playfair Display', serif;
-    letter-spacing: .3px;
-    background: linear-gradient(90deg, #ff7a00, #ffb703);
+    font-size: 2.2rem; 
+    font-weight: 800;
+    margin-bottom: 20px;
+    letter-spacing: .5px;
+
+    /* Orange → Gold gradient */
+    background: linear-gradient(90deg, #ff7a00, #ffd700);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
+
+    /* Warm golden glow */
+    text-shadow: 0px 0px 8px rgba(255, 200, 100, 0.5);
 }
+
+
+
 
 .gallery-header p {
     color: #5b6470;
@@ -1478,7 +1486,4 @@ html { scroll-behavior: smooth; }
     width: 100%;
     vertical-align: top; /* Prevent baseline alignment white space */
 }
-
-
-
 
