@@ -1484,6 +1484,272 @@ html { scroll-behavior: smooth; }
     margin: 0; /* Remove default margins */
     padding: 0; /* Remove default padding */
     width: 100%;
-    vertical-align: top; /* Prevent baseline alignment white space */
 }
 
+
+
+
+
+
+
+
+
+
+
+/* PDF Invitations Section - Enhanced Design */
+.pdf-invitations-section {
+    background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+    padding: 60px 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.pdf-invitations-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('data:image/svg+xml,<svg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd"><g fill="%23ff7a00" fill-opacity="0.03"><path d="M30 0c16.569 0 30 13.431 30 30S46.569 60 30 60 0 46.569 0 30 13.431 0 30 0z"/></g></g></svg>') repeat;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.pdf-invitations-section .container {
+    position: relative;
+    z-index: 2;
+}
+
+.pdf-invitations-header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.pdf-invitations-header h2 {
+    color: #2c3e50;
+    font-size: 2.2rem;
+    font-weight: 700;
+    margin-bottom: 15px;
+    position: relative;
+}
+
+.pdf-invitations-header h2::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(90deg, #ff7a00, #ffd700);
+    border-radius: 2px;
+}
+
+.pdf-invitations-header p {
+    font-size: 1.1rem;
+    color: #64748b;
+    margin-top: 10px;
+    font-weight: 400;
+}
+
+.pdf-invitations-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 40px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.pdf-invitation-card {
+    flex: 1 1 350px;
+    max-width: 400px;
+    background: linear-gradient(145deg, #ffffff 0%, #f8fafc 100%);
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 
+        0 20px 40px rgba(0,0,0,0.1),
+        0 8px 16px rgba(0,0,0,0.06),
+        inset 0 1px 0 rgba(255,255,255,0.7);
+    text-align: center;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 0;
+}
+
+.pdf-invitation-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, #ff7a00, #ffd700, #ff8c42);
+    border-radius: 20px 20px 0 0;
+    
+}
+
+.pdf-invitation-card:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 
+        0 30px 60px rgba(0,0,0,0.15),
+        0 12px 24px rgba(0,0,0,0.1),
+        inset 0 1px 0 rgba(255,255,255,0.8);
+}
+
+.pdf-invitation-card h3 {
+    margin-bottom: 20px;
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: #1a202c;
+    position: relative;
+}
+
+.pdf-invitation-card h3::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 30px;
+    height: 2px;
+    background: linear-gradient(90deg, #ff7a00, #ffd700);
+    border-radius: 1px;
+}
+
+.pdf-thumb {
+    position: relative;
+    margin-bottom: 25px;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+    transition: all 0.3s ease;
+    
+}
+
+.pdf-thumb:hover {
+    transform: scale(1.03);
+    box-shadow: 0 12px 35px rgba(0,0,0,0.2);
+}
+
+.pdf-thumb img {
+    width: 100%;
+    height: 420px;
+    object-fit: cover;
+    object-position: center;
+    transition: all 0.3s ease;
+    display: block;
+    background: #f8fafc;
+}
+
+
+.pdf-open-btn {
+    background: linear-gradient(135deg, #ff7a00 0%, #ff8c42 100%);
+    color: #fff;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 50px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+    overflow: hidden;
+    min-width: 140px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    box-shadow: 0 8px 20px rgba(255, 122, 0, 0.3);
+}
+
+.pdf-open-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    transition: left 0.5s ease;
+}
+
+.pdf-open-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 30px rgba(255, 122, 0, 0.4);
+    background: linear-gradient(135deg, #ff8c42 0%, #ff7a00 100%);
+}
+
+.pdf-open-btn:hover::before {
+    left: 100%;
+}
+
+.pdf-open-btn:active {
+    transform: translateY(-1px);
+}
+
+/* Mobile responsiveness for PDF section */
+@media (max-width: 768px) {
+    .pdf-invitations-section {
+        padding: 40px 0;
+    }
+    
+    .pdf-invitations-header h2 {
+        font-size: 2rem;
+        
+    }
+    
+    .pdf-invitations-header p {
+        font-size: 1rem;
+        padding: 0 20px;
+    }
+    
+    .pdf-invitations-grid {
+        gap: 25px;
+        padding: 0 15px;
+    }
+    
+    .pdf-invitation-card {
+        flex: 1 1 100%;
+        max-width: none;
+        padding: 25px 20px;
+        margin: 0 10px;
+    }
+    
+    .pdf-invitation-card h3 {
+        font-size: 1.2rem;
+    }
+    
+    .pdf-thumb img {
+        max-height: 300px;
+    }
+    
+    .pdf-open-btn {
+        padding: 12px 25px;
+        font-size: 0.9rem;
+        min-width: 120px;
+    }
+}
+  
+  /* PDF Viewer */
+  .pdf-viewer {
+    display: none;
+    margin-top: 30px;
+  }
+  
+  .pdf-viewer iframe {
+    width: 100%;
+    height: 80vh;
+    border-radius: 10px;
+  }
+  
+  .pdf-back-btn {
+    background: #ff7a00;
+    color: #fff;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 6px;
+    margin-bottom: 10px;
+    cursor: pointer;
+  }
+  
