@@ -9,4 +9,24 @@
 .hero-slideshow { height: 72vh; }
 .slide-image { object-fit: cover; object-position: center; transform: scale(1.06); }
 
+/* Live Stream Desktop Styles */
+.live-stream-section {
+    padding: 100px 0;
+}
+
+.live-stream-header h1 {
+    font-size: 3rem;
+}
+
+.live-stream-wrapper {
+    max-width: 1400px;
+    padding: 0 40px;
+}
+
+.live-video-embed {
+    height: 700px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
 

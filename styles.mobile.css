@@ -35,5 +35,46 @@
     padding-top: 10px !important;
 }
 
+/* Live Stream Mobile Styles */
+.live-stream-section {
+    padding: 40px 0;
+    min-height: 70vh;
+}
+
+.live-stream-header h1 {
+    font-size: 2rem;
+}
+
+.live-stream-header p {
+    font-size: 1rem;
+    padding: 0 20px;
+}
+
+.live-stream-wrapper {
+    padding: 0 15px;
+}
+
+.live-video-embed {
+    height: 400px;
+    border-radius: 12px;
+}
+
+.live-video-embed iframe {
+    border-radius: 12px;
+}
+
+/* Small phones */
+@media (max-width: 480px) {
+    .live-stream-header h1 {
+        font-size: 1.8rem;
+    }
+    
+    .live-video-embed {
+        margin: 0 15px;
+        height: 350px;
+        width: 300px;
+    }
+}
+
 
 

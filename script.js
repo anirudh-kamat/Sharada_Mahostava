@@ -568,8 +568,9 @@ function setupLiveButton() {
     const liveBtn = document.querySelector('.live-btn');
     
     if (liveBtn) {
-        liveBtn.addEventListener('click', function() {
-            alert('Live streaming feature coming soon!');
+        liveBtn.addEventListener('click', function(e) {
+            // Allow normal navigation to live.html
+            // No alert needed since we have a proper live page
         });
     }
 }

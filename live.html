@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Donation - Sri Venkataramana Temple</title>
+    <title>Live Stream - Sri Venkataramana Temple</title>
     <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="styles.mobile.css" media="only screen and (max-width: 768px)">
-    <link rel="stylesheet" href="styles.desktop.css" media="only screen and (min-width: 1024px)">
+    <link rel="stylesheet" href="styles.mobile.css" media="(max-width: 768px)">
+    <link rel="stylesheet" href="styles.desktop.css" media="(min-width: 1024px)">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -75,7 +75,7 @@
                             </a></li>
                         </ul>
                     </li>
-                    <li><a href="donation.html" class="nav-link active">KANIKE</a></li>
+                    <li><a href="donation.html" class="nav-link">KANIKE</a></li>
                     <li class="dropdown">
                         <a href="#" class="nav-link dropdown-toggle">GALLERY</a>
                         <ul class="dropdown-menu">
@@ -84,77 +84,29 @@
                         </ul>
                     </li>
                     <li><a href="announcements.html" class="nav-link">ANNOUNCEMENTS</a></li>
-                    <li><a href="live.html" class="live-btn">LIVE</a></li>
+                    <li><a href="live.html" class="live-btn active">LIVE</a></li>
                 </ul>
             </div>
         </div>
     </nav>
 
-    <!-- Donation Hero Image with Down Arrow (full width like contact) -->
-    <section class="contact-hero-photo kanike-hero" style="padding: 30px 0 10px;">
+    <!-- Live Stream Section -->
+    <section class="live-stream-section">
         <div class="container">
-            <img src="images/8.JPG" alt="Donation Banner" class="contact-hero-image" />
-            <a href="#bank-details" class="down-arrow" aria-label="Scroll to bank details">⌄</a>
-        </div>
-    </section>
-
-    <!-- Donation Section -->
-    <section class="donation-section" style="padding: 24px 0 64px; background: #f8f9fa;">
-        <div class="container">
-
-            <!-- Main Content Grid -->
-            <div class="donation-grid" style="display: grid; grid-template-columns: 1fr; gap: 24px; align-items: start; max-width: 780px; margin: 0 auto;">
-
-                <!-- Left Column - Banking Details -->
-                <div id="bank-details" class="bank-details" style="background: linear-gradient(135deg, #ff6b35, #ff8c42); color: white; padding: 36px; border-radius: 16px; box-shadow: 0 10px 28px rgba(255,107,53,0.25);">
-                    <h2 style="font-size: 2em; margin: 0 0 20px 0; font-weight: 700; text-align: center;">BANK DETAILS</h2>
-                    
-                    <!-- Bank List removed: single bank details below -->
-
-                    <h3 style="font-size: 1.2em; margin: 6px 0 18px 0; font-weight: 600; text-align: center; letter-spacing:.3px; opacity:.95;">ALL ONLINE PAYMENTS ONLY AT</h3>
-                    
-                    <!-- Banking Details Table -->
-                    <div style="background: rgba(255,255,255,0.1); border-radius: 10px; overflow: hidden; border: 2px solid rgba(255,255,255,0.2);">
-                        <table style="width: 100%; border-collapse: collapse;">
-                            <tr style="background: rgba(255,255,255,0.1);">
-                                <td style="padding: 15px; border: 1px solid rgba(255,255,255,0.2); font-weight: 600;">Bank Name</td>
-                                <td style="padding: 15px; border: 1px solid rgba(255,255,255,0.2);">Canara Bank</td>
-                            </tr>
-                            <tr>
-                                <td style="padding: 15px; border: 1px solid rgba(255,255,255,0.2); font-weight: 600;">A/C Name</td>
-                                <td style="padding: 15px; border: 1px solid rgba(255,255,255,0.2);">SRI SHARADA MAHOTSAV SAMITHI</td>
-                            </tr>
-                            <tr style="background: rgba(255,255,255,0.1);">
-                                <td style="padding: 15px; border: 1px solid rgba(255,255,255,0.2); font-weight: 600;">A/C No.</td>
-                                <td style="padding: 15px; border: 1px solid rgba(255,255,255,0.2); font-family: monospace; font-size: 1.1em;">120002042515</td>
-                            </tr>
-                            <tr>
-                                <td style="padding: 15px; border: 1px solid rgba(255,255,255,0.2); font-weight: 600;">IFSC Code</td>
-                                <td style="padding: 15px; border: 1px solid rgba(255,255,255,0.2); font-family: monospace; font-size: 1.1em;">CNRB0001169</td>
-                            </tr>
-                            <tr style="background: rgba(255,255,255,0.1);">
-                                <td style="padding: 15px; border: 1px solid rgba(255,255,255,0.2); font-weight: 600;">Address</td>
-                                <td style="padding: 15px; border: 1px solid rgba(255,255,255,0.2);">Carstreet,<br>Mangaluru - 575 001</td>
-                            </tr>
-                        </table>
-                    </div>
-
-                    <!-- QR Pay Section -->
-                   
-                </div>
-
-                
-            </div>
-
             
-        </div>
-    </section>
-
-    <!-- Contact Us Section -->
-    <section class="contact-us-section" id="contact">
-        <div class="container">
-            <h2 class="contact-heading">FOR QUERIES</h2>
-            <a href="contact.html" class="contact-btn">CONTACT US</a>
+            
+            <div class="live-video-container">
+                <iframe 
+                    width="1000" 
+                    height="600" 
+                    src="https://www.youtube.com/embed/PfNedXUz11U?si=EapJUnSCYpUy2dQH" 
+                    title="YouTube video player" 
+                    frameborder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                    referrerpolicy="strict-origin-when-cross-origin" 
+                    allowfullscreen>
+                </iframe>
+            </div>
         </div>
     </section>
 
@@ -198,111 +150,6 @@
         </div>
     </footer>
 
-    <!-- Logo Modal -->
-    <div id="logoModal" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeLogoModal()">&times;</span>
-            <div class="modal-image-container">
-                <img src="images/L1.jpeg" alt="Temple Deity - Enlarged View" class="modal-image">
-            </div>
-        </div>
-    </div>
-
     <script src="script.js"></script>
-    <script>
-        function copyUpi(e) {
-            const upi = document.getElementById('upiId').textContent;
-            const btn = document.getElementById('copyUpiBtn');
-            if (!btn) return;
-            const doSuccess = () => {
-                const original = btn.textContent;
-                btn.textContent = 'COPIED';
-                btn.style.background = '#2ecc71';
-                btn.style.color = '#ffffff';
-                setTimeout(() => {
-                    btn.textContent = original;
-                    btn.style.background = '#ffffff';
-                    btn.style.color = '#ff6b35';
-                }, 1500);
-            };
-            if (navigator.clipboard && navigator.clipboard.writeText) {
-                navigator.clipboard.writeText(upi).then(doSuccess).catch(() => {
-                    // Fallback for some mobile browsers
-                    const temp = document.createElement('textarea');
-                    temp.value = upi; document.body.appendChild(temp);
-                    temp.select(); temp.setSelectionRange(0, 99999);
-                    try { document.execCommand('copy'); } catch(_) {}
-                    document.body.removeChild(temp);
-                    doSuccess();
-                });
-            } else {
-                // Legacy fallback
-                const temp = document.createElement('textarea');
-                temp.value = upi; document.body.appendChild(temp);
-                temp.select(); temp.setSelectionRange(0, 99999);
-                try { document.execCommand('copy'); } catch(_) {}
-                document.body.removeChild(temp);
-                doSuccess();
-            }
-        }
-
-        function openUpi() {
-            const upiId = '90175255042515@cnrb';
-            const name = 'SRI SHARADA MAHOTSAV SAMITHI';
-            const note = 'Sharada mahotsava donation';
-            const upiUrl = `upi://pay?pa=${encodeURIComponent(upiId)}&pn=${encodeURIComponent(name)}&tn=${encodeURIComponent(note)}&cu=INR`;
-
-            const status = document.getElementById('upiStatus');
-            const ua = navigator.userAgent.toLowerCase();
-            const isAndroid = /android/.test(ua);
-            const isMobile = /android|iphone|ipad|ipod|windows phone/i.test(ua);
-
-            if (!isMobile) {
-                status.textContent = 'UPI apps open only on mobile. Please scan the QR or copy the UPI ID.';
-                return;
-            }
-
-            status.textContent = 'Opening your UPI app...';
-
-            if (isAndroid) {
-                // Use Android intent to trigger UPI apps (prefers Google Pay if available, otherwise shows chooser)
-                const intentUrl = `intent://pay?pa=${encodeURIComponent(upiId)}&pn=${encodeURIComponent(name)}&tn=${encodeURIComponent(note)}&cu=INR#Intent;scheme=upi;end`;
-                // First try intent:// (Chrome on Android)
-                window.location.href = intentUrl;
-                // Fallback to upi:// if intent isn't handled
-                setTimeout(() => { window.location.href = upiUrl; }, 500);
-                // Show help if still nothing after a moment
-                setTimeout(() => { status.textContent = 'If nothing opened, scan the QR above or copy the UPI ID.'; }, 1800);
-                return;
-            }
-
-            // iOS and others: upi:// may not be supported; show guidance while attempting
-            window.location.href = upiUrl;
-            setTimeout(() => { status.textContent = 'If nothing opened, scan the QR above or copy the UPI ID.'; }, 1500);
-        }
-        // Form submission handler
-        document.getElementById('donationForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            const inputs = this.querySelectorAll('input, textarea');
-            let isValid = true;
-            
-            inputs.forEach(input => {
-                if (input.hasAttribute('required') && !input.value.trim()) {
-                    isValid = false;
-                    input.style.borderColor = '#ff4444';
-                } else {
-                    input.style.borderColor = '#e0e0e0';
-                }
-            });
-            
-            if (isValid) {
-                alert('Thank you for your donation details! Our team will contact you soon for further processing.');
-                this.reset();
-            } else {
-                alert('Please fill all required fields correctly.');
-            }
-        });
-    </script>
 </body>
 </html>

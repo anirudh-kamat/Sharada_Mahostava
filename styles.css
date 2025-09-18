@@ -1753,4 +1753,110 @@ html { scroll-behavior: smooth; }
     margin-bottom: 10px;
     cursor: pointer;
   }
+
+/* Live Stream Section */
+.live-stream-section {
+    padding: 80px 0;
+    background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+}
+
+.live-stream-header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.live-stream-header h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    font-weight: 800;
+    margin-bottom: 20px;
+    letter-spacing: .5px;
+    background: linear-gradient(90deg, #ff7a00, #ffd700);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    text-shadow: 0px 0px 8px rgba(255, 200, 100, 0.5);
+}
+
+.live-stream-header h1::after {
+    content: "";
+    display: block;
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(90deg, #ff7a00, #ffb703);
+    border-radius: 2px;
+    margin: 14px auto 0;
+}
+
+.live-stream-header p {
+    color: #5b6470;
+    font-size: 1.1rem;
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+.live-video-container {
+    position: relative;
+    width: 100%;
+    max-width: 1000px; /* keep it neat on large screens */
+    margin: 0 auto;
+    padding-top: 56.25%; /* 16:9 aspect ratio */
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+    background: #000;
+}
+
+.live-video-container iframe {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+    border-radius: 16px;
+}
+
+/* Mobile responsive adjustments for Live page */
+@media (max-width: 768px) {
+    .live-section {
+        padding: 40px 0;
+        min-height: 70vh;
+    }
+    
+    .live-header h1 {
+        font-size: 2rem;
+    }
+    
+    .live-header p {
+        font-size: 1rem;
+        padding: 0 20px;
+    }
+    
+    .live-video-container {
+        max-width: 100%; /* full width for tablet */
+        margin: 0 20px; /* small side padding */
+        height: 500px; /* Increased height for mobile */
+        border-radius: 12px;
+    }
+    
+    .live-video-container iframe {
+        border-radius: 12px;
+    }
+}
+
+@media (max-width: 480px) {
+    .live-header h1 {
+        font-size: 1.8rem;
+    }
+    
+    .live-video-container {
+        margin: 0 15px;
+        height: 450px;
+        width: 300px; /* Increased height for small phones */
+    }
+}
   
