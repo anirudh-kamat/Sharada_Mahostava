@@ -682,12 +682,6 @@ function debugSlideshow() {
     console.log('Interval active:', slideInterval !== null);
 }
 
-
-
-
-
-
-
 function openPDF(pdfUrl) {
     // Open PDF in a new tab instead of embedded viewer
     window.open(pdfUrl, '_blank', 'noopener,noreferrer');

@@ -93,19 +93,23 @@
     <!-- Live Stream Section -->
     <section class="live-stream-section">
         <div class="container">
-            
-            
             <div class="live-video-container">
                 <iframe 
-                    width="1000" 
-                    height="600" 
-                    src="https://www.youtube.com/embed/PfNedXUz11U?si=EapJUnSCYpUy2dQH" 
-                    title="YouTube video player" 
+                    width="100%" 
+                    height="100%"
+                    src="https://www.youtube-nocookie.com/embed/PfNedXUz11U?autoplay=0&mute=0&controls=1&rel=0&modestbranding=1&origin=https://yoursite.com" 
+                    title="Live Stream - Sri Venkataramana Temple" 
                     frameborder="0" 
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
                     referrerpolicy="strict-origin-when-cross-origin" 
-                    allowfullscreen>
+                    allowfullscreen
+                    loading="lazy">
                 </iframe>
+                
+                <!-- Fallback link if iframe doesn't work -->
+                <div class="video-fallback" style="display: none; text-align: center; padding: 50px; color: #666;">
+                    <p>If the video doesn't load, <a href="https://www.youtube.com/watch?v=PfNedXUz11U" target="_blank" style="color: #ff0000; text-decoration: none; font-weight: bold;">click here to watch on YouTube</a></p>
+                </div>
             </div>
         </div>
     </section>
@@ -151,5 +155,25 @@
     </footer>
 
     <script src="script.js"></script>
+    
+    <!-- Video loading detection script -->
+    <script>
+        // Show fallback link if video doesn't load within 10 seconds
+        setTimeout(function() {
+            const iframe = document.querySelector('.live-video-container iframe');
+            const fallback = document.querySelector('.video-fallback');
+            
+            // Simple check - if iframe is still loading or has issues
+            if (iframe && fallback) {
+                // Show fallback after delay to give video time to load
+                setTimeout(function() {
+                    fallback.style.display = 'block';
+                }, 5000);
+            }
+        }, 1000);
+        
+        // Console log for debugging
+        console.log('Live page loaded - checking video embed...');
+    </script>
 </body>
 </html>

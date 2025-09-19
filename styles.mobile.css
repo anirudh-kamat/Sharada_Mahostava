@@ -35,6 +35,60 @@
     padding-top: 10px !important;
 }
 
+/* Mobile gallery alignment fixes */
+.gallery-grid {
+    align-items: start !important;
+}
+
+.gallery-item {
+    height: 200px !important; /* Consistent height on mobile */
+    align-self: start !important;
+}
+
+.gallery-image {
+    height: 200px !important;
+    object-position: center center !important;
+    vertical-align: top !important;
+    line-height: 0 !important;
+}
+
+/* Mobile fixes specifically for Old Photos section */
+#yold + .gallery-grid {
+    align-items: start !important;
+}
+
+#yold + .gallery-grid .gallery-item {
+    height: 200px !important;
+    align-self: start !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+
+#yold + .gallery-grid .gallery-image {
+    height: 200px !important;
+    object-fit: cover !important;
+    object-position: center center !important;
+    vertical-align: top !important;
+    line-height: 0 !important;
+    display: block !important;
+}
+
+/* Mobile fixes for History Page Gallery */
+.history-gallery-grid {
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)) !important;
+    gap: 12px !important;
+}
+
+.history-gallery-item {
+    height: 180px !important;
+}
+
+.history-gallery-image {
+    object-fit: cover !important;
+    object-position: center center !important;
+}
+
 /* Live Stream Mobile Styles */
 .live-stream-section {
     padding: 40px 0;
@@ -63,6 +117,31 @@
     border-radius: 12px;
 }
 
+/* Mobile Live Stream Info Cards */
+.live-stream-info {
+    grid-template-columns: 1fr !important;
+    gap: 20px !important;
+    margin-top: 30px !important;
+    padding: 0 15px !important;
+}
+
+.live-info-card {
+    padding: 20px !important;
+}
+
+.live-info-card h3 {
+    font-size: 1.2rem !important;
+}
+
+.social-links-live {
+    justify-content: center !important;
+}
+
+.social-btn {
+    padding: 8px 12px !important;
+    font-size: 0.85rem !important;
+}
+
 /* Small phones */
 @media (max-width: 480px) {
     .live-stream-header h1 {
@@ -73,6 +152,15 @@
         margin: 0 15px;
         height: 350px;
         width: 300px;
+    }
+    
+    .live-info-card {
+        padding: 15px !important;
+    }
+    
+    .social-btn {
+        padding: 6px 10px !important;
+        font-size: 0.8rem !important;
     }
 }
 

@@ -538,6 +538,7 @@ img, video { max-width: 100%; height: auto; }
     gap: 30px;
     max-width: 1200px;
     margin: 0 auto;
+    align-items: start;
 }
 
 .gallery-item {
@@ -550,6 +551,9 @@ img, video { max-width: 100%; height: auto; }
     background: white;
     content-visibility: auto;
     contain-intrinsic-size: 250px 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .gallery-item:hover { transform: translateY(-8px); box-shadow: 0 22px 46px rgba(0,0,0,0.22); }
@@ -558,8 +562,11 @@ img, video { max-width: 100%; height: auto; }
     width: 100%;
     height: 250px;
     object-fit: cover;
-    object-position: center;
+    object-position: center center;
     transition: transform 0.3s ease;
+    display: block;
+    vertical-align: top;
+    line-height: 0;
 }
 
 /* Rotate specific portrait shots */
@@ -1257,9 +1264,88 @@ html { scroll-behavior: smooth; }
 .seva-item { background: transparent; }
 .seva-item:hover { background: rgba(14,165,233,0.06); }
 
-/* Gallery cards hover depth */
-.gallery-item { transition: transform .25s ease, box-shadow .25s ease; }
+/* Gallery cards hover depth and alignment fixes */
+.gallery-item { 
+    transition: transform .25s ease, box-shadow .25s ease; 
+    height: 250px; /* Fixed height for consistent alignment */
+}
 .gallery-item:hover { transform: translateY(-8px); box-shadow: 0 20px 46px rgba(0,0,0,.22); }
+
+/* Ensure all gallery images are perfectly aligned */
+.gallery-grid .gallery-item {
+    align-self: start; /* Align all items to the top of their grid cell */
+}
+
+.gallery-grid .gallery-image {
+    margin: 0;
+    padding: 0;
+    border: none;
+    outline: none;
+}
+
+/* Specific fixes for Old Photos section alignment */
+#yold + .gallery-grid {
+    align-items: start !important;
+}
+
+#yold + .gallery-grid .gallery-item {
+    height: 250px !important;
+    align-self: start !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+
+#yold + .gallery-grid .gallery-image {
+    height: 250px !important;
+    object-fit: cover !important;
+    object-position: center center !important;
+    vertical-align: top !important;
+    line-height: 0 !important;
+    display: block !important;
+}
+
+/* History Page Gallery - Fix White Lines */
+.history-gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 14px;
+    align-items: start;
+}
+
+.history-gallery-item {
+    position: relative;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+    cursor: pointer;
+    background: #000;
+    height: 220px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 0;
+}
+
+.history-gallery-item:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+    transition: all 0.3s ease;
+}
+
+.history-gallery-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center center;
+    display: block;
+    vertical-align: top;
+    line-height: 0;
+    margin: 0;
+    padding: 0;
+    border: none;
+    outline: none;
+}
 
 /* Keep Seva list static (no hover/focus highlight) */
 .seva-menu .dropdown-link:hover { background: transparent; color: inherit; border-left-color: transparent; }
@@ -1803,8 +1889,8 @@ html { scroll-behavior: smooth; }
     position: relative;
     width: 100%;
     max-width: 1000px; /* keep it neat on large screens */
+    height: 563px; /* Fixed height for desktop (1000px * 0.5625 = 16:9 ratio) */
     margin: 0 auto;
-    padding-top: 56.25%; /* 16:9 aspect ratio */
     border-radius: 16px;
     overflow: hidden;
     box-shadow: 0 20px 60px rgba(0,0,0,0.15);
@@ -1818,6 +1904,98 @@ html { scroll-behavior: smooth; }
     height: 100%;
     border: 0;
     border-radius: 16px;
+    z-index: 1;
+}
+
+/* Live Stream Info Cards */
+.live-stream-info {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 50px;
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.live-info-card {
+    background: white;
+    padding: 30px;
+    border-radius: 16px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+    border: 1px solid #e9ecef;
+}
+
+.live-info-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: #2c3e50;
+}
+
+.live-info-card ul {
+    list-style: none;
+    padding: 0;
+}
+
+.live-info-card li {
+    padding: 8px 0;
+    border-bottom: 1px solid #f1f3f4;
+    color: #5b6470;
+}
+
+.live-info-card li:last-child {
+    border-bottom: none;
+}
+
+.live-info-card li strong {
+    color: #2c3e50;
+}
+
+.live-info-card p {
+    color: #5b6470;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+/* Social Links in Live Page */
+.social-links-live {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.social-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 16px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.9rem;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.social-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.social-btn.youtube {
+    background: #ff0000;
+    color: white;
+}
+
+.social-btn.facebook {
+    background: #1877f2;
+    color: white;
+}
+
+.social-btn img {
+    width: 20px;
+    height: 20px;
 }
 
 /* Mobile responsive adjustments for Live page */

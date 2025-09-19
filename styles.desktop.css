@@ -14,19 +14,9 @@
     padding: 100px 0;
 }
 
-.live-stream-header h1 {
-    font-size: 3rem;
-}
-
-.live-stream-wrapper {
-    max-width: 1400px;
-    padding: 0 40px;
-}
-
-.live-video-embed {
-    height: 700px;
-    max-width: 1200px;
-    margin: 0 auto;
+.live-video-container {
+    height: 600px !important; /* Override for desktop */
+    max-width: 1200px !important;
 }
 
 
