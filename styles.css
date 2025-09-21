@@ -52,7 +52,7 @@ img, video { max-width: 100%; height: auto; }
 .nav-container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 20px;
+    padding: 0 15px; /* Reduced from 20px to 15px for more space */
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -94,7 +94,7 @@ img, video { max-width: 100%; height: auto; }
 .nav-left {
     display: flex;
     align-items: center;
-    gap: 20px;
+    gap: 15px; /* Reduced from 20px to 15px for more space */
 }
 
 .logo {
@@ -158,20 +158,20 @@ img, video { max-width: 100%; height: auto; }
 .nav-menu {
     display: flex;
     list-style: none;
-    gap: 30px;
+    gap: 25px; /* Reduced from 30px to 25px for tighter spacing */
     align-items: center;
 }
 
 /* Add breathing space between site title and first menu item on laptops/desktops */
 @media (min-width: 1024px) {
-  .nav-menu { margin-left: 48px; }
+  .nav-menu { margin-left: 35px; } /* Reduced from 48px to 35px for more space */
 }
 
 .nav-link {
     text-decoration: none;
     color: #333;
     font-weight: 600;
-    padding: 10px 18px;
+    padding: 10px 15px; /* Reduced from 18px to 15px for tighter spacing */
     border-radius: 6px;
     transition: color .2s ease, background .2s ease, transform .2s ease;
     font-size: 14px;
@@ -196,6 +196,11 @@ img, video { max-width: 100%; height: auto; }
 /* Keep top-nav labels on one line on tablet/desktop */
 @media (min-width: 768px) {
   .nav-link, .dropdown-toggle { white-space: nowrap; }
+}
+
+/* Ensure E-SEVA/KANIKE text doesn't wrap on any screen size */
+.nav-link {
+  white-space: nowrap;
 }
 
 .dropdown-toggle::after {
@@ -1840,201 +1845,35 @@ html { scroll-behavior: smooth; }
     cursor: pointer;
   }
 
-/* Live Stream Section */
-.live-stream-section {
-    padding: 80px 0;
-    background: linear-gradient(135deg, #f8f9fa, #e9ecef);
-    min-height: 80vh;
-    display: flex;
-    align-items: center;
-}
-
-.live-stream-header {
-    text-align: center;
-    margin-bottom: 50px;
-}
-
-.live-stream-header h1 {
-    font-family: 'Playfair Display', serif;
-    font-size: 2.5rem;
-    font-weight: 800;
-    margin-bottom: 20px;
-    letter-spacing: .5px;
-    background: linear-gradient(90deg, #ff7a00, #ffd700);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-    text-shadow: 0px 0px 8px rgba(255, 200, 100, 0.5);
-}
-
-.live-stream-header h1::after {
-    content: "";
-    display: block;
-    width: 80px;
-    height: 4px;
-    background: linear-gradient(90deg, #ff7a00, #ffb703);
-    border-radius: 2px;
-    margin: 14px auto 0;
-}
-
-.live-stream-header p {
-    color: #5b6470;
-    font-size: 1.1rem;
-    max-width: 600px;
-    margin: 0 auto;
-    line-height: 1.6;
-}
-
-.live-video-container {
+  .live-video-container {
     position: relative;
     width: 100%;
-    max-width: 1000px; /* keep it neat on large screens */
-    height: 563px; /* Fixed height for desktop (1000px * 0.5625 = 16:9 ratio) */
-    margin: 0 auto;
-    border-radius: 16px;
+    max-width: 420px;   /* card size width */
+    height: 240px;      /* fixed height (like screenshot) */
+    margin: 40px auto;  /* center with spacing */
+    border-radius: 12px;
     overflow: hidden;
-    box-shadow: 0 20px 60px rgba(0,0,0,0.15);
     background: #000;
-}
-
-.live-video-container iframe {
+    box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+  }
+  
+  .live-video-container iframe {
     position: absolute;
-    inset: 0;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
-    border: 0;
-    border-radius: 16px;
-    z-index: 1;
-}
-
-/* Live Stream Info Cards */
-.live-stream-info {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
-    margin-top: 50px;
-    max-width: 1000px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.live-info-card {
-    background: white;
-    padding: 30px;
-    border-radius: 16px;
-    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
-    border: 1px solid #e9ecef;
-}
-
-.live-info-card h3 {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.4rem;
-    font-weight: 700;
-    margin-bottom: 20px;
-    color: #2c3e50;
-}
-
-.live-info-card ul {
-    list-style: none;
-    padding: 0;
-}
-
-.live-info-card li {
-    padding: 8px 0;
-    border-bottom: 1px solid #f1f3f4;
-    color: #5b6470;
-}
-
-.live-info-card li:last-child {
-    border-bottom: none;
-}
-
-.live-info-card li strong {
-    color: #2c3e50;
-}
-
-.live-info-card p {
-    color: #5b6470;
-    line-height: 1.6;
-    margin-bottom: 20px;
-}
-
-/* Social Links in Live Page */
-.social-links-live {
-    display: flex;
-    gap: 15px;
-    flex-wrap: wrap;
-}
-
-.social-btn {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    padding: 10px 16px;
-    border-radius: 8px;
-    text-decoration: none;
-    font-weight: 500;
-    font-size: 0.9rem;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.social-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-}
-
-.social-btn.youtube {
-    background: #ff0000;
-    color: white;
-}
-
-.social-btn.facebook {
-    background: #1877f2;
-    color: white;
-}
-
-.social-btn img {
-    width: 20px;
-    height: 20px;
-}
-
-/* Mobile responsive adjustments for Live page */
+    border: none;
+  }
+  
+  /* Mobile - make it card size */
 @media (max-width: 768px) {
-    .live-section {
-        padding: 40px 0;
-        min-height: 70vh;
-    }
-    
-    .live-header h1 {
-        font-size: 2rem;
-    }
-    
-    .live-header p {
-        font-size: 1rem;
-        padding: 0 20px;
-    }
-    
     .live-video-container {
-        max-width: 100%; /* full width for tablet */
-        margin: 0 20px; /* small side padding */
-        height: 500px; /* Increased height for mobile */
-        border-radius: 12px;
+      max-width: 380px;  /* similar to your screenshot */
+      padding-top: 210px; /* fixed height instead of auto aspect ratio */
+      margin: 20px auto;  /* center it with spacing */
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
     }
-    
-    .live-video-container iframe {
-        border-radius: 12px;
-    }
-}
-
-@media (max-width: 480px) {
-    .live-header h1 {
-        font-size: 1.8rem;
-    }
-    
-    .live-video-container {
-        margin: 0 15px;
-        height: 450px;
-        width: 300px; /* Increased height for small phones */
-    }
-}
+  }
   

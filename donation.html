@@ -75,7 +75,7 @@
                             </a></li>
                         </ul>
                     </li>
-                    <li><a href="donation.html" class="nav-link active">KANIKE</a></li>
+                    <li><a href="donation.html" class="nav-link active">E-SEVA/KANIKE</a></li>
                     <li class="dropdown">
                         <a href="#" class="nav-link dropdown-toggle">GALLERY</a>
                         <ul class="dropdown-menu">
@@ -98,55 +98,28 @@
         </div>
     </section>
 
-    <!-- Donation Section -->
-    <section class="donation-section" style="padding: 24px 0 64px; background: #f8f9fa;">
+    <!-- E-seva and E-kanike Section -->
+    <section class="e-services-section" style="padding: 40px 0; background-color: #f8f9fa;">
         <div class="container">
-
-            <!-- Main Content Grid -->
-            <div class="donation-grid" style="display: grid; grid-template-columns: 1fr; gap: 24px; align-items: start; max-width: 780px; margin: 0 auto;">
-
-                <!-- Left Column - Banking Details -->
-                <div id="bank-details" class="bank-details" style="background: linear-gradient(135deg, #ff6b35, #ff8c42); color: white; padding: 36px; border-radius: 16px; box-shadow: 0 10px 28px rgba(255,107,53,0.25);">
-                    <h2 style="font-size: 2em; margin: 0 0 20px 0; font-weight: 700; text-align: center;">BANK DETAILS</h2>
-                    
-                    <!-- Bank List removed: single bank details below -->
-
-                    <h3 style="font-size: 1.2em; margin: 6px 0 18px 0; font-weight: 600; text-align: center; letter-spacing:.3px; opacity:.95;">ALL ONLINE PAYMENTS ONLY AT</h3>
-                    
-                    <!-- Banking Details Table -->
-                    <div style="background: rgba(255,255,255,0.1); border-radius: 10px; overflow: hidden; border: 2px solid rgba(255,255,255,0.2);">
-                        <table style="width: 100%; border-collapse: collapse;">
-                            <tr style="background: rgba(255,255,255,0.1);">
-                                <td style="padding: 15px; border: 1px solid rgba(255,255,255,0.2); font-weight: 600;">Bank Name</td>
-                                <td style="padding: 15px; border: 1px solid rgba(255,255,255,0.2);">Canara Bank</td>
-                            </tr>
-                            <tr>
-                                <td style="padding: 15px; border: 1px solid rgba(255,255,255,0.2); font-weight: 600;">A/C Name</td>
-                                <td style="padding: 15px; border: 1px solid rgba(255,255,255,0.2);">SRI SHARADA MAHOTSAV SAMITHI</td>
-                            </tr>
-                            <tr style="background: rgba(255,255,255,0.1);">
-                                <td style="padding: 15px; border: 1px solid rgba(255,255,255,0.2); font-weight: 600;">A/C No.</td>
-                                <td style="padding: 15px; border: 1px solid rgba(255,255,255,0.2); font-family: monospace; font-size: 1.1em;">120002042515</td>
-                            </tr>
-                            <tr>
-                                <td style="padding: 15px; border: 1px solid rgba(255,255,255,0.2); font-weight: 600;">IFSC Code</td>
-                                <td style="padding: 15px; border: 1px solid rgba(255,255,255,0.2); font-family: monospace; font-size: 1.1em;">CNRB0001169</td>
-                            </tr>
-                            <tr style="background: rgba(255,255,255,0.1);">
-                                <td style="padding: 15px; border: 1px solid rgba(255,255,255,0.2); font-weight: 600;">Address</td>
-                                <td style="padding: 15px; border: 1px solid rgba(255,255,255,0.2);">Carstreet,<br>Mangaluru - 575 001</td>
-                            </tr>
-                        </table>
-                    </div>
-
-                    <!-- QR Pay Section -->
-                   
+            <div class="e-services-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px; max-width: 800px; margin: 0 auto;">
+                <!-- E-seva -->
+                <div class="e-service-card" style="background: white; padding: 30px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); text-align: center;">
+                    <h3 style="color: #ff6b35; font-size: 24px; margin-bottom: 20px; font-weight: 600;">E-Seva</h3>
+                    <a href="https://ssms.3ionetra.com/bookings/sevas?type=utsav" target="_blank" rel="noopener" 
+                       style="display: inline-block; background: linear-gradient(135deg, #ff6b35, #ff8c42); color: white; padding: 12px 25px; border-radius: 25px; text-decoration: none; font-weight: 500; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(255,107,53,0.3);">
+                        Seva Link
+                    </a>
                 </div>
-
                 
+                <!-- E-kanike -->
+                <div class="e-service-card" style="background: white; padding: 30px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); text-align: center;">
+                    <h3 style="color: #ff6b35; font-size: 24px; margin-bottom: 20px; font-weight: 600;">E-Kanike</h3>
+                    <a href="https://ssms.3ionetra.com/bookings/donations" target="_blank" rel="noopener" 
+                       style="display: inline-block; background: linear-gradient(135deg, #ff6b35, #ff8c42); color: white; padding: 12px 25px; border-radius: 25px; text-decoration: none; font-weight: 500; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(255,107,53,0.3);">
+                        Booking Link
+                    </a>
+                </div>
             </div>
-
-            
         </div>
     </section>
 
@@ -209,6 +182,25 @@
     </div>
 
     <script src="script.js"></script>
+    <style>
+        @media (max-width: 768px) {
+            .e-services-grid {
+                grid-template-columns: 1fr !important;
+                gap: 20px !important;
+            }
+            .e-service-card {
+                padding: 25px !important;
+            }
+            .e-service-card h3 {
+                font-size: 20px !important;
+            }
+        }
+        
+        .e-service-card a:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255,107,53,0.4) !important;
+        }
+    </style>
     <script>
         function copyUpi(e) {
             const upi = document.getElementById('upiId').textContent;
