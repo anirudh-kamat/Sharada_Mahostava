@@ -8,7 +8,7 @@ let hoverPauseArmed = false; // avoid pausing on initial page load when cursor i
 
 // Initialize slideshow when page loads
 document.addEventListener('DOMContentLoaded', function() {
-    console.log('Initializing slideshow with logo modal and gallery...');
+    // console.log('Initializing slideshow with logo modal and gallery...');
     // If this page was reloaded and it's not the homepage, redirect to homepage
     try {
         const navEntry = (performance && performance.getEntriesByType) ? performance.getEntriesByType('navigation')[0] : null;
@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Get slides after DOM is loaded
     slides = document.querySelectorAll('.slide');
-    console.log('Found slides:', slides.length);
+    // console.log('Found slides:', slides.length);
     
     // Initialize first slide
     showSlide(0);
@@ -38,6 +38,26 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Setup hover events
     setupHoverEvents();
+
+    // Progressive enhancements (non-breaking)
+    try {
+        // Lazy-load non-hero images
+        document.querySelectorAll('img').forEach((img) => {
+            const isHero = img.classList.contains('contact-hero-image') || img.classList.contains('logo-image');
+            if (!isHero && !img.loading) img.loading = 'lazy';
+        });
+    } catch (_) {}
+
+    try {
+        // Keyboard navigation for gallery modal
+        document.addEventListener('keydown', (e) => {
+            const imageModal = document.getElementById('imageModal');
+            if (!imageModal || imageModal.style.display !== 'block') return;
+            if (e.key === 'ArrowRight') nextGalleryImage();
+            if (e.key === 'ArrowLeft')  prevGalleryImage();
+            if (e.key === 'Escape')     closeImageModal();
+        });
+    } catch (_) {}
     
     // Setup keyboard navigation
     setupKeyboardNavigation();
@@ -162,11 +182,26 @@ function openMediaByIndex(index, title) {
     } else if (imageModal && modalImage) {
         modalImage.src = src;
         modalImage.alt = title || '';
-        // If D14, rotate in modal by 90deg
-        if (src && src.indexOf('D14') !== -1) {
-            modalImage.style.transform = 'rotate(90deg)';
+        // Rotate certain portrait images in modal by 270deg
+        if (src && (src.indexOf('D14') !== -1 ||
+                    src.indexOf('A12') !== -1 ||
+                    src.indexOf('A15') !== -1 ||
+                    src.indexOf('A16') !== -1 ||
+                    src.indexOf('A18') !== -1 ||
+                    src.indexOf('A19') !== -1 ||
+                    src.indexOf('A20') !== -1 ||
+                    src.indexOf('A21') !== -1)) {
+            modalImage.style.setProperty('transform', 'rotate(270deg)', 'important');
+            modalImage.style.setProperty('object-fit', 'cover', 'important');
+            modalImage.style.setProperty('display', 'block', 'important');
+            modalImage.style.setProperty('width', '100%', 'important');
+            modalImage.style.setProperty('height', '100%', 'important');
+            modalImage.style.setProperty('background', 'transparent', 'important');
+            modalImage.style.setProperty('margin', '0', 'important');
+            modalImage.style.setProperty('padding', '0', 'important');
         } else {
-            modalImage.style.transform = '';
+            modalImage.style.removeProperty('transform');
+            modalImage.style.removeProperty('background');
         }
         imageModal.style.display = 'block';
         document.body.style.overflow = 'hidden';
@@ -260,7 +295,7 @@ function closeVideoModal() {
 // Setup gallery events
 function setupGalleryEvents() {
     // Gallery items are handled by onclick attributes in HTML
-    console.log('Gallery events setup complete');
+    // console.log('Gallery events setup complete');
 }
 
 // Add native lazy-loading and async decoding to all gallery images
@@ -433,7 +468,7 @@ function setupDropdownMenu() {
                 // Add active class to clicked dropdown link
                 this.classList.add('active');
                 
-                console.log('Dropdown link clicked:', this.textContent);
+                // console.log('Dropdown link clicked:', this.textContent);
             });
         });
     });
@@ -478,7 +513,7 @@ function showSlide(index) {
 // Start automatic slideshow (changes every 4 seconds)
 function startSlideshow() {
     stopSlideshow();
-    console.log('Starting slideshow...');
+    // console.log('Starting slideshow...');
     slideInterval = setInterval(() => {
         if (!isTransitioning && slides && slides.length > 0) {
             nextSlide();
@@ -491,7 +526,7 @@ function stopSlideshow() {
     if (slideInterval) {
         clearInterval(slideInterval);
         slideInterval = null;
-        console.log('Slideshow stopped');
+        // console.log('Slideshow stopped');
     }
 }
 
@@ -503,7 +538,7 @@ function nextSlide() {
     if (nextIndex >= slides.length) {
         nextIndex = 0;
     }
-    console.log('Next slide:', nextIndex);
+    // console.log('Next slide:', nextIndex);
     showSlide(nextIndex);
 }
 
@@ -515,7 +550,7 @@ function prevSlide() {
     if (prevIndex < 0) {
         prevIndex = slides.length - 1;
     }
-    console.log('Previous slide:', prevIndex);
+    // console.log('Previous slide:', prevIndex);
     showSlide(prevIndex);
 }
 
@@ -558,7 +593,7 @@ function setupNavigation() {
             // Add active class to clicked link
             this.classList.add('active');
             
-            console.log('Navigation clicked:', this.textContent);
+            // console.log('Navigation clicked:', this.textContent);
         });
     });
 }
@@ -584,12 +619,12 @@ function setupHoverEvents() {
         setTimeout(() => { hoverPauseArmed = true; }, 800);
         heroSlideshow.addEventListener('mouseenter', function() {
             if (!hoverPauseArmed) return;
-            console.log('Mouse entered slideshow - pausing');
+            // console.log('Mouse entered slideshow - pausing');
             stopSlideshow();
         });
         
         heroSlideshow.addEventListener('mouseleave', function() {
-            console.log('Mouse left slideshow - resuming');
+            // console.log('Mouse left slideshow - resuming');
             startSlideshow();
         });
     }
@@ -676,10 +711,10 @@ window.closeVideoModal = closeVideoModal;
 
 // Debug function
 function debugSlideshow() {
-    console.log('Current slide:', currentSlideIndex);
-    console.log('Total slides:', slides.length);
-    console.log('Is transitioning:', isTransitioning);
-    console.log('Interval active:', slideInterval !== null);
+    // console.log('Current slide:', currentSlideIndex);
+    // console.log('Total slides:', slides.length);
+    // console.log('Is transitioning:', isTransitioning);
+    // console.log('Interval active:', slideInterval !== null);
 }
 
 function openPDF(pdfUrl) {

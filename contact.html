@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="styles.css" />
     <link rel="stylesheet" href="styles.mobile.css" media="only screen and (max-width: 768px)" />
     <link rel="stylesheet" href="styles.desktop.css" media="only screen and (min-width: 1024px)" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
 </head>
 <body>
@@ -18,7 +19,7 @@
         <div class="nav-container">
             <div class="nav-left">
                 <a class="logo" href="index.html" aria-label="Go to home">
-                    <img src="images/L1.jpeg" alt="Temple Deity" class="logo-image" />
+                    <img src="images/L1.webp" alt="Temple Deity" class="logo-image" />
                 </a>
                 <div class="temple-title">
                     <h1 class="temple-name">Mangaluru</h1>
@@ -49,7 +50,7 @@
                             <li><a href="#" class="dropdown-link seva-item special"><span class="seva-name">ವಿಸರ್ಜನಾ ದಿನ ವಿಶೇಷ ಅಲಂಕಾರ ಪೂಜೆ</span><span class="seva-price">₹2000.00</span></a></li>
                         </ul>
                     </li>
-                    <li><a href="donation.html" class="nav-link">E-SEVA/KANIKE</a></li>
+                    <li><a href="donation.html" class="nav-link">KANIKE</a></li>
                     <li class="dropdown">
                         <a href="#" class="nav-link dropdown-toggle">GALLERY</a>
                         <ul class="dropdown-menu">
@@ -67,7 +68,7 @@
     <!-- Contact Photo Banner -->
     <section class="contact-hero-photo">
         <div class="container">
-            <img src="images/MK1.jpg" alt="Temple Banner" class="contact-hero-image" />
+            <img src="images/MK1.webp" alt="Temple Banner" class="contact-hero-image" fetchpriority="high" />
             <a href="#contact-cards" class="down-arrow" aria-label="Scroll to contact details">⌄</a>
         </div>
     </section>
@@ -135,11 +136,11 @@
         <div class="modal-content">
             <span class="close" onclick="closeLogoModal()">&times;</span>
             <div class="modal-image-container">
-                <img src="images/L1.jpeg" alt="Temple Deity - Enlarged View" class="modal-image">
+                <img src="images/L1.webp" alt="Temple Deity - Enlarged View" class="modal-image">
             </div>
         </div>
     </div>
 
-    <script src="script.js"></script>
+    <script src="script.js" defer></script>
 </body>
 </html>
