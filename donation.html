@@ -199,16 +199,6 @@
         </div>
     </footer>
 
-    <!-- Logo Modal -->
-    <div id="logoModal" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeLogoModal()">&times;</span>
-            <div class="modal-image-container">
-                <img src="images/L1.webp" alt="Temple Deity - Enlarged View" class="modal-image">
-            </div>
-        </div>
-    </div>
-
     <script src="script.js" defer></script>
     <style>
         @media (max-width: 768px) {
@@ -230,99 +220,6 @@
         }
     </style>
     <script>
-        function copyUpi(e) {
-            const upi = document.getElementById('upiId').textContent;
-            const btn = document.getElementById('copyUpiBtn');
-            if (!btn) return;
-            const doSuccess = () => {
-                const original = btn.textContent;
-                btn.textContent = 'COPIED';
-                btn.style.background = '#2ecc71';
-                btn.style.color = '#ffffff';
-                setTimeout(() => {
-                    btn.textContent = original;
-                    btn.style.background = '#ffffff';
-                    btn.style.color = '#ff6b35';
-                }, 1500);
-            };
-            if (navigator.clipboard && navigator.clipboard.writeText) {
-                navigator.clipboard.writeText(upi).then(doSuccess).catch(() => {
-                    // Fallback for some mobile browsers
-                    const temp = document.createElement('textarea');
-                    temp.value = upi; document.body.appendChild(temp);
-                    temp.select(); temp.setSelectionRange(0, 99999);
-                    try { document.execCommand('copy'); } catch(_) {}
-                    document.body.removeChild(temp);
-                    doSuccess();
-                });
-            } else {
-                // Legacy fallback
-                const temp = document.createElement('textarea');
-                temp.value = upi; document.body.appendChild(temp);
-                temp.select(); temp.setSelectionRange(0, 99999);
-                try { document.execCommand('copy'); } catch(_) {}
-                document.body.removeChild(temp);
-                doSuccess();
-            }
-        }
-
-        function openUpi() {
-            const upiId = '90175255042515@cnrb';
-            const name = 'SRI SHARADA MAHOTSAV SAMITHI';
-            const note = 'Sharada mahotsava donation';
-            const upiUrl = `upi://pay?pa=${encodeURIComponent(upiId)}&pn=${encodeURIComponent(name)}&tn=${encodeURIComponent(note)}&cu=INR`;
-
-            const status = document.getElementById('upiStatus');
-            const ua = navigator.userAgent.toLowerCase();
-            const isAndroid = /android/.test(ua);
-            const isMobile = /android|iphone|ipad|ipod|windows phone/i.test(ua);
-
-            if (!isMobile) {
-                status.textContent = 'UPI apps open only on mobile. Please scan the QR or copy the UPI ID.';
-                return;
-            }
-
-            status.textContent = 'Opening your UPI app...';
-
-            if (isAndroid) {
-                // Use Android intent to trigger UPI apps (prefers Google Pay if available, otherwise shows chooser)
-                const intentUrl = `intent://pay?pa=${encodeURIComponent(upiId)}&pn=${encodeURIComponent(name)}&tn=${encodeURIComponent(note)}&cu=INR#Intent;scheme=upi;end`;
-                // First try intent:// (Chrome on Android)
-                window.location.href = intentUrl;
-                // Fallback to upi:// if intent isn't handled
-                setTimeout(() => { window.location.href = upiUrl; }, 500);
-                // Show help if still nothing after a moment
-                setTimeout(() => { status.textContent = 'If nothing opened, scan the QR above or copy the UPI ID.'; }, 1800);
-                return;
-            }
-
-            // iOS and others: upi:// may not be supported; show guidance while attempting
-            window.location.href = upiUrl;
-            setTimeout(() => { status.textContent = 'If nothing opened, scan the QR above or copy the UPI ID.'; }, 1500);
-        }
-        // Form submission handler
-        document.getElementById('donationForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            const inputs = this.querySelectorAll('input, textarea');
-            let isValid = true;
-            
-            inputs.forEach(input => {
-                if (input.hasAttribute('required') && !input.value.trim()) {
-                    isValid = false;
-                    input.style.borderColor = '#ff4444';
-                } else {
-                    input.style.borderColor = '#e0e0e0';
-                }
-            });
-            
-            if (isValid) {
-                alert('Thank you for your donation details! Our team will contact you soon for further processing.');
-                this.reset();
-            } else {
-                alert('Please fill all required fields correctly.');
-            }
-        });
     </script>
 </body>
 </html>

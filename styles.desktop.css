@@ -9,11 +9,6 @@
 .hero-slideshow { height: 72vh; }
 .slide-image { object-fit: cover; object-position: center; transform: scale(1.06); }
 
-/* Live Stream Desktop Styles */
-.live-stream-section {
-    padding: 100px 0;
-}
-
 .live-video-container {
     height: 600px !important; /* Override for desktop */
     max-width: 1200px !important;

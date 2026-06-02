@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="styles.mobile.css" media="(max-width: 768px)">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="preload" as="image" href="images/A1.webp">
 </head>
 <body>
     <!-- Header Section -->
@@ -103,6 +104,7 @@
                 <a href="#y2022" class="tab-link" data-instant="true">2022</a>
                 <a href="#y2023" class="tab-link" data-instant="true">2023</a>
                 <a href="#y2024" class="tab-link" data-instant="true">2024</a>
+                <a href="#y2025" class="tab-link" data-instant="true">2025</a>
                 <a href="#yold" class="tab-link" data-instant="true">Old Photos</a>
             </div>
             <div class="video-intro">
@@ -123,95 +125,109 @@
             <div class="year-heading" id="y2022">2022</div>
             <div class="gallery-grid">
                 <!-- 2022 set: A1-A24 (24 photos) -->
-                <div class="gallery-item" onclick="openImageModal('images/A1.webp','A1')"><img src="images/A1.webp" alt="A1" class="gallery-image"></div>
+                <div class="gallery-item" onclick="openImageModal('images/A1.webp','A1')"><img src="images/A1.webp" alt="A1" class="gallery-image" fetchpriority="high"></div>
                 <div class="gallery-item" onclick="openImageModal('images/A2.webp','A2')"><img src="images/A2.webp" alt="A2" class="gallery-image"></div>
                 <div class="gallery-item" onclick="openImageModal('images/A3.webp','A3')"><img src="images/A3.webp" alt="A3" class="gallery-image"></div>
-                <div class="gallery-item" onclick="openImageModal('images/A4.webp','A4')"><img src="images/A4.webp" alt="A4" class="gallery-image"></div>
-                <div class="gallery-item" onclick="openImageModal('images/A5.webp','A5')"><img src="images/A5.webp" alt="A5" class="gallery-image"></div>
-                <div class="gallery-item" onclick="openImageModal('images/A6.webp','A6')"><img src="images/A6.webp" alt="A6" class="gallery-image"></div>
-                <div class="gallery-item" onclick="openImageModal('images/A7.webp','A7')"><img src="images/A7.webp" alt="A7" class="gallery-image"></div>
-                <div class="gallery-item" onclick="openImageModal('images/A8.webp','A8')"><img src="images/A8.webp" alt="A8" class="gallery-image"></div>
-                <div class="gallery-item" onclick="openImageModal('images/A9.webp','A9')"><img src="images/A9.webp" alt="A9" class="gallery-image"></div>
-                <div class="gallery-item" onclick="openImageModal('images/A10.webp','A10')"><img src="images/A10.webp" alt="A10" class="gallery-image"></div>
-                <div class="gallery-item" onclick="openImageModal('images/A11.webp','A11')"><img src="images/A11.webp" alt="A11" class="gallery-image"></div>
-                <div class="gallery-item" onclick="openImageModal('images/A12.webp','A12')"><img src="images/A12.webp" alt="A12" class="gallery-image rotate90"></div>
-                <div class="gallery-item" onclick="openImageModal('images/A13.webp','A13')"><img src="images/A13.webp" alt="A13" class="gallery-image"></div>
-                <div class="gallery-item" onclick="openImageModal('images/A14.webp','A14')"><img src="images/A14.webp" alt="A14" class="gallery-image"></div>
-                <div class="gallery-item" onclick="openImageModal('images/A15.webp','A15')"><img src="images/A15.webp" alt="A15" class="gallery-image rotate90"></div>
-                <div class="gallery-item" onclick="openImageModal('images/A16.webp','A16')"><img src="images/A16.webp" alt="A16" class="gallery-image rotate90"></div>
-                <div class="gallery-item" onclick="openImageModal('images/A17.webp','A17')"><img src="images/A17.webp" alt="A17" class="gallery-image"></div>
-                <div class="gallery-item" onclick="openImageModal('images/A18.webp','A18')"><img src="images/A18.webp" alt="A18" class="gallery-image rotate90"></div>
-                <div class="gallery-item" onclick="openImageModal('images/A19.webp','A19')"><img src="images/A19.webp" alt="A19" class="gallery-image rotate90"></div>
-                <div class="gallery-item" onclick="openImageModal('images/A20.webp','A20')"><img src="images/A20.webp" alt="A20" class="gallery-image rotate90"></div>
-                <div class="gallery-item" onclick="openImageModal('images/A21.webp','A21')"><img src="images/A21.webp" alt="A21" class="gallery-image rotate90"></div>
-                <div class="gallery-item" onclick="openImageModal('images/A22.webp','A22')"><img src="images/A22.webp" alt="A22" class="gallery-image"></div>
-                <div class="gallery-item" onclick="openImageModal('images/A23.webp','A23')"><img src="images/A23.webp" alt="A23" class="gallery-image"></div>
-                <div class="gallery-item" onclick="openImageModal('images/A24.webp','A24')"><img src="images/A24.webp" alt="A24" class="gallery-image"></div>
+                <div class="gallery-item" onclick="openImageModal('images/A4.webp','A4')"><img src="images/A4.webp" alt="A4" class="gallery-image" loading="lazy" decoding="async"></div>
+                <div class="gallery-item" onclick="openImageModal('images/A5.webp','A5')"><img src="images/A5.webp" alt="A5" class="gallery-image" loading="lazy" decoding="async"></div>
+                <div class="gallery-item" onclick="openImageModal('images/A6.webp','A6')"><img src="images/A6.webp" alt="A6" class="gallery-image" loading="lazy" decoding="async"></div>
+                <div class="gallery-item" onclick="openImageModal('images/A7.webp','A7')"><img src="images/A7.webp" alt="A7" class="gallery-image" loading="lazy" decoding="async"></div>
+                <div class="gallery-item" onclick="openImageModal('images/A8.webp','A8')"><img src="images/A8.webp" alt="A8" class="gallery-image" loading="lazy" decoding="async"></div>
+                <div class="gallery-item" onclick="openImageModal('images/A9.webp','A9')"><img src="images/A9.webp" alt="A9" class="gallery-image" loading="lazy" decoding="async"></div>
+                <div class="gallery-item" onclick="openImageModal('images/A10.webp','A10')"><img src="images/A10.webp" alt="A10" class="gallery-image" loading="lazy" decoding="async"></div>
+                <div class="gallery-item" onclick="openImageModal('images/A11.webp','A11')"><img src="images/A11.webp" alt="A11" class="gallery-image" loading="lazy" decoding="async"></div>
+                <div class="gallery-item" onclick="openImageModal('images/A12.webp','A12')"><img src="images/A12.webp" alt="A12" class="gallery-image rotate90" loading="lazy" decoding="async"></div>
+                <div class="gallery-item" onclick="openImageModal('images/A13.webp','A13')"><img src="images/A13.webp" alt="A13" class="gallery-image" loading="lazy" decoding="async"></div>
+                <div class="gallery-item" onclick="openImageModal('images/A14.webp','A14')"><img src="images/A14.webp" alt="A14" class="gallery-image" loading="lazy" decoding="async"></div>
+                <div class="gallery-item" onclick="openImageModal('images/A15.webp','A15')"><img src="images/A15.webp" alt="A15" class="gallery-image rotate90" loading="lazy" decoding="async"></div>
+                <div class="gallery-item" onclick="openImageModal('images/A16.webp','A16')"><img src="images/A16.webp" alt="A16" class="gallery-image rotate90" loading="lazy" decoding="async"></div>
+                <div class="gallery-item" onclick="openImageModal('images/A17.webp','A17')"><img src="images/A17.webp" alt="A17" class="gallery-image" loading="lazy" decoding="async"></div>
+                <div class="gallery-item" onclick="openImageModal('images/A18.webp','A18')"><img src="images/A18.webp" alt="A18" class="gallery-image rotate90" loading="lazy" decoding="async"></div>
+                <div class="gallery-item" onclick="openImageModal('images/A19.webp','A19')"><img src="images/A19.webp" alt="A19" class="gallery-image rotate90" loading="lazy" decoding="async"></div>
+                <div class="gallery-item" onclick="openImageModal('images/A20.webp','A20')"><img src="images/A20.webp" alt="A20" class="gallery-image rotate90" loading="lazy" decoding="async"></div>
+                <div class="gallery-item" onclick="openImageModal('images/A21.webp','A21')"><img src="images/A21.webp" alt="A21" class="gallery-image rotate90" loading="lazy" decoding="async"></div>
+                <div class="gallery-item" onclick="openImageModal('images/A22.webp','A22')"><img src="images/A22.webp" alt="A22" class="gallery-image" loading="lazy" decoding="async"></div>
+                <div class="gallery-item" onclick="openImageModal('images/A23.webp','A23')"><img src="images/A23.webp" alt="A23" class="gallery-image" loading="lazy" decoding="async"></div>
+                <div class="gallery-item" onclick="openImageModal('images/A24.webp','A24')"><img src="images/A24.webp" alt="A24" class="gallery-image" loading="lazy" decoding="async"></div>
                 </div>
                 
             <div class="year-heading" id="y2023">2023</div>
             <div class="gallery-grid">
                 <!-- 2023 set: 231-239 -->
-                <div class="gallery-item" onclick="openImageModal('images/231.webp','231')"><img src="images/231.webp" alt="231" class="gallery-image"></div>
-                <div class="gallery-item" onclick="openImageModal('images/232.webp','232')"><img src="images/232.webp" alt="232" class="gallery-image"></div>
-                <div class="gallery-item" onclick="openImageModal('images/233.webp','233')"><img src="images/233.webp" alt="233" class="gallery-image"></div>
-                <div class="gallery-item" onclick="openImageModal('images/234.webp','234')"><img src="images/234.webp" alt="234" class="gallery-image"></div>
-                <div class="gallery-item" onclick="openImageModal('images/235.webp','235')"><img src="images/235.webp" alt="235" class="gallery-image"></div>
-                <div class="gallery-item" onclick="openImageModal('images/236.webp','236')"><img src="images/236.webp" alt="236" class="gallery-image"></div>
-                <div class="gallery-item" onclick="openImageModal('images/237.webp','237')"><img src="images/237.webp" alt="237" class="gallery-image"></div>
-                <div class="gallery-item" onclick="openImageModal('images/238.webp','238')"><img src="images/238.webp" alt="238" class="gallery-image"></div>
-                <div class="gallery-item" onclick="openImageModal('images/239.webp','239')"><img src="images/239.webp" alt="239" class="gallery-image"></div>
+                <div class="gallery-item" onclick="openImageModal('images/231.webp','231')"><img src="images/231.webp" alt="231" class="gallery-image" loading="lazy" decoding="async"></div>
+                <div class="gallery-item" onclick="openImageModal('images/232.webp','232')"><img src="images/232.webp" alt="232" class="gallery-image" loading="lazy" decoding="async"></div>
+                <div class="gallery-item" onclick="openImageModal('images/233.webp','233')"><img src="images/233.webp" alt="233" class="gallery-image" loading="lazy" decoding="async"></div>
+                <div class="gallery-item" onclick="openImageModal('images/234.webp','234')"><img src="images/234.webp" alt="234" class="gallery-image" loading="lazy" decoding="async"></div>
+                <div class="gallery-item" onclick="openImageModal('images/235.webp','235')"><img src="images/235.webp" alt="235" class="gallery-image" loading="lazy" decoding="async"></div>
+                <div class="gallery-item" onclick="openImageModal('images/236.webp','236')"><img src="images/236.webp" alt="236" class="gallery-image" loading="lazy" decoding="async"></div>
+                <div class="gallery-item" onclick="openImageModal('images/237.webp','237')"><img src="images/237.webp" alt="237" class="gallery-image" loading="lazy" decoding="async"></div>
+                <div class="gallery-item" onclick="openImageModal('images/238.webp','238')"><img src="images/238.webp" alt="238" class="gallery-image" loading="lazy" decoding="async"></div>
+                <div class="gallery-item" onclick="openImageModal('images/239.webp','239')"><img src="images/239.webp" alt="239" class="gallery-image" loading="lazy" decoding="async"></div>
                 </div>
 
                 <div class="year-heading" id="y2024">2024</div>
                 <div class="gallery-grid">
                     <!-- 2024 set: 241-249 -->
-                    <div class="gallery-item" onclick="openImageModal('images/241.webp','241')"><img src="images/241.webp" alt="241" class="gallery-image"></div>
-                    <div class="gallery-item" onclick="openImageModal('images/242.webp','242')"><img src="images/242.webp" alt="242" class="gallery-image"></div>
-                    <div class="gallery-item" onclick="openImageModal('images/243.webp','243')"><img src="images/243.webp" alt="243" class="gallery-image"></div>
-                    <div class="gallery-item" onclick="openImageModal('images/244.webp','244')"><img src="images/244.webp" alt="244" class="gallery-image"></div>
-                    <div class="gallery-item" onclick="openImageModal('images/245.webp','245')"><img src="images/245.webp" alt="245" class="gallery-image"></div>
-                    <div class="gallery-item" onclick="openImageModal('images/246.webp','246')"><img src="images/246.webp" alt="246" class="gallery-image"></div>
-                    <div class="gallery-item" onclick="openImageModal('images/247.webp','247')"><img src="images/247.webp" alt="247" class="gallery-image"></div>
-                    <div class="gallery-item" onclick="openImageModal('images/248.webp','248')"><img src="images/248.webp" alt="248" class="gallery-image"></div>
-                    <div class="gallery-item" onclick="openImageModal('images/249.webp','249')"><img src="images/249.webp" alt="249" class="gallery-image"></div>
+                    <div class="gallery-item" onclick="openImageModal('images/241.webp','241')"><img src="images/241.webp" alt="241" class="gallery-image" loading="lazy" decoding="async"></div>
+                    <div class="gallery-item" onclick="openImageModal('images/242.webp','242')"><img src="images/242.webp" alt="242" class="gallery-image" loading="lazy" decoding="async"></div>
+                    <div class="gallery-item" onclick="openImageModal('images/243.webp','243')"><img src="images/243.webp" alt="243" class="gallery-image" loading="lazy" decoding="async"></div>
+                    <div class="gallery-item" onclick="openImageModal('images/244.webp','244')"><img src="images/244.webp" alt="244" class="gallery-image" loading="lazy" decoding="async"></div>
+                    <div class="gallery-item" onclick="openImageModal('images/245.webp','245')"><img src="images/245.webp" alt="245" class="gallery-image" loading="lazy" decoding="async"></div>
+                    <div class="gallery-item" onclick="openImageModal('images/246.webp','246')"><img src="images/246.webp" alt="246" class="gallery-image" loading="lazy" decoding="async"></div>
+                    <div class="gallery-item" onclick="openImageModal('images/247.webp','247')"><img src="images/247.webp" alt="247" class="gallery-image" loading="lazy" decoding="async"></div>
+                    <div class="gallery-item" onclick="openImageModal('images/248.webp','248')"><img src="images/248.webp" alt="248" class="gallery-image" loading="lazy" decoding="async"></div>
+                    <div class="gallery-item" onclick="openImageModal('images/249.webp','249')"><img src="images/249.webp" alt="249" class="gallery-image" loading="lazy" decoding="async"></div>
                     </div>
-                
+
+            <div class="year-heading" id="y2025">2025</div>
+            <div class="gallery-grid">
+                <!-- 2025 set: 251-259 -->
+                <div class="gallery-item" onclick="openImageModal('images/251.webp','251')"><img src="images/251.webp" alt="251" class="gallery-image" loading="lazy" decoding="async"></div>
+                <div class="gallery-item" onclick="openImageModal('images/252.webp','252')"><img src="images/252.webp" alt="252" class="gallery-image" loading="lazy" decoding="async"></div>
+                <div class="gallery-item" onclick="openImageModal('images/253.webp','253')"><img src="images/253.webp" alt="253" class="gallery-image" loading="lazy" decoding="async"></div>
+                <div class="gallery-item" onclick="openImageModal('images/254.webp','254')"><img src="images/254.webp" alt="254" class="gallery-image" loading="lazy" decoding="async"></div>
+                <div class="gallery-item" onclick="openImageModal('images/255.webp','255')"><img src="images/255.webp" alt="255" class="gallery-image" loading="lazy" decoding="async"></div>
+                <div class="gallery-item" onclick="openImageModal('images/256.webp','256')"><img src="images/256.webp" alt="256" class="gallery-image" loading="lazy" decoding="async"></div>
+                <div class="gallery-item" onclick="openImageModal('images/257.webp','257')"><img src="images/257.webp" alt="257" class="gallery-image" loading="lazy" decoding="async"></div>
+                <div class="gallery-item" onclick="openImageModal('images/258.webp','258')"><img src="images/258.webp" alt="258" class="gallery-image" loading="lazy" decoding="async"></div>
+                <div class="gallery-item" onclick="openImageModal('images/259.webp','259')"><img src="images/259.webp" alt="259" class="gallery-image" loading="lazy" decoding="async"></div>
+            </div>
+
             <div class="year-heading" id="yold">Old Photos</div>
             <div class="gallery-grid">
                 <!-- Old set: SO1 - SO32 -->
-                <div class="gallery-item" onclick="openImageModal('images/SO1.webp','SO1')"><img src="images/SO1.webp" alt="SO1" class="gallery-image"></div>
-                <div class="gallery-item" onclick="openImageModal('images/S011.webp','S011')"><img src="images/S011.webp" alt="S011" class="gallery-image"></div>
-                <div class="gallery-item" onclick="openImageModal('images/SO2.webp','SO2')"><img src="images/SO2.webp" alt="SO2" class="gallery-image"></div>
-                <div class="gallery-item" onclick="openImageModal('images/SO3.webp','SO3')"><img src="images/SO3.webp" alt="SO3" class="gallery-image"></div>
-                <div class="gallery-item" onclick="openImageModal('images/SO4.webp','SO4')"><img src="images/SO4.webp" alt="SO4" class="gallery-image"></div>
-                <div class="gallery-item" onclick="openImageModal('images/SO5.webp','SO5')"><img src="images/SO5.webp" alt="SO5" class="gallery-image"></div>
-                <div class="gallery-item" onclick="openImageModal('images/SO6.webp','SO6')"><img src="images/SO6.webp" alt="SO6" class="gallery-image"></div>
-                <div class="gallery-item" onclick="openImageModal('images/SO7.webp','SO7')"><img src="images/SO7.webp" alt="SO7" class="gallery-image"></div>
-                <div class="gallery-item" onclick="openImageModal('images/SO8.webp','SO8')"><img src="images/SO8.webp" alt="SO8" class="gallery-image"></div>
-                <div class="gallery-item" onclick="openImageModal('images/SO9.webp','SO9')"><img src="images/SO9.webp" alt="SO9" class="gallery-image"></div>
-                <div class="gallery-item" onclick="openImageModal('images/SO10.webp','SO10')"><img src="images/SO10.webp" alt="SO10" class="gallery-image"></div>
-                <div class="gallery-item" onclick="openImageModal('images/SO12.webp','SO12')"><img src="images/SO12.webp" alt="SO12" class="gallery-image"></div>
-                <div class="gallery-item" onclick="openImageModal('images/SO13.webp','SO13')"><img src="images/SO13.webp" alt="SO13" class="gallery-image"></div>
-                <div class="gallery-item" onclick="openImageModal('images/SO14.webp','SO14')"><img src="images/SO14.webp" alt="SO14" class="gallery-image"></div>
-                <div class="gallery-item" onclick="openImageModal('images/SO15.webp','SO15')"><img src="images/SO15.webp" alt="SO15" class="gallery-image"></div>
-                <div class="gallery-item" onclick="openImageModal('images/SO16.webp','SO16')"><img src="images/SO16.webp" alt="SO16" class="gallery-image"></div>
-                <div class="gallery-item" onclick="openImageModal('images/SO17.webp','SO17')"><img src="images/SO17.webp" alt="SO17" class="gallery-image"></div>
-                <div class="gallery-item" onclick="openImageModal('images/SO18.webp','SO18')"><img src="images/SO18.webp" alt="SO18" class="gallery-image"></div>
-                <div class="gallery-item" onclick="openImageModal('images/SO19.webp','SO19')"><img src="images/SO19.webp" alt="SO19" class="gallery-image"></div>
-                <div class="gallery-item" onclick="openImageModal('images/SO20.webp','SO20')"><img src="images/SO20.webp" alt="SO20" class="gallery-image"></div>
-                <div class="gallery-item" onclick="openImageModal('images/SO21.webp','SO21')"><img src="images/SO21.webp" alt="SO21" class="gallery-image"></div>
-                <div class="gallery-item" onclick="openImageModal('images/SO22.webp','SO22')"><img src="images/SO22.webp" alt="SO22" class="gallery-image"></div>
-                <div class="gallery-item" onclick="openImageModal('images/SO23.webp','SO23')"><img src="images/SO23.webp" alt="SO23" class="gallery-image"></div>
-                <div class="gallery-item" onclick="openImageModal('images/SO24.webp','SO24')"><img src="images/SO24.webp" alt="SO24" class="gallery-image"></div>
-                <div class="gallery-item" onclick="openImageModal('images/SO25.webp','SO25')"><img src="images/SO25.webp" alt="SO25" class="gallery-image"></div>
-                <div class="gallery-item" onclick="openImageModal('images/SO26.webp','SO26')"><img src="images/SO26.webp" alt="SO26" class="gallery-image"></div>
-                <div class="gallery-item" onclick="openImageModal('images/SO27.webp','SO27')"><img src="images/SO27.webp" alt="SO27" class="gallery-image"></div>
-                <div class="gallery-item" onclick="openImageModal('images/SO28.webp','SO28')"><img src="images/SO28.webp" alt="SO28" class="gallery-image"></div>
-                <div class="gallery-item" onclick="openImageModal('images/SO29.webp','SO29')"><img src="images/SO29.webp" alt="SO29" class="gallery-image"></div>
-                <div class="gallery-item" onclick="openImageModal('images/SO30.webp','SO30')"><img src="images/SO30.webp" alt="SO30" class="gallery-image"></div>
-                <div class="gallery-item" onclick="openImageModal('images/SO31.webp','SO31')"><img src="images/SO31.webp" alt="SO31" class="gallery-image"></div>
-                <div class="gallery-item" onclick="openImageModal('images/SO32.webp','SO32')"><img src="images/SO32.webp" alt="SO32" class="gallery-image"></div>
+                <div class="gallery-item" onclick="openImageModal('images/SO1.webp','SO1')"><img src="images/SO1.webp" alt="SO1" class="gallery-image" loading="lazy" decoding="async"></div>
+                <div class="gallery-item" onclick="openImageModal('images/SO11.webp','SO11')"><img src="images/SO11.webp" alt="SO11" class="gallery-image" loading="lazy" decoding="async"></div>
+                <div class="gallery-item" onclick="openImageModal('images/SO2.webp','SO2')"><img src="images/SO2.webp" alt="SO2" class="gallery-image" loading="lazy" decoding="async"></div>
+                <div class="gallery-item" onclick="openImageModal('images/SO3.webp','SO3')"><img src="images/SO3.webp" alt="SO3" class="gallery-image" loading="lazy" decoding="async"></div>
+                <div class="gallery-item" onclick="openImageModal('images/SO4.webp','SO4')"><img src="images/SO4.webp" alt="SO4" class="gallery-image" loading="lazy" decoding="async"></div>
+                <div class="gallery-item" onclick="openImageModal('images/SO5.webp','SO5')"><img src="images/SO5.webp" alt="SO5" class="gallery-image" loading="lazy" decoding="async"></div>
+                <div class="gallery-item" onclick="openImageModal('images/SO6.webp','SO6')"><img src="images/SO6.webp" alt="SO6" class="gallery-image" loading="lazy" decoding="async"></div>
+                <div class="gallery-item" onclick="openImageModal('images/SO7.webp','SO7')"><img src="images/SO7.webp" alt="SO7" class="gallery-image" loading="lazy" decoding="async"></div>
+                <div class="gallery-item" onclick="openImageModal('images/SO8.webp','SO8')"><img src="images/SO8.webp" alt="SO8" class="gallery-image" loading="lazy" decoding="async"></div>
+                <div class="gallery-item" onclick="openImageModal('images/SO9.webp','SO9')"><img src="images/SO9.webp" alt="SO9" class="gallery-image" loading="lazy" decoding="async"></div>
+                <div class="gallery-item" onclick="openImageModal('images/SO10.webp','SO10')"><img src="images/SO10.webp" alt="SO10" class="gallery-image" loading="lazy" decoding="async"></div>
+                <div class="gallery-item" onclick="openImageModal('images/SO12.webp','SO12')"><img src="images/SO12.webp" alt="SO12" class="gallery-image" loading="lazy" decoding="async"></div>
+                <div class="gallery-item" onclick="openImageModal('images/SO13.webp','SO13')"><img src="images/SO13.webp" alt="SO13" class="gallery-image" loading="lazy" decoding="async"></div>
+                <div class="gallery-item" onclick="openImageModal('images/SO14.webp','SO14')"><img src="images/SO14.webp" alt="SO14" class="gallery-image" loading="lazy" decoding="async"></div>
+                <div class="gallery-item" onclick="openImageModal('images/SO15.webp','SO15')"><img src="images/SO15.webp" alt="SO15" class="gallery-image" loading="lazy" decoding="async"></div>
+                <div class="gallery-item" onclick="openImageModal('images/SO16.webp','SO16')"><img src="images/SO16.webp" alt="SO16" class="gallery-image" loading="lazy" decoding="async"></div>
+                <div class="gallery-item" onclick="openImageModal('images/SO17.webp','SO17')"><img src="images/SO17.webp" alt="SO17" class="gallery-image" loading="lazy" decoding="async"></div>
+                <div class="gallery-item" onclick="openImageModal('images/SO18.webp','SO18')"><img src="images/SO18.webp" alt="SO18" class="gallery-image" loading="lazy" decoding="async"></div>
+                <div class="gallery-item" onclick="openImageModal('images/SO19.webp','SO19')"><img src="images/SO19.webp" alt="SO19" class="gallery-image" loading="lazy" decoding="async"></div>
+                <div class="gallery-item" onclick="openImageModal('images/SO20.webp','SO20')"><img src="images/SO20.webp" alt="SO20" class="gallery-image" loading="lazy" decoding="async"></div>
+                <div class="gallery-item" onclick="openImageModal('images/SO21.webp','SO21')"><img src="images/SO21.webp" alt="SO21" class="gallery-image" loading="lazy" decoding="async"></div>
+                <div class="gallery-item" onclick="openImageModal('images/SO22.webp','SO22')"><img src="images/SO22.webp" alt="SO22" class="gallery-image" loading="lazy" decoding="async"></div>
+                <div class="gallery-item" onclick="openImageModal('images/SO23.webp','SO23')"><img src="images/SO23.webp" alt="SO23" class="gallery-image" loading="lazy" decoding="async"></div>
+                <div class="gallery-item" onclick="openImageModal('images/SO24.webp','SO24')"><img src="images/SO24.webp" alt="SO24" class="gallery-image" loading="lazy" decoding="async"></div>
+                <div class="gallery-item" onclick="openImageModal('images/SO25.webp','SO25')"><img src="images/SO25.webp" alt="SO25" class="gallery-image" loading="lazy" decoding="async"></div>
+                <div class="gallery-item" onclick="openImageModal('images/SO26.webp','SO26')"><img src="images/SO26.webp" alt="SO26" class="gallery-image" loading="lazy" decoding="async"></div>
+                <div class="gallery-item" onclick="openImageModal('images/SO27.webp','SO27')"><img src="images/SO27.webp" alt="SO27" class="gallery-image" loading="lazy" decoding="async"></div>
+                <div class="gallery-item" onclick="openImageModal('images/SO28.webp','SO28')"><img src="images/SO28.webp" alt="SO28" class="gallery-image" loading="lazy" decoding="async"></div>
+                <div class="gallery-item" onclick="openImageModal('images/SO29.webp','SO29')"><img src="images/SO29.webp" alt="SO29" class="gallery-image" loading="lazy" decoding="async"></div>
+                <div class="gallery-item" onclick="openImageModal('images/SO30.webp','SO30')"><img src="images/SO30.webp" alt="SO30" class="gallery-image" loading="lazy" decoding="async"></div>
+                <div class="gallery-item" onclick="openImageModal('images/SO31.webp','SO31')"><img src="images/SO31.webp" alt="SO31" class="gallery-image" loading="lazy" decoding="async"></div>
+                <div class="gallery-item" onclick="openImageModal('images/SO32.webp','SO32')"><img src="images/SO32.webp" alt="SO32" class="gallery-image" loading="lazy" decoding="async"></div>
             </div>
         </div>
     </section>
@@ -284,16 +300,6 @@
             <span class="close" onclick="closeVideoModal()">&times;</span>
             <div class="modal-image-container">
                 <video id="modalVideo" src="" controls playsinline style="width:100%; height:100%; object-fit:contain; border-radius: 15px;"></video>
-            </div>
-        </div>
-    </div>
-
-    <!-- Logo Modal -->
-    <div id="logoModal" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeLogoModal()">&times;</span>
-            <div class="modal-image-container">
-                <img src="images/L1.webp" alt="Temple Deity - Enlarged View" class="modal-image">
             </div>
         </div>
     </div>

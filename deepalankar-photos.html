@@ -72,21 +72,21 @@
             </div>
             <div class="gallery-grid">
                 <!-- Deepalankara set: D1 - D15 -->
-                <div class="gallery-item" onclick="openImageModal('images/D1.webp','D1')"><img src="images/D1.webp" alt="D1" class="gallery-image" /></div>
+                <div class="gallery-item" onclick="openImageModal('images/D1.webp','D1')"><img src="images/D1.webp" alt="D1" class="gallery-image" fetchpriority="high" /></div>
                 <div class="gallery-item" onclick="openImageModal('images/D2.webp','D2')"><img src="images/D2.webp" alt="D2" class="gallery-image" /></div>
                 <div class="gallery-item" onclick="openImageModal('images/D3.webp','D3')"><img src="images/D3.webp" alt="D3" class="gallery-image" /></div>
-                <div class="gallery-item" onclick="openImageModal('images/D4.webp','D4')"><img src="images/D4.webp" alt="D4" class="gallery-image" /></div>
-                <div class="gallery-item" onclick="openImageModal('images/D5.webp','D5')"><img src="images/D5.webp" alt="D5" class="gallery-image" /></div>
-                <div class="gallery-item" onclick="openImageModal('images/D6.webp','D6')"><img src="images/D6.webp" alt="D6" class="gallery-image" /></div>
-                <div class="gallery-item" onclick="openImageModal('images/D7.webp','D7')"><img src="images/D7.webp" alt="D7" class="gallery-image" /></div>
-                <div class="gallery-item" onclick="openImageModal('images/D8.webp','D8')"><img src="images/D8.webp" alt="D8" class="gallery-image" /></div>
-                <div class="gallery-item" onclick="openImageModal('images/D9.webp','D9')"><img src="images/D9.webp" alt="D9" class="gallery-image" /></div>
-                <div class="gallery-item" onclick="openImageModal('images/D10.webp','D10')"><img src="images/D10.webp" alt="D10" class="gallery-image" /></div>
-                <div class="gallery-item" onclick="openImageModal('images/D11.webp','D11')"><img src="images/D11.webp" alt="D11" class="gallery-image" /></div>
-                <div class="gallery-item" onclick="openImageModal('images/D12.webp','D12')"><img src="images/D12.webp" alt="D12" class="gallery-image" /></div>
-                <div class="gallery-item" onclick="openImageModal('images/D13.webp','D13')"><img src="images/D13.webp" alt="D13" class="gallery-image" /></div>
-                <div class="gallery-item" onclick="openImageModal('images/D14.webp','D14')"><img src="images/D14.webp" alt="D14" class="gallery-image" /></div>
-                <div class="gallery-item" onclick="openImageModal('images/D15.webp','D15')"><img src="images/D15.webp" alt="D15" class="gallery-image" /></div>
+                <div class="gallery-item" onclick="openImageModal('images/D4.webp','D4')"><img src="images/D4.webp" alt="D4" class="gallery-image" loading="lazy" decoding="async" /></div>
+                <div class="gallery-item" onclick="openImageModal('images/D5.webp','D5')"><img src="images/D5.webp" alt="D5" class="gallery-image" loading="lazy" decoding="async" /></div>
+                <div class="gallery-item" onclick="openImageModal('images/D6.webp','D6')"><img src="images/D6.webp" alt="D6" class="gallery-image" loading="lazy" decoding="async" /></div>
+                <div class="gallery-item" onclick="openImageModal('images/D7.webp','D7')"><img src="images/D7.webp" alt="D7" class="gallery-image" loading="lazy" decoding="async" /></div>
+                <div class="gallery-item" onclick="openImageModal('images/D8.webp','D8')"><img src="images/D8.webp" alt="D8" class="gallery-image" loading="lazy" decoding="async" /></div>
+                <div class="gallery-item" onclick="openImageModal('images/D9.webp','D9')"><img src="images/D9.webp" alt="D9" class="gallery-image" loading="lazy" decoding="async" /></div>
+                <div class="gallery-item" onclick="openImageModal('images/D10.webp','D10')"><img src="images/D10.webp" alt="D10" class="gallery-image" loading="lazy" decoding="async" /></div>
+                <div class="gallery-item" onclick="openImageModal('images/D11.webp','D11')"><img src="images/D11.webp" alt="D11" class="gallery-image" loading="lazy" decoding="async" /></div>
+                <div class="gallery-item" onclick="openImageModal('images/D12.webp','D12')"><img src="images/D12.webp" alt="D12" class="gallery-image" loading="lazy" decoding="async" /></div>
+                <div class="gallery-item" onclick="openImageModal('images/D13.webp','D13')"><img src="images/D13.webp" alt="D13" class="gallery-image" loading="lazy" decoding="async" /></div>
+                <div class="gallery-item" onclick="openImageModal('images/D14.webp','D14')"><img src="images/D14.webp" alt="D14" class="gallery-image" loading="lazy" decoding="async" /></div>
+                <div class="gallery-item" onclick="openImageModal('images/D15.webp','D15')"><img src="images/D15.webp" alt="D15" class="gallery-image" loading="lazy" decoding="async" /></div>
             </div>
         </div>
     </section>
@@ -151,16 +151,6 @@
                 <video id="modalVideo" src="" controls playsinline style="width:100%; height:100%; object-fit:contain; border-radius: 15px;"></video>
             </div>
             <button class="modal-nav next" onclick="nextGalleryImage()" aria-label="Next media">›</button>
-        </div>
-    </div>
-
-    <!-- Logo Modal -->
-    <div id="logoModal" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeLogoModal()">&times;</span>
-            <div class="modal-image-container">
-                <img src="images/L1.webp" alt="Temple Deity - Enlarged View" class="modal-image">
-            </div>
         </div>
     </div>
 

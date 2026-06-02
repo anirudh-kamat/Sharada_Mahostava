@@ -8,7 +8,6 @@ let hoverPauseArmed = false; // avoid pausing on initial page load when cursor i
 
 // Initialize slideshow when page loads
 document.addEventListener('DOMContentLoaded', function() {
-    // console.log('Initializing slideshow with logo modal and gallery...');
     // If this page was reloaded and it's not the homepage, redirect to homepage
     try {
         const navEntry = (performance && performance.getEntriesByType) ? performance.getEntriesByType('navigation')[0] : null;
@@ -22,7 +21,6 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Get slides after DOM is loaded
     slides = document.querySelectorAll('.slide');
-    // console.log('Found slides:', slides.length);
     
     // Initialize first slide
     showSlide(0);
@@ -32,9 +30,6 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Setup navigation
     setupNavigation();
-    
-    // Setup live button
-    setupLiveButton();
     
     // Setup hover events
     setupHoverEvents();
@@ -48,17 +43,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     } catch (_) {}
 
-    try {
-        // Keyboard navigation for gallery modal
-        document.addEventListener('keydown', (e) => {
-            const imageModal = document.getElementById('imageModal');
-            if (!imageModal || imageModal.style.display !== 'block') return;
-            if (e.key === 'ArrowRight') nextGalleryImage();
-            if (e.key === 'ArrowLeft')  prevGalleryImage();
-            if (e.key === 'Escape')     closeImageModal();
-        });
-    } catch (_) {}
-    
     // Setup keyboard navigation
     setupKeyboardNavigation();
     
@@ -71,9 +55,6 @@ document.addEventListener('DOMContentLoaded', function() {
     // Setup modal functionality
     setupModalEvents();
     
-    // Setup gallery functionality
-    setupGalleryEvents();
-
     // Apply lazy loading to gallery images to speed up first paint
     applyLazyLoadingToGallery();
 
@@ -100,19 +81,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Skip loading YouTube API since we're using a local video for the featured slot
 });
-
-// Logo Modal Functions
-function openLogoModal() {
-    const modal = document.getElementById('logoModal');
-    modal.style.display = 'block';
-    document.body.style.overflow = 'hidden'; // Prevent background scrolling
-}
-
-function closeLogoModal() {
-    const modal = document.getElementById('logoModal');
-    modal.style.display = 'none';
-    document.body.style.overflow = 'auto'; // Restore scrolling
-}
 
 // Gallery Image Modal with carousel support
 let galleryMediaSources = [];
@@ -146,10 +114,6 @@ function openImageModal(imageSrc, imageTitle) {
     if (idx >= 0) galleryCurrentIndex = idx;
 
     openMediaByIndex(galleryCurrentIndex, imageTitle);
-}
-
-function showGalleryImageByIndex(index) {
-    openMediaByIndex(index);
 }
 
 function openMediaByIndex(index, title) {
@@ -209,11 +173,11 @@ function openMediaByIndex(index, title) {
 }
 
 function nextGalleryImage() {
-    showGalleryImageByIndex(galleryCurrentIndex + 1);
+    openMediaByIndex(galleryCurrentIndex + 1);
 }
 
 function prevGalleryImage() {
-    showGalleryImageByIndex(galleryCurrentIndex - 1);
+    openMediaByIndex(galleryCurrentIndex - 1);
 }
 
 function closeImageModal() {
@@ -224,20 +188,9 @@ function closeImageModal() {
 
 // Setup modal event listeners
 function setupModalEvents() {
-    const logoModal = document.getElementById('logoModal');
     const imageModal = document.getElementById('imageModal');
     const videoModal = document.getElementById('videoModal');
-    const modalVideo = document.getElementById('modalVideo');
-    
-    // Close logo modal when clicking outside
-    if (logoModal) {
-        logoModal.addEventListener('click', function(e) {
-            if (e.target === logoModal) {
-                closeLogoModal();
-            }
-        });
-    }
-    
+
     // Close image modal when clicking outside
     if (imageModal) {
         imageModal.addEventListener('click', function(e) {
@@ -254,25 +207,11 @@ function setupModalEvents() {
             }
         });
     }
-    
-    // Close modals with Escape key
-    document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape') {
-            closeLogoModal();
-            closeImageModal();
-            closeVideoModal();
-        } else if (e.key === 'ArrowRight') {
-            nextGalleryImage();
-        } else if (e.key === 'ArrowLeft') {
-            prevGalleryImage();
-        }
-    });
+
 }
 
 // Video modal helpers
 function openVideoModal(videoSrc) {
-    const modal = document.getElementById('videoModal');
-    const video = document.getElementById('modalVideo');
     if (!galleryMediaSources || galleryMediaSources.length === 0) {
         cacheGalleryImages();
     }
@@ -290,12 +229,6 @@ function closeVideoModal() {
         video.currentTime = 0;
     }
     document.body.style.overflow = 'auto';
-}
-
-// Setup gallery events
-function setupGalleryEvents() {
-    // Gallery items are handled by onclick attributes in HTML
-    // console.log('Gallery events setup complete');
 }
 
 // Add native lazy-loading and async decoding to all gallery images
@@ -330,101 +263,6 @@ function initializeYouTubeEmbeds() {
             if (iframe.getAttribute('src') !== src) iframe.setAttribute('src', src);
         });
     } catch (_) { /* no-op */ }
-}
-
-// ---- YouTube Iframe API integration with graceful fallback ----
-let ytApiLoaded = false;
-let ytInitTried = false;
-const ytPlayers = new Map(); // iframeEl -> { player, attempts }
-
-function loadYouTubeIframeApi() {
-    if (ytInitTried) return; ytInitTried = true;
-    const script = document.createElement('script');
-    script.src = 'https://www.youtube.com/iframe_api';
-    script.async = true;
-    script.onload = function() { /* onYouTubeIframeAPIReady will be called */ };
-    document.head.appendChild(script);
-}
-
-// Called by YouTube API
-window.onYouTubeIframeAPIReady = function() {
-    ytApiLoaded = true;
-    try { setupYouTubePlayers(); } catch (_) {}
-};
-
-function setupYouTubePlayers() {
-    const origin = window.location.origin;
-    document.querySelectorAll('.yt-embed').forEach(iframe => {
-        const videoId = iframe.getAttribute('data-video-id');
-        if (!videoId) return;
-        // Avoid duplicate player creation
-        if (ytPlayers.has(iframe)) return;
-        const state = { attempts: 0, player: null };
-        ytPlayers.set(iframe, state);
-        createPlayerWithHost(iframe, videoId, 'https://www.youtube.com', origin);
-    });
-}
-
-function createPlayerWithHost(iframe, videoId, host, origin) {
-    const state = ytPlayers.get(iframe) || { attempts: 0 };
-    state.attempts += 1;
-    try {
-        const player = new YT.Player(iframe, {
-            videoId: videoId,
-            host: host,
-            playerVars: {
-                rel: 0,
-                modestbranding: 1,
-                playsinline: 1,
-                origin: origin
-            },
-            events: {
-                onError: function(e) {
-                    handleYouTubeError(iframe, videoId, origin, e && e.data);
-                }
-            }
-        });
-        state.player = player;
-        ytPlayers.set(iframe, state);
-    } catch (err) {
-        // If player init fails, fallback immediately
-        showYouTubeFallbackLink(iframe);
-    }
-}
-
-function handleYouTubeError(iframe, videoId, origin, code) {
-    // YouTube error codes of interest: 2, 5, 101, 150, 153
-    // Try alternate host once, then fallback to link
-    const state = ytPlayers.get(iframe) || { attempts: 0 };
-    if (state.attempts === 1) {
-        // Try nocookie domain
-        try { createPlayerWithHost(iframe, videoId, 'https://www.youtube-nocookie.com', origin); return; } catch(_) {}
-    }
-    showYouTubeFallbackLink(iframe);
-}
-
-function showYouTubeFallbackLink(iframe) {
-    try {
-        iframe.style.display = 'none';
-        const container = iframe.parentElement;
-        if (!container) return;
-        // Prefer local MP4 fallback if present
-        const local = container.querySelector('.yt-local-fallback');
-        if (local) {
-            local.style.display = 'block';
-            // Also hide the external link button to avoid duplicate controls
-            const link = container.querySelector('a[href*="youtu"]');
-            if (link) link.style.display = 'none';
-            return;
-        }
-        const link = container.querySelector('a[href*="youtu"]');
-        if (link) {
-            link.style.display = 'inline-flex';
-            link.style.padding = '10px 12px';
-            link.style.background = 'rgba(0,0,0,.65)';
-            link.style.borderRadius = '10px';
-        }
-    } catch (_) {}
 }
 
 // Setup dropdown menu functionality
@@ -468,7 +306,6 @@ function setupDropdownMenu() {
                 // Add active class to clicked dropdown link
                 this.classList.add('active');
                 
-                // console.log('Dropdown link clicked:', this.textContent);
             });
         });
     });
@@ -513,7 +350,6 @@ function showSlide(index) {
 // Start automatic slideshow (changes every 4 seconds)
 function startSlideshow() {
     stopSlideshow();
-    // console.log('Starting slideshow...');
     slideInterval = setInterval(() => {
         if (!isTransitioning && slides && slides.length > 0) {
             nextSlide();
@@ -526,7 +362,6 @@ function stopSlideshow() {
     if (slideInterval) {
         clearInterval(slideInterval);
         slideInterval = null;
-        // console.log('Slideshow stopped');
     }
 }
 
@@ -538,7 +373,6 @@ function nextSlide() {
     if (nextIndex >= slides.length) {
         nextIndex = 0;
     }
-    // console.log('Next slide:', nextIndex);
     showSlide(nextIndex);
 }
 
@@ -550,7 +384,6 @@ function prevSlide() {
     if (prevIndex < 0) {
         prevIndex = slides.length - 1;
     }
-    // console.log('Previous slide:', prevIndex);
     showSlide(prevIndex);
 }
 
@@ -593,21 +426,8 @@ function setupNavigation() {
             // Add active class to clicked link
             this.classList.add('active');
             
-            // console.log('Navigation clicked:', this.textContent);
         });
     });
-}
-
-// Setup live button functionality
-function setupLiveButton() {
-    const liveBtn = document.querySelector('.live-btn');
-    
-    if (liveBtn) {
-        liveBtn.addEventListener('click', function(e) {
-            // Allow normal navigation to live.html
-            // No alert needed since we have a proper live page
-        });
-    }
 }
 
 // Setup hover events
@@ -619,12 +439,10 @@ function setupHoverEvents() {
         setTimeout(() => { hoverPauseArmed = true; }, 800);
         heroSlideshow.addEventListener('mouseenter', function() {
             if (!hoverPauseArmed) return;
-            // console.log('Mouse entered slideshow - pausing');
             stopSlideshow();
         });
         
         heroSlideshow.addEventListener('mouseleave', function() {
-            // console.log('Mouse left slideshow - resuming');
             startSlideshow();
         });
     }
@@ -633,10 +451,17 @@ function setupHoverEvents() {
 // Setup keyboard navigation
 function setupKeyboardNavigation() {
     document.addEventListener('keydown', function(e) {
-        if (e.key === 'ArrowLeft') {
-            changeSlide(-1);
-        } else if (e.key === 'ArrowRight') {
-            changeSlide(1);
+        const imageModal = document.getElementById('imageModal');
+        const videoModal = document.getElementById('videoModal');
+        const modalOpen = (imageModal && imageModal.style.display === 'block') ||
+                          (videoModal && videoModal.style.display === 'block');
+        if (modalOpen) {
+            if (e.key === 'ArrowRight') nextGalleryImage();
+            else if (e.key === 'ArrowLeft') prevGalleryImage();
+            else if (e.key === 'Escape') { closeImageModal(); closeVideoModal(); }
+        } else {
+            if (e.key === 'ArrowLeft') changeSlide(-1);
+            else if (e.key === 'ArrowRight') changeSlide(1);
         }
     });
 }
@@ -699,8 +524,6 @@ document.addEventListener('click', function(e) {
 
 // Make functions globally available
 window.changeSlide = changeSlide;
-window.openLogoModal = openLogoModal;
-window.closeLogoModal = closeLogoModal;
 window.openImageModal = openImageModal;
 window.closeImageModal = closeImageModal;
 window.nextGalleryImage = nextGalleryImage;
@@ -708,17 +531,4 @@ window.prevGalleryImage = prevGalleryImage;
 window.toggleNav = toggleNav;
 window.openVideoModal = openVideoModal;
 window.closeVideoModal = closeVideoModal;
-
-// Debug function
-function debugSlideshow() {
-    // console.log('Current slide:', currentSlideIndex);
-    // console.log('Total slides:', slides.length);
-    // console.log('Is transitioning:', isTransitioning);
-    // console.log('Interval active:', slideInterval !== null);
-}
-
-function openPDF(pdfUrl) {
-    // Open PDF in a new tab instead of embedded viewer
-    window.open(pdfUrl, '_blank', 'noopener,noreferrer');
-  }
   

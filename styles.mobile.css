@@ -37,41 +37,11 @@
 
 /* Mobile gallery alignment fixes */
 .gallery-grid {
-    align-items: start !important;
+    align-items: start;
 }
 
 .gallery-item {
-    height: 200px !important; /* Consistent height on mobile */
-    align-self: start !important;
-}
-
-.gallery-image {
-    height: 200px !important;
-    object-position: center center !important;
-    vertical-align: top !important;
-    line-height: 0 !important;
-}
-
-/* Mobile fixes specifically for Old Photos section */
-#yold + .gallery-grid {
-    align-items: start !important;
-}
-
-#yold + .gallery-grid .gallery-item {
-    height: 200px !important;
-    align-self: start !important;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-}
-
-#yold + .gallery-grid .gallery-image {
-    height: 200px !important;
-    object-fit: cover !important;
-    object-position: center center !important;
-    vertical-align: top !important;
-    line-height: 0 !important;
-    display: block !important;
+    height: 200px; /* Consistent height on mobile */
 }
 
 /* Mobile fixes for History Page Gallery */
@@ -88,81 +58,3 @@
     object-fit: cover !important;
     object-position: center center !important;
 }
-
-/* Live Stream Mobile Styles */
-.live-stream-section {
-    padding: 40px 0;
-    min-height: 70vh;
-}
-
-.live-stream-header h1 {
-    font-size: 2rem;
-}
-
-.live-stream-header p {
-    font-size: 1rem;
-    padding: 0 20px;
-}
-
-.live-stream-wrapper {
-    padding: 0 15px;
-}
-
-.live-video-embed {
-    height: 400px;
-    border-radius: 12px;
-}
-
-.live-video-embed iframe {
-    border-radius: 12px;
-}
-
-/* Mobile Live Stream Info Cards */
-.live-stream-info {
-    grid-template-columns: 1fr !important;
-    gap: 20px !important;
-    margin-top: 30px !important;
-    padding: 0 15px !important;
-}
-
-.live-info-card {
-    padding: 20px !important;
-}
-
-.live-info-card h3 {
-    font-size: 1.2rem !important;
-}
-
-.social-links-live {
-    justify-content: center !important;
-}
-
-.social-btn {
-    padding: 8px 12px !important;
-    font-size: 0.85rem !important;
-}
-
-/* Small phones */
-@media (max-width: 480px) {
-    .live-stream-header h1 {
-        font-size: 1.8rem;
-    }
-    
-    .live-video-embed {
-        margin: 0 15px;
-        height: 350px;
-        width: 300px;
-    }
-    
-    .live-info-card {
-        padding: 15px !important;
-    }
-    
-    .social-btn {
-        padding: 6px 10px !important;
-        font-size: 0.8rem !important;
-    }
-}
-
-
-
