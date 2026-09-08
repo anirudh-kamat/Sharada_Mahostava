@@ -3,14 +3,602 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sri Venkataramana Temple - Carstreet, Mangalore</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="styles.mobile.css" media="only screen and (max-width: 768px)">
-    <link rel="stylesheet" href="styles.desktop.css" media="only screen and (min-width: 1024px)">
+    <title>Mangaluru Sarvajanika Shree Sharada Mahotsava 2026 | Sri Venkataramana Temple</title>
+    <meta name="description" content="Official website of 104th Mangaluru Sarvajanika Shree Sharada Mahotsava 2026 at Sri Venkataramana Temple, Carstreet, Mangaluru. October 2026." />
+    <link rel="icon" type="image/webp" href="images/L1.webp" />
+    <!-- Open Graph / WhatsApp / Facebook link preview -->
+    <meta property="og:type"        content="website" />
+    <meta property="og:url"         content="https://www.mangalurusharadhe.org/" />
+    <meta property="og:title"       content="Mangaluru Sarvajanika Shree Sharada Mahotsava 2026" />
+    <meta property="og:description" content="104th Mangaluru Sarvajanika Shree Sharada Mahotsava at Sri Venkataramana Temple, Carstreet, Mangaluru. October 2026." />
+    <meta property="og:image"       content="https://www.mangalurusharadhe.org/images/sharade2026-banner.webp" />
+    <meta name="twitter:card"       content="summary_large_image" />
+    <meta name="twitter:image"     content="https://www.mangalurusharadhe.org/images/sharade2026-banner.webp" />
+    <link rel="canonical"          href="https://www.mangalurusharadhe.org/" />
+    <!-- Google Event Schema — helps Google show date/venue in search results -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Event",
+      "name": "104th Mangaluru Sarvajanika Shree Sharada Mahotsava 2026",
+      "startDate": "2026-10-15T20:00:00+05:30",
+      "endDate": "2026-10-20T23:00:00+05:30",
+      "location": {
+        "@type": "Place",
+        "name": "Sri Venkataramana Temple, Acharya Mutt Vasantha Mantap",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Carstreet",
+          "addressLocality": "Mangaluru",
+          "postalCode": "575001",
+          "addressCountry": "IN"
+        }
+      },
+      "organizer": {
+        "@type": "Organization",
+        "name": "Mangaluru Sarvajanika Shree Sharada Mahotsava Samithi",
+        "url": "https://www.mangalurusharadhe.org"
+      },
+      "description": "104th Mangaluru Sarvajanika Shree Sharada Mahotsava — a grand festival celebrating Goddess Sharada at Sri Venkataramana Temple, Carstreet, Mangaluru.",
+      "url": "https://www.mangalurusharadhe.org",
+      "image": "https://www.mangalurusharadhe.org/images/sharade2026-banner.webp",
+      "eventStatus": "https://schema.org/EventScheduled",
+      "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+      "isAccessibleForFree": true
+    }
+    </script>
+    <link rel="stylesheet" href="styles.css?v=20260908">
+    <link rel="stylesheet" href="styles.mobile.css?v=20260908" media="only screen and (max-width: 768px)">
+    <link rel="stylesheet" href="styles.desktop.css?v=20260908" media="only screen and (min-width: 1024px)">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="preload" as="image" href="images/SLIDE1.webp">
+    <style>
+      /* ── Countdown bar ── */
+      #countdown-bar {
+        background: linear-gradient(90deg, #1a0a00, #2c1500, #1a0a00);
+        border-bottom: 2px solid #ff6b35;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 20px;
+        padding: 10px 20px;
+        flex-wrap: wrap;
+      }
+      .cd-title {
+        color: #ff6b35;
+        font-family: 'Poppins', sans-serif;
+        font-weight: 700;
+        font-size: 0.85rem;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        white-space: nowrap;
+      }
+      .cd-units {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+      }
+      .cd-unit {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        min-width: 44px;
+      }
+      .cd-unit span {
+        color: #fff;
+        font-family: 'Poppins', sans-serif;
+        font-size: 1.5rem;
+        font-weight: 700;
+        line-height: 1;
+      }
+      .cd-unit small {
+        color: rgba(255,255,255,0.45);
+        font-family: 'Poppins', sans-serif;
+        font-size: 0.58rem;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        margin-top: 2px;
+      }
+      .cd-sep {
+        color: #ff6b35;
+        font-size: 1.3rem;
+        font-weight: 700;
+        line-height: 1;
+        margin-bottom: 14px;
+      }
+      @media (max-width: 480px) {
+        #countdown-bar { gap: 10px; padding: 8px 12px; }
+        .cd-title { font-size: 0.7rem; }
+        .cd-unit span { font-size: 1.15rem; }
+        .cd-unit { min-width: 34px; }
+      }
+
+      #welcome-backdrop {
+        position: fixed;
+        inset: 0;
+        z-index: 9999;
+        background: rgba(0, 0, 0, 0.75);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 1;
+        transition: opacity 0.4s ease;
+      }
+      #welcome-backdrop.modal-fade {
+        opacity: 0;
+        pointer-events: none;
+      }
+      #welcome-modal {
+        position: relative;
+        background: #1a0a00;
+        border-radius: 12px;
+        box-shadow: 0 32px 80px rgba(0, 0, 0, 0.7);
+        max-width: min(88vw, 640px);
+        width: 100%;
+        overflow: hidden;
+        animation: modalSlideIn 0.4s ease;
+      }
+      @keyframes modalSlideIn {
+        from { transform: translateY(28px); opacity: 0; }
+        to   { transform: translateY(0);    opacity: 1; }
+      }
+      #welcome-modal-header {
+        padding: 13px 44px 10px 16px;
+        display: flex;
+        align-items: center;
+      }
+      #welcome-modal-header span {
+        color: #ff6b35;
+        font-family: 'Poppins', sans-serif;
+        font-weight: 600;
+        font-size: 0.85rem;
+        letter-spacing: 0.8px;
+        text-transform: uppercase;
+        white-space: normal;
+        line-height: 1.3;
+      }
+      #welcome-modal-close {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        background: rgba(0, 0, 0, 0.55);
+        color: #fff;
+        border: 1.5px solid rgba(255, 255, 255, 0.5);
+        font-size: 1rem;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: background 0.2s, border-color 0.2s;
+        z-index: 2;
+      }
+      #welcome-modal-close:hover {
+        background: #ff6b35;
+        border-color: #ff6b35;
+      }
+      #welcome-modal img {
+        width: 100%;
+        display: block;
+        object-fit: cover;
+      }
+      #welcome-modal-header span {
+        white-space: normal;
+        line-height: 1.3;
+      }
+      #welcome-modal-footer {
+        padding: 11px 16px 14px;
+        display: flex;
+        justify-content: flex-end;
+      }
+      #welcome-modal-footer a {
+        background: #ff6b35;
+        color: #fff;
+        text-decoration: none;
+        font-family: 'Poppins', sans-serif;
+        font-size: 0.78rem;
+        font-weight: 600;
+        letter-spacing: 0.5px;
+        padding: 7px 16px;
+        border-radius: 5px;
+        white-space: nowrap;
+        transition: background 0.2s;
+      }
+      #welcome-modal-footer a:hover { background: #e55a2b; }
+      @media (max-width: 480px) {
+        #welcome-modal-header span {
+          font-size: 0.72rem;
+          letter-spacing: 0.3px;
+        }
+        #welcome-modal-footer a {
+          font-size: 0.72rem;
+          padding: 6px 12px;
+        }
+      }
+
+      /* ── Hero Slideshow Text Overlay ── */
+      #hero-overlay {
+        position: absolute;
+        bottom: 0; left: 0; right: 0;
+        background: linear-gradient(to top, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.48) 55%, transparent 100%);
+        padding: 80px 28px 32px;
+        z-index: 3;
+        pointer-events: none;
+      }
+      #hero-overlay-inner {
+        max-width: 900px;
+        margin: 0 auto;
+        pointer-events: auto;
+      }
+      .hero-tagline {
+        color: #ffd700;
+        font-family: 'Poppins', sans-serif;
+        font-size: 0.75rem;
+        font-weight: 700;
+        letter-spacing: 2.5px;
+        text-transform: uppercase;
+        margin: 0 0 8px;
+      }
+      .hero-event-title {
+        color: #fff;
+        font-family: 'Poppins', sans-serif;
+        font-size: 2.8rem;
+        font-weight: 800;
+        margin: 0 0 10px;
+        text-shadow: 0 2px 18px rgba(0,0,0,0.55);
+        line-height: 1.1;
+      }
+      .hero-event-date {
+        color: rgba(255,255,255,0.88);
+        font-family: 'Poppins', sans-serif;
+        font-size: 0.95rem;
+        font-weight: 500;
+        margin: 0 0 20px;
+      }
+      .hero-cta-btn {
+        display: inline-block;
+        background: linear-gradient(135deg, #ff6b35, #e55a2b);
+        color: #fff;
+        text-decoration: none;
+        font-family: 'Poppins', sans-serif;
+        font-size: 0.85rem;
+        font-weight: 700;
+        letter-spacing: 0.5px;
+        padding: 11px 26px;
+        border-radius: 25px;
+        box-shadow: 0 4px 18px rgba(255,107,53,0.45);
+        transition: transform 0.2s, box-shadow 0.2s;
+      }
+      .hero-cta-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 26px rgba(255,107,53,0.58); }
+      @media (max-width: 768px) {
+        #hero-overlay { padding: 60px 16px 20px; }
+        .hero-event-title { font-size: 1.6rem; }
+        .hero-event-date { font-size: 0.82rem; }
+        .hero-tagline { font-size: 0.65rem; letter-spacing: 1.5px; }
+        .hero-cta-btn { font-size: 0.78rem; padding: 9px 20px; }
+        .history-grid { grid-template-columns: 1fr !important; gap: 28px !important; }
+        .history-content { padding-left: 0 !important; }
+      }
+
+      /* ── Slideshow dot indicators ── */
+      .slide-dots {
+        position: absolute;
+        bottom: 18px;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        gap: 10px;
+        z-index: 5;
+      }
+      .slide-dot {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: rgba(255,255,255,0.38);
+        border: 2px solid rgba(255,255,255,0.55);
+        cursor: pointer;
+        padding: 0;
+        transition: background 0.3s, border-color 0.3s, transform 0.3s;
+      }
+      .slide-dot.active {
+        background: #ffd700;
+        border-color: #ffd700;
+        transform: scale(1.3);
+      }
+
+      /* ── Explore quick-links ── */
+      .ql-card {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 26px 16px 22px;
+        background: #fdf6f0;
+        border-radius: 14px;
+        border: 1.5px solid rgba(255,107,53,0.15);
+        text-decoration: none;
+        transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease;
+      }
+      .ql-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 12px 32px rgba(255,107,53,0.18);
+        border-color: rgba(255,107,53,0.4);
+      }
+      .ql-icon { font-size: 2.2rem; margin-bottom: 10px; line-height: 1; }
+      .ql-label { color: #3d0c02; font-weight: 700; font-size: 1rem; font-family: 'Poppins', sans-serif; margin-bottom: 4px; }
+      .ql-sub { color: #999; font-size: 0.81rem; }
+
+      /* ── Historical Journey: vintage photo frame ── */
+      .hist-photo-frame { position: relative; display: inline-block; width: 100%; }
+      .hist-photo-frame::before {
+        content: '';
+        position: absolute;
+        inset: -7px;
+        border: 3px solid #b5451b;
+        border-radius: 14px;
+        z-index: 0;
+        pointer-events: none;
+      }
+      .hist-photo-frame img {
+        position: relative;
+        z-index: 1;
+        border: 5px solid #fff;
+        border-radius: 8px;
+        box-shadow: 0 10px 36px rgba(0,0,0,0.2);
+        width: 100%;
+        height: 520px;
+        object-fit: cover;
+        display: block;
+      }
+      .hist-photo-caption {
+        text-align: center;
+        margin-top: 14px;
+        font-size: 0.76rem;
+        font-weight: 700;
+        color: #b5451b;
+        letter-spacing: 1.8px;
+        text-transform: uppercase;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+      }
+      .hist-photo-caption::before, .hist-photo-caption::after {
+        content: '';
+        display: inline-block;
+        width: 24px;
+        height: 1.5px;
+        background: #ffd700;
+        border-radius: 2px;
+      }
+
+      /* ── Historical Journey: gradient title + gold divider ── */
+      .hist-section-title {
+        text-align: center;
+        font-weight: 800;
+        font-size: 2.2rem;
+        margin: 0 0 10px;
+        background: linear-gradient(135deg, #3d0c02, #b5451b);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+      .hist-title-divider {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        margin: 0 0 28px;
+      }
+      .hist-title-divider span {
+        display: inline-block;
+        width: 52px;
+        height: 2px;
+        background: linear-gradient(90deg, transparent, #ffd700, transparent);
+        border-radius: 2px;
+      }
+      .hist-title-divider em { color: #ffd700; font-style: normal; font-size: 0.9rem; }
+
+      /* ── Historical Journey: diamond bullet list ── */
+      .hist-list { margin: 0 0 16px; padding: 0; list-style: none; color: #555; line-height: 1.85; }
+      .hist-list li { padding-left: 22px; position: relative; margin-bottom: 5px; }
+      .hist-list li::before {
+        content: '◆';
+        position: absolute;
+        left: 0;
+        top: 1px;
+        color: #ff6b35;
+        font-size: 0.62rem;
+        line-height: 1.85;
+      }
+
+      /* ── Historical Journey: teal rituals callout ── */
+      .hist-rituals-card { border-radius: 10px; overflow: hidden; margin-bottom: 20px; box-shadow: 0 4px 18px rgba(13,110,110,0.12); }
+      .hist-rituals-header { background: linear-gradient(135deg, #0a4a47, #0d6e6e, #0f9d95); padding: 9px 14px; }
+      .hist-rituals-header span { color: #fff; font-size: 0.8rem; font-weight: 700; letter-spacing: 0.6px; text-transform: uppercase; }
+      .hist-rituals-body { background: #fff; padding: 11px 14px; color: #555; font-size: 0.92rem; line-height: 1.7; border: 1px solid rgba(13,110,110,0.12); border-top: none; border-radius: 0 0 10px 10px; }
+
+      /* ── Section scroll-reveal ── */
+      .section-reveal {
+        opacity: 0;
+        transform: translateY(32px);
+        transition: opacity 0.75s ease, transform 0.75s ease;
+      }
+      .section-reveal.section-visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      /* ── Per-slide caption badge (top-right) ── */
+      .slide-name {
+        position: absolute;
+        top: 20px;
+        right: 24px;
+        color: #ffd700;
+        font-family: 'Poppins', sans-serif;
+        font-size: 0.78rem;
+        font-weight: 700;
+        letter-spacing: 2.5px;
+        text-transform: uppercase;
+        background: rgba(0,0,0,0.52);
+        backdrop-filter: blur(6px);
+        border: 1px solid rgba(255,215,0,0.35);
+        padding: 6px 14px;
+        border-radius: 20px;
+        z-index: 5;
+        pointer-events: none;
+      }
+      @media (max-width: 768px) {
+        .slide-name { font-size: 0.65rem; letter-spacing: 1.5px; top: 14px; right: 14px; padding: 4px 10px; }
+      }
+
+      /* ── Organizing Committee section ── */
+      #organizing-committee { padding: 0; }
+      #organizing-committee .oc-header {
+        background: linear-gradient(135deg, #3d0c02, #6b1218, #b5451b);
+        padding: 44px 20px 40px;
+        text-align: center;
+      }
+      #organizing-committee .oc-eyebrow {
+        color: #ffd700;
+        font-family: 'Poppins', sans-serif;
+        font-size: 0.8rem;
+        font-weight: 600;
+        letter-spacing: 1.5px;
+        margin: 0 0 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+      }
+      #organizing-committee .oc-eyebrow::before,
+      #organizing-committee .oc-eyebrow::after {
+        content: '';
+        display: inline-block;
+        width: 32px; height: 2px;
+        background: #ffd700; opacity: 0.6; border-radius: 2px;
+      }
+      #organizing-committee .oc-title {
+        color: #fff;
+        font-family: 'Poppins', sans-serif;
+        font-size: 1.9rem; font-weight: 800; margin: 0;
+      }
+      #organizing-committee .oc-body {
+        background: #fdf6f0;
+        padding: 48px 20px 44px;
+      }
+      #organizing-committee .oc-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 28px;
+        max-width: 820px;
+        margin: 0 auto 18px;
+      }
+      #organizing-committee .oc-card {
+        background: #fff;
+        border-radius: 16px;
+        box-shadow: 0 6px 28px rgba(61,12,2,0.10);
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        transition: transform 0.22s, box-shadow 0.22s;
+      }
+      #organizing-committee .oc-card:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 18px 48px rgba(61,12,2,0.16);
+      }
+      #organizing-committee .oc-photo-band {
+        width: 100%;
+        background: linear-gradient(160deg, #3d0c02, #b5451b);
+        padding: 32px 20px 20px;
+        display: flex;
+        justify-content: center;
+      }
+      #organizing-committee .oc-photo-wrap {
+        width: 110px; height: 110px;
+        border-radius: 50%;
+        overflow: hidden;
+        border: 4px solid rgba(255,215,0,0.55);
+        background: #e8d5cc;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 4px 18px rgba(0,0,0,0.35);
+      }
+      #organizing-committee .oc-photo {
+        width: 100%; height: 100%; object-fit: cover;
+      }
+      #organizing-committee .oc-photo-placeholder {
+        width: 100%; height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      #organizing-committee .oc-info {
+        padding: 20px 20px 24px;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 6px;
+      }
+      #organizing-committee .oc-role {
+        color: #b5451b;
+        font-family: 'Poppins', sans-serif;
+        font-size: 0.7rem;
+        font-weight: 700;
+        letter-spacing: 1.8px;
+        text-transform: uppercase;
+        margin: 0;
+      }
+      #organizing-committee .oc-role-kannada {
+        color: #888;
+        font-size: 0.78rem;
+        font-weight: 500;
+        margin: 0;
+        font-family: 'Poppins', sans-serif;
+      }
+      #organizing-committee .oc-name {
+        color: #2c3e50;
+        font-family: 'Poppins', sans-serif;
+        font-size: 1rem;
+        font-weight: 700;
+        margin: 4px 0 0;
+      }
+      #organizing-committee .oc-note {
+        text-align: center;
+        color: #bbb;
+        font-size: 0.78rem;
+        font-style: italic;
+        margin: 8px auto 0;
+        max-width: 820px;
+      }
+      @media (max-width: 560px) {
+        #organizing-committee .oc-grid { grid-template-columns: 1fr; max-width: 360px; }
+      }
+    </style>
 </head>
 <body>
+
+    <!-- Welcome Modal -->
+    <div id="welcome-backdrop">
+      <div id="welcome-modal">
+        <button id="welcome-modal-close" onclick="closeWelcomeModal()" aria-label="Close">&#x2715;</button>
+        <div id="welcome-modal-header">
+          <span>Mangaluru Sharade 2026 &mdash; Coming Soon</span>
+        </div>
+        <img src="images/splash2026.webp" alt="Mangaluru Sharade 2026" loading="lazy">
+        <div id="welcome-modal-footer">
+          <a href="announcements.html">VIEW ANNOUNCEMENTS</a>
+        </div>
+      </div>
+    </div>
+
     <!-- Header Section -->
     <div class="header">
         <p>Welcome to Official Website Of  Mangaluru Sarvajanika Shree Sharada Mahotsava</p>
@@ -39,44 +627,7 @@
                             <li><a href="contact.html" class="dropdown-link">CONTACT US</a></li>
                         </ul>
                     </li>
-                    <li class="dropdown">
-                        <a href="#" class="nav-link dropdown-toggle">SEVA LIST</a>
-                        <ul class="dropdown-menu seva-menu">
-                            <li><a href="#" class="dropdown-link seva-item">
-                                <span class="seva-name">Karpoora Aarti (ಕರ್ಪೂರಾರತಿ)</span>
-                                <span class="seva-price">₹10.00</span>
-                            </a></li>
-                            <li><a href="#" class="dropdown-link seva-item">
-                                <span class="seva-name">Panchakajjaya (ಪಂಚಕಜ್ಜಾಯ)</span>
-                                <span class="seva-price">₹10.00</span>
-                            </a></li>
-                            <li><a href="#" class="dropdown-link seva-item">
-                                <span class="seva-name">Kumkumarchana (ಕುಂಕುಮಾರ್ಚನೆ)</span>
-                                <span class="seva-price">₹100.00</span>
-                            </a></li>
-                            <li><a href="#" class="dropdown-link seva-item">
-                                <span class="seva-name">Laddu Prasada (ಲಡ್ಡು ಪ್ರಸಾದ)</span>
-                                <span class="seva-price">₹100.00</span>
-                            </a></li>
-                            <li><a href="#" class="dropdown-link seva-item">
-                                <span class="seva-name">Alankara Pooja (ಅಲಂಕಾರ ಪೂಜೆ)</span>
-                                <span class="seva-price">₹600.00</span>
-                            </a></li>
-                            <li><a href="#" class="dropdown-link seva-item">
-                                <span class="seva-name">Vishesha Seva (ವಿಶೇಷ ಸೇವೆ)</span>
-                                <span class="seva-price">₹1000.00</span>
-                            </a></li>
-                            <li><a href="#" class="dropdown-link seva-item">
-                                <span class="seva-name">Ranga Pooja (ರಂಗ ಪೂಜೆ)</span>
-                                <span class="seva-price">₹6000.00</span>
-                            </a></li>
-                            <li><a href="#" class="dropdown-link seva-item special">
-                                <span class="seva-name">ವಿಸರ್ಜನಾ ದಿನ ವಿಶೇಷ ಅಲಂಕಾರ ಪೂಜೆ</span>
-                                <span class="seva-price">₹2000.00</span>
-                            </a></li>
-                        </ul>
-                    </li>
-                    <li><a href="donation.html" class="nav-link">KANIKE</a></li>
+                    <li><a href="donation.html" class="nav-link">E-SEVA/KANIKE</a></li>
                     <li class="dropdown">
                         <a href="#" class="nav-link dropdown-toggle">GALLERY</a>
                         <ul class="dropdown-menu">
@@ -91,27 +642,56 @@
         </div>
     </nav>
 
+    <!-- Countdown Timer -->
+    <div id="countdown-bar">
+      <span class="cd-title">Sharade 2026 &mdash; Coming Soon</span>
+      <div class="cd-units">
+        <div class="cd-unit"><span id="cd-days">--</span><small>Days</small></div>
+        <div class="cd-sep">:</div>
+        <div class="cd-unit"><span id="cd-hours">--</span><small>Hours</small></div>
+        <div class="cd-sep">:</div>
+        <div class="cd-unit"><span id="cd-mins">--</span><small>Mins</small></div>
+        <div class="cd-sep">:</div>
+        <div class="cd-unit"><span id="cd-secs">--</span><small>Secs</small></div>
+      </div>
+    </div>
+
     <!-- Hero Slideshow Section -->
     <section class="hero-slideshow">
         <div class="slideshow-wrapper">
             <div class="slideshow-container">
                 <div class="slide active">
-                    <img src="images/SLIDE1.webp" alt="Deepalankar Slide 1" class="slide-image">
+                    <img src="images/SLIDE1.webp" alt="Shree Sharada Mahotsava – Grand Arrival" class="slide-image" loading="lazy">
+                    <span class="slide-name">Grand Arrival</span>
                 </div>
                 <div class="slide">
-                    <img src="images/DSC05132.webp" alt="Sharada photo DSC05132" class="slide-image">
+                    <img src="images/MK1.webp" alt="Shree Sharada Mahotsava – Narayani Devi" class="slide-image" loading="lazy">
+                    <span class="slide-name">Narayani</span>
                 </div>
                 <div class="slide">
-                    <img src="images/SLIDE3.webp" alt="Deepalankar Slide 3" class="slide-image">
+                    <img src="images/SLIDE3.webp" alt="Shree Sharada Mahotsava – Simha Vahini" class="slide-image" loading="lazy">
+                    <span class="slide-name">Simha Vahini</span>
                 </div>
                 <div class="slide">
-                    <img src="images/SLIDE4.webp" alt="Deepalankar Slide 4" class="slide-image">
+                    <img src="images/SLIDE4.webp" alt="Shree Sharada Mahotsava – Mahakali" class="slide-image" loading="lazy">
+                    <span class="slide-name">Mahakali</span>
                 </div>
                 <div class="slide">
-                    <img src="images/SLIDE5.webp" alt="Deepalankar Slide 5" class="slide-image">
+                    <img src="images/SLIDE5.webp" alt="Shree Sharada Mahotsava – Sharadamma" class="slide-image" loading="lazy">
+                    <span class="slide-name">Sharadamma</span>
                 </div>
             </div>
             
+            <!-- Hero Text Overlay -->
+            <div id="hero-overlay">
+              <div id="hero-overlay-inner">
+                <p class="hero-tagline">104th Mangaluru Sarvajanika Shree Sharada Mahotsava</p>
+                <h2 class="hero-event-title">Mangaluru Sharade 2026</h2>
+                <p class="hero-event-date">🪔 Grand Arrival · October 15, 2026 · 8:00 PM</p>
+                <a href="announcements.html" class="hero-cta-btn">View Schedule →</a>
+              </div>
+            </div>
+
             <!-- Navigation Controls -->
             <button class="slide-nav prev-slide" onclick="changeSlide(-1)">
                 <span>‹</span>
@@ -119,47 +699,90 @@
             <button class="slide-nav next-slide" onclick="changeSlide(1)">
                 <span>›</span>
             </button>
+
+            <!-- Dot Indicators -->
+            <div class="slide-dots">
+              <button class="slide-dot active" onclick="goToSlide(0)" aria-label="Slide 1"></button>
+              <button class="slide-dot" onclick="goToSlide(1)" aria-label="Slide 2"></button>
+              <button class="slide-dot" onclick="goToSlide(2)" aria-label="Slide 3"></button>
+              <button class="slide-dot" onclick="goToSlide(3)" aria-label="Slide 4"></button>
+              <button class="slide-dot" onclick="goToSlide(4)" aria-label="Slide 5"></button>
+            </div>
+
         </div>
     </section>
 
+    <!-- Explore the Mahotsava — quick links -->
+    <section style="padding: 40px 20px 36px; background: linear-gradient(135deg,#3d0c02,#6b1218,#b5451b);">
+      <div style="max-width: 960px; margin: 0 auto;">
+        <h2 style="text-align:center; color:#ffd700; font-size:1.35rem; font-weight:700; margin:0 0 24px; letter-spacing:0.4px;">Explore the Mahotsava</h2>
+        <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:16px;">
+          <a href="gallery.html" class="ql-card">
+            <div class="ql-icon">🖼️</div>
+            <div class="ql-label">Gallery</div>
+            <div class="ql-sub">Sacred Alankar Photos</div>
+          </a>
+          <a href="announcements.html" class="ql-card">
+            <div class="ql-icon">📅</div>
+            <div class="ql-label">Schedule</div>
+            <div class="ql-sub">Events &amp; Programme</div>
+          </a>
+          <a href="donation.html" class="ql-card">
+            <div class="ql-icon">🙏</div>
+            <div class="ql-label">E-Seva</div>
+            <div class="ql-sub">Book Sevas Online</div>
+          </a>
+          <a href="live.html" class="ql-card">
+            <div class="ql-icon">📺</div>
+            <div class="ql-label">Live Stream</div>
+            <div class="ql-sub">Watch Live</div>
+          </a>
+        </div>
+      </div>
+    </section>
+
     <!-- Temple History Section -->
-    <section class="temple-history-section" style="padding: 48px 0 80px; background: #f8f9fa;">
+    <section class="temple-history-section section-reveal" style="padding: 48px 0 80px; background: #fdf6f0;">
         <div class="container">
             <div style="text-align: center; margin-bottom: 12px;">
                 <p style="color: #ff6b35; font-weight: 600; font-size: 1.05em; margin: 0 0 8px 0; letter-spacing: 1px;">Sri Venkataramana Temple, Acharya Mutt Vasanth Mantap</p>
             </div>
             
             <!-- Centered section title -->
-            <h2 style="text-align:center; font-weight:800; color:#2c3e50; font-size:2.2rem; margin: 0 0 18px 0;">Historical Journey</h2>
+            <h2 class="hist-section-title">Historical Journey</h2>
+            <div class="hist-title-divider"><span></span><em>✦</em><span></span></div>
 
             <div class="history-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start; max-width: 1200px; margin: 0 auto;">
                 <!-- Image Section -->
                 <div class="history-media">
-                    <img src="images/SO31.webp" alt="Shree Sharada Mahotsava History" style="width: 100%; height: 520px; object-fit: cover; border-radius: 8px; box-shadow: 0 8px 30px rgba(0,0,0,0.15);">
+                  <div class="hist-photo-frame">
+                    <img src="images/SO31.webp" alt="Shree Sharada Mahotsava – Vintage archival photograph of Goddess Sharada" loading="lazy">
+                  </div>
+                  <p class="hist-photo-caption">Since the early 1920s</p>
                 </div>
                 
                 <!-- Content Section -->
                 <div class="history-content" style="padding-left: 20px;">
                     <p style="font-size: 1.1em; line-height: 1.8; color: #555; margin-bottom: 16px;">
-                        Shree Sharada Mahotsava at Acharya Mutt Vasantha Mantap,Carstreet is a century-old public celebration of Goddess Sharada (Saraswati) held at Sri Venkataramana Temple,Mangalore.The festival blends devotion,culture and community participation,drawing thousands every year.
+                        Shree Sharada Mahotsava at Acharya Mutt Vasantha Mantap, Carstreet is a century-old public celebration of Goddess Sharada (Saraswati) held at Sri Venkataramana Temple, Mangaluru. The festival blends devotion, culture and community participation, drawing thousands every year.
                     </p>
 
-                    <ul style="margin: 0 0 16px 0; padding-left: 20px; color: #555; line-height: 1.8;">
+                    <ul class="hist-list">
                         <li>Begun in the early 1920s by the GSB community; now a festival for all.</li>
                         <li>Observed during Sharan Navaratri over 5–10 days with daily poojas and alankaras.</li>
                         <li>Centenary celebrated in 2022; continues with greater grandeur and inclusivity.</li>
                     </ul>
 
-                    <div style="background: #fff; border-left: 4px solid #ff6b35; padding: 12px 14px; border-radius: 6px; box-shadow: 0 4px 16px rgba(0,0,0,0.06); margin-bottom: 20px;">
-                        <strong style="color:#333;">Key rituals:</strong>
-                        <span style="color:#555;"> Vidyarambha (learning initiation), Rangapuja, Vishesha Deepalankara and grand night processions (Shobha Yatra).</span>
+                    <div class="hist-rituals-card">
+                      <div class="hist-rituals-header"><span>Key Rituals</span></div>
+                      <div class="hist-rituals-body">Vidyarambha (learning initiation), Rangapuja, Vishesha Deepalankara and grand night processions (Shobha Yatra).</div>
                     </div>
                     
                     <div style="text-align: center; margin-top: 6px;">
-                        <a href="history.html" style="background: #ff6b35; color: white; padding: 12px 30px; text-decoration: none; border-radius: 5px; font-weight: 600; font-size: 1em; display: inline-block; transition: background 0.3s ease; box-shadow: 0 4px 15px rgba(255, 107, 53, 0.3);" 
-                           onmouseover="this.style.background='#e55a2b'" 
+                        <a href="history.html" style="background: #ff6b35; color: white; padding: 12px 30px; text-decoration: none; border-radius: 25px; font-weight: 600; font-size: 1em; display: inline-block; transition: background 0.3s ease; box-shadow: 0 4px 15px rgba(255, 107, 53, 0.3);" 
+                           onmouseover="this.style.background='#e55a2b'"
                            onmouseout="this.style.background='#ff6b35'">
-                            READ MORE
+                            READ MORE →
                         </a>
                     </div>
                 </div>
@@ -167,20 +790,81 @@
         </div>
     </section>
 
-    <!-- Contact Us Section -->
-    <section class="contact-us-section" id="contact">
-        <div class="container">
-            <h2 class="contact-heading">FOR QUERIES</h2>
-            <a href="contact.html" class="contact-btn">CONTACT US</a>
+    <!-- Organizing Committee -->
+    <section id="organizing-committee" class="section-reveal">
+      <div class="oc-header">
+        <p class="oc-eyebrow">ಶ್ರೀ ಶಾರದಾ ಮಹೋತ್ಸವ ಸಮಿತಿ (ರಿ)</p>
+        <h2 class="oc-title">Office Bearers</h2>
+      </div>
+      <div class="oc-body">
+        <div class="oc-grid">
+
+          <!-- President -->
+          <div class="oc-card">
+            <div class="oc-photo-band">
+              <div class="oc-photo-wrap">
+                <img src="images/OC_president.webp" alt="President" class="oc-photo" style="object-position: 65% center;">
+              </div>
+            </div>
+            <div class="oc-info">
+              <p class="oc-role">President</p>
+              <p class="oc-role-kannada">ಅಧ್ಯಕ್ಷ</p>
+              <p class="oc-name">Shri Suresh Acharya</p>
+            </div>
+          </div>
+
+          <!-- Secretary -->
+          <div class="oc-card">
+            <div class="oc-photo-band">
+              <div class="oc-photo-wrap">
+                <img src="images/OC_secretary.webp" alt="Secretary" class="oc-photo">
+              </div>
+            </div>
+            <div class="oc-info">
+              <p class="oc-role">Secretary</p>
+              <p class="oc-role-kannada">ಕಾರ್ಯದರ್ಶಿ</p>
+              <p class="oc-name">Shri Adige Balakrishna Shenoy</p>
+            </div>
+          </div>
+
+          <!-- Treasurer -->
+          <div class="oc-card">
+            <div class="oc-photo-band">
+              <div class="oc-photo-wrap">
+                <img src="images/OC_treasurer.webp" alt="Treasurer" class="oc-photo">
+              </div>
+            </div>
+            <div class="oc-info">
+              <p class="oc-role">Treasurer</p>
+              <p class="oc-role-kannada">ಕೋಶಾಧ್ಯಕ್ಷ</p>
+              <p class="oc-name">Shri M Subramanya Bhat</p>
+            </div>
+          </div>
+
+          <!-- Joint Secretary -->
+          <div class="oc-card">
+            <div class="oc-photo-band">
+              <div class="oc-photo-wrap">
+                <img src="images/OC_jt_secretary.webp" alt="Joint Secretary" class="oc-photo">
+              </div>
+            </div>
+            <div class="oc-info">
+              <p class="oc-role">Joint Secretary</p>
+              <p class="oc-role-kannada">ಸಹ-ಕಾರ್ಯದರ್ಶಿ</p>
+              <p class="oc-name">Shri G Shashank Bhat</p>
+            </div>
+          </div>
+
         </div>
+      </div>
     </section>
 
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
-            <div class="footer-content">
+      <div class="footer-content">
                 <div class="footer-section">
-                    <h3>📍 ADDRESS</h3>
+                    <h3><a href="https://www.google.com/maps?q=Acharya+Mutt+Premises,+Sri+Venkatramana+Temple,+Carstreet,+Mangalore+575001" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;">📍 ADDRESS</a></h3>
                     <a href="https://www.google.com/maps?q=Acharya+Mutt+Premises,+Sri+Venkatramana+Temple,+Carstreet,+Mangalore+575001" target="_blank" rel="noopener" class="map-link">
                         <p>Acharya Mutt Premises, Sri Venkatramana Temple, Carstreet,Mangalore - 575001.</p>
                         <p>Karnataka,India</p>
@@ -188,7 +872,7 @@
                 </div>
 
                 <div class="footer-section">
-                    <h3>📧 EMAIL</h3>
+                    <h3><a href="mailto:ssms_mangalore@gmail.com" style="color:inherit;text-decoration:none;">📧 EMAIL</a></h3>
                     <a href="mailto:ssms_mangalore@gmail.com" class="email-link">
                         <p class="email-with-logo">
                             <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTIwIDRINEMyLjkgNCAyIDQuOSAyIDZWMThDMiAxOS4xIDIuOSAyMCA0IDIwSDIwQzIxLjEgMjAgMjIgMTkuMSAyMiAxOFY2QzIyIDQuOSAyMS4xIDQgMjAgNFoiIGZpbGw9IiNFQTQzMzUiLz4KPHBhdGggZD0iTTIwIDZMMTIgMTNMNCA2SDE2SDIwWiIgZmlsbD0iI0ZCQkMwNCIvPgo8cGF0aCBkPSJNMjAgNkwxMiAxM0w0IDZWMThIMjBWNloiIGZpbGw9IiMzNEE4NTMiLz4KPHBhdGggZD0iTTQgNkwxMiAxM0wyMCA2SDE2SDRaIiBmaWxsPSIjRkJCQzA0Ii8+Cjwvc3ZnPgo=" alt="Gmail" class="gmail-icon">
@@ -216,5 +900,97 @@
     </footer>
 
     <script src="script.js" defer></script>
+    <script>
+      /* ── Slideshow dot navigation ── */
+      function goToSlide(index) {
+        if (window.stopSlideshow) window.stopSlideshow();
+        if (window.showSlide) window.showSlide(index);
+        if (window.startSlideshow) window.startSlideshow();
+      }
+      window.goToSlide = goToSlide;
+
+      /* Sync dots when slide changes (MutationObserver on .slide[class]) */
+      document.addEventListener('DOMContentLoaded', function () {
+        var slideEls = document.querySelectorAll('.slideshow-container .slide');
+        var dotEls   = document.querySelectorAll('.slide-dot');
+        if (!slideEls.length || !dotEls.length) return;
+        function syncDots() {
+          slideEls.forEach(function (slide, i) {
+            if (slide.classList.contains('active')) {
+              dotEls.forEach(function (d) { d.classList.remove('active'); });
+              if (dotEls[i]) dotEls[i].classList.add('active');
+            }
+          });
+        }
+        var dotObserver = new MutationObserver(syncDots);
+        slideEls.forEach(function (slide) {
+          dotObserver.observe(slide, { attributes: true, attributeFilter: ['class'] });
+        });
+      });
+
+      /* ── Section scroll-reveal ── */
+      document.addEventListener('DOMContentLoaded', function () {
+        var revealEls = document.querySelectorAll('.section-reveal');
+        if (!revealEls.length) return;
+        var revealObserver = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('section-visible');
+              revealObserver.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.1 });
+        revealEls.forEach(function (el) { revealObserver.observe(el); });
+      });
+
+      /* Countdown timer */
+      (function () {
+        var target = new Date('2026-10-15T20:00:00');
+        function pad(n) { return String(n).padStart(2, '0'); }
+        function tick() {
+          var diff = target - new Date();
+          if (diff <= 0) {
+            ['cd-days','cd-hours','cd-mins','cd-secs'].forEach(function(id) {
+              var el = document.getElementById(id);
+              if (el) el.textContent = '00';
+            });
+            return;
+          }
+          var d = Math.floor(diff / 864e5);
+          var h = Math.floor((diff % 864e5) / 36e5);
+          var m = Math.floor((diff % 36e5) / 6e4);
+          var s = Math.floor((diff % 6e4) / 1e3);
+          var days = document.getElementById('cd-days');
+          var hours = document.getElementById('cd-hours');
+          var mins  = document.getElementById('cd-mins');
+          var secs  = document.getElementById('cd-secs');
+          if (days)  days.textContent  = d;
+          if (hours) hours.textContent = pad(h);
+          if (mins)  mins.textContent  = pad(m);
+          if (secs)  secs.textContent  = pad(s);
+        }
+        tick();
+        setInterval(tick, 1000);
+      })();
+
+      /* Welcome modal */
+      (function () {
+        var backdrop = document.getElementById('welcome-backdrop');
+        if (!backdrop) return;
+        if (sessionStorage.getItem('welcomeSeen')) {
+          backdrop.style.display = 'none';
+          return;
+        }
+        function closeWelcomeModal() {
+          backdrop.classList.add('modal-fade');
+          setTimeout(function () { backdrop.style.display = 'none'; }, 400);
+          sessionStorage.setItem('welcomeSeen', '1');
+        }
+        window.closeWelcomeModal = closeWelcomeModal;
+        backdrop.addEventListener('click', function (e) {
+          if (e.target === backdrop) closeWelcomeModal();
+        });
+      })();
+    </script>
 </body>
 </html>

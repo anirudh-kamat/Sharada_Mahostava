@@ -3,12 +3,85 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Donation - Sri Venkataramana Temple</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="styles.mobile.css" media="only screen and (max-width: 768px)">
-    <link rel="stylesheet" href="styles.desktop.css" media="only screen and (min-width: 1024px)">
+    <title>E-Seva &amp; E-Kanike | Mangaluru Sarvajanika Shree Sharada Mahotsava 2026</title>
+    <meta name="description" content="Book E-Seva and E-Kanike online for Mangaluru Sarvajanika Shree Sharada Mahotsava 2026. Bank transfer and UPI payment details." />
+    <link rel="icon" type="image/webp" href="images/L1.webp" />
+    <meta property="og:type"        content="website" />
+    <meta property="og:url"         content="https://www.mangalurusharadhe.org/donation.html" />
+    <meta property="og:title"       content="E-Seva & E-Kanike — Mangaluru Sharada Mahotsava 2026" />
+    <meta property="og:description" content="Book E-Seva and donate online for Mangaluru Sarvajanika Shree Sharada Mahotsava 2026. Bank transfer and UPI payment details." />
+    <meta property="og:image"       content="https://www.mangalurusharadhe.org/images/A4.webp" />
+    <meta name="twitter:card"       content="summary_large_image" />
+    <meta name="twitter:image"     content="https://www.mangalurusharadhe.org/images/A4.webp" />
+    <link rel="canonical"          href="https://www.mangalurusharadhe.org/donation.html" />
+    <link rel="stylesheet" href="styles.css?v=20260908">
+    <link rel="stylesheet" href="styles.mobile.css?v=20260908" media="only screen and (max-width: 768px)">
+    <link rel="stylesheet" href="styles.desktop.css?v=20260908" media="only screen and (min-width: 1024px)">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="preload" as="image" href="images/A4.webp">
+    <style>
+        .seva-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px;
+        }
+        @media (max-width: 768px) {
+            .seva-grid { grid-template-columns: repeat(2, 1fr); gap: 14px; }
+        }
+        @media (max-width: 480px) {
+            .seva-grid { grid-template-columns: 1fr; }
+            .bank-details { padding: 20px 16px !important; }
+            .bank-details h2 { font-size: 1.4em !important; }
+            .bank-details h3 { font-size: 1em !important; }
+            .bank-details table td { padding: 10px 8px !important; font-size: 0.82rem !important; }
+        }
+        .seva-card {
+            background: #fff;
+            border-radius: 14px;
+            box-shadow: 0 6px 24px rgba(180,130,20,0.10);
+            overflow: hidden;
+            transition: transform 0.25s, box-shadow 0.25s;
+            border-bottom: 3px solid #2980b9;
+        }
+        .seva-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 14px 40px rgba(41,128,185,0.22);
+        }
+        .seva-card-header {
+            background: linear-gradient(135deg, #050a1a, #1a2a5e, #2980b9);
+            padding: 15px 18px 13px;
+        }
+        .seva-card-header h3 {
+            color: #fff;
+            font-size: 0.95rem;
+            font-weight: 700;
+            margin: 0;
+            letter-spacing: 0.3px;
+        }
+        .seva-card-body {
+            padding: 14px 18px 18px;
+        }
+        .seva-kannada {
+            color: #999;
+            font-size: 0.8rem;
+            margin: 0 0 12px;
+        }
+        .seva-price {
+            font-weight: 800;
+            color: #b8860b;
+            font-size: 1.15rem;
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+        }
+        @keyframes sevaReveal {
+            from { opacity: 0; transform: translateY(40px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+        .seva-card.card-visible {
+            animation: sevaReveal 0.55s ease forwards;
+        }
+    </style>
 </head>
 <body>
     <!-- Header Section -->
@@ -39,43 +112,6 @@
                             <li><a href="contact.html" class="dropdown-link">CONTACT US</a></li>
                         </ul>
                     </li>
-                    <li class="dropdown">
-                        <a href="#" class="nav-link dropdown-toggle">SEVA LIST</a>
-                        <ul class="dropdown-menu seva-menu">
-                            <li><a href="#" class="dropdown-link seva-item">
-                                <span class="seva-name">Karpoora Aarti (ಕರ್ಪೂರಾರತಿ)</span>
-                                <span class="seva-price">₹10.00</span>
-                            </a></li>
-                            <li><a href="#" class="dropdown-link seva-item">
-                                <span class="seva-name">Panchakajjaya (ಪಂಚಕಜ್ಜಾಯ)</span>
-                                <span class="seva-price">₹10.00</span>
-                            </a></li>
-                            <li><a href="#" class="dropdown-link seva-item">
-                                <span class="seva-name">Kumkumarchana (ಕುಂಕುಮಾರ್ಚನೆ)</span>
-                                <span class="seva-price">₹100.00</span>
-                            </a></li>
-                            <li><a href="#" class="dropdown-link seva-item">
-                                <span class="seva-name">Laddu Prasada (ಲಡ್ಡು ಪ್ರಸಾದ)</span>
-                                <span class="seva-price">₹100.00</span>
-                            </a></li>
-                            <li><a href="#" class="dropdown-link seva-item">
-                                <span class="seva-name">Alankara Pooja (ಅಲಂಕಾರ ಪೂಜೆ)</span>
-                                <span class="seva-price">₹600.00</span>
-                            </a></li>
-                            <li><a href="#" class="dropdown-link seva-item">
-                                <span class="seva-name">Vishesha Seva (ವಿಶೇಷ ಸೇವೆ)</span>
-                                <span class="seva-price">₹1000.00</span>
-                            </a></li>
-                            <li><a href="#" class="dropdown-link seva-item">
-                                <span class="seva-name">Ranga Pooja (ರಂಗ ಪೂಜೆ)</span>
-                                <span class="seva-price">₹6000.00</span>
-                            </a></li>
-                            <li><a href="#" class="dropdown-link seva-item special">
-                                <span class="seva-name">ವಿಸರ್ಜನಾ ದಿನ ವಿಶೇಷ ಅಲಂಕಾರ ಪೂಜೆ</span>
-                                <span class="seva-price">₹2000.00</span>
-                            </a></li>
-                        </ul>
-                    </li>
                     <li><a href="donation.html" class="nav-link active">E-SEVA/KANIKE</a></li>
                     <li class="dropdown">
                         <a href="#" class="nav-link dropdown-toggle">GALLERY</a>
@@ -91,16 +127,162 @@
         </div>
     </nav>
 
-    <!-- Donation Hero Image with Down Arrow (full width like contact) -->
-    <section class="contact-hero-photo kanike-hero" style="padding: 30px 0 10px;">
-        <div class="container">
-            <img src="images/A4.webp" alt="Donation Banner" class="contact-hero-image" fetchpriority="high" />
-            <a href="#bank-details" class="down-arrow" aria-label="Scroll to bank details">⌄</a>
+    <!-- Page Hero with overlay text -->
+    <div style="position:relative; width:100%; height:50vh; min-height:300px; max-height:520px; overflow:hidden;">
+      <img src="images/A6.webp" alt="Shree Sharada Mata Alankar" style="width:100%; height:100%; object-fit:cover; object-position:center 42%; display:block;" fetchpriority="high">
+      <div style="position:absolute; inset:0; background:linear-gradient(to bottom, transparent 30%, rgba(5,10,26,0.5) 60%, rgba(5,10,26,0.88) 100%);"></div>
+      <div style="position:absolute; bottom:0; left:0; right:0; padding:24px 24px 36px; text-align:center;">
+        <p style="color:rgba(255,215,100,0.92); font-weight:700; font-size:0.75rem; letter-spacing:2.5px; text-transform:uppercase; margin:0 0 10px; display:flex; align-items:center; justify-content:center; gap:10px;">
+          <span style="display:inline-block;width:28px;height:1.5px;background:rgba(255,215,0,0.6);border-radius:2px;"></span>
+          104th Mahotsava &nbsp;·&nbsp; Sri Venkataramana Temple
+          <span style="display:inline-block;width:28px;height:1.5px;background:rgba(255,215,0,0.6);border-radius:2px;"></span>
+        </p>
+        <h1 style="color:#fff; font-size:2.1rem; font-weight:800; margin:0 0 8px; text-shadow:0 2px 14px rgba(0,0,0,0.5);">E-Seva &amp; E-Kanike</h1>
+        <p style="color:rgba(255,255,255,0.75); font-size:0.9rem; margin:0; text-shadow:0 1px 6px rgba(0,0,0,0.4);">Offer your devotion from anywhere in the world</p>
+      </div>
+    </div>
+
+    <!-- E-Seva / E-Kanike Booking Buttons -->
+    <section style="padding:40px 20px 56px; background:linear-gradient(135deg,#3d0c02,#6b1218,#b5451b); text-align:center;">
+      <div style="display:flex; gap:20px; justify-content:center; flex-wrap:wrap; max-width:700px; margin:0 auto;">
+        <a href="https://ssms.3ionetra.com/bookings/sevas?type=utsav" target="_blank" rel="noopener"
+           style="flex:1; min-width:160px; max-width:300px; display:flex; flex-direction:column; align-items:center; gap:8px; background:linear-gradient(135deg,#ff6b35,#e55a2b); color:#fff; text-decoration:none; padding:26px 20px; border-radius:16px; box-shadow:0 8px 28px rgba(255,107,53,0.45); text-align:center; transition:transform 0.2s,box-shadow 0.2s;"
+           onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 14px 36px rgba(255,107,53,0.55)'"
+           onmouseout="this.style.transform='';this.style.boxShadow='0 8px 28px rgba(255,107,53,0.45)'">
+          <span style="font-size:2.2rem;">🙏</span>
+          <span style="font-size:1.15rem; font-weight:800; letter-spacing:0.5px;">E-SEVA</span>
+          <span style="font-size:0.8rem; opacity:0.88;">Book Seva Online</span>
+        </a>
+        <a href="https://ssms.3ionetra.com/bookings/donations" target="_blank" rel="noopener"
+           style="flex:1; min-width:160px; max-width:300px; display:flex; flex-direction:column; align-items:center; gap:8px; background:linear-gradient(135deg,#d4af37,#b8860b); color:#fff; text-decoration:none; padding:26px 20px; border-radius:16px; box-shadow:0 8px 28px rgba(212,175,55,0.4); text-align:center; transition:transform 0.2s,box-shadow 0.2s;"
+           onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 14px 36px rgba(212,175,55,0.55)'"
+           onmouseout="this.style.transform='';this.style.boxShadow='0 8px 28px rgba(212,175,55,0.4)'">
+          <span style="font-size:2.2rem;">💛</span>
+          <span style="font-size:1.15rem; font-weight:800; letter-spacing:0.5px;">E-KANIKE</span>
+          <span style="font-size:0.8rem; opacity:0.88;">Donate Online</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- Sevas During the Mahotsava -->
+    <section id="seva-list" style="padding: 48px 20px 52px; background: #fff;">
+      <div style="max-width: 960px; margin: 0 auto;">
+
+        <!-- Section header -->
+        <div style="text-align:center; margin-bottom:28px;">
+          <p style="color:#ff6b35; font-weight:600; font-size:0.9rem; letter-spacing:1px; text-transform:uppercase; margin:0 0 6px;">At the Temple</p>
+          <h2 style="color:#2c3e50; font-size:1.75rem; font-weight:800; margin:0 0 10px;">Sevas During the Mahotsava</h2>
+          <div style="width:50px; height:3px; background:#ff6b35; border-radius:2px; margin:0 auto 20px;"></div>
         </div>
+
+        <!-- Timing callout -->
+        <div style="background:linear-gradient(135deg,#3d0c02,#6b1218); border-radius:12px; padding:18px 24px; margin-bottom:20px; display:flex; align-items:flex-start; gap:14px;">
+          <span style="font-size:1.8rem; line-height:1; flex-shrink:0;">🪔</span>
+          <div>
+            <p style="color:#ffd700; font-weight:700; font-size:0.85rem; letter-spacing:0.5px; margin:0 0 4px;">When can these sevas be performed?</p>
+            <p style="color:rgba(255,255,255,0.82); font-size:0.88rem; line-height:1.65; margin:0;">These sevas may be performed at the temple from the day of <strong style="color:#fff;">Grand Arrival (October 15, 2026)</strong> through <strong style="color:#fff;">Visarjan Day</strong>. Visit Sri Venkataramana Temple, Acharya Mutt Vasanth Mantap, Carstreet, Mangaluru to participate.</p>
+          </div>
+        </div>
+
+        <!-- How to participate callout -->
+        <div style="background:#fff; border-radius:12px; border:1.5px solid #f0e0d0; padding:16px 22px; margin-bottom:32px; display:flex; align-items:flex-start; gap:14px; box-shadow:0 2px 12px rgba(0,0,0,0.05);">
+          <span style="font-size:1.5rem; line-height:1; flex-shrink:0;">ℹ️</span>
+          <div>
+            <p style="color:#3d0c02; font-weight:700; font-size:0.88rem; margin:0 0 4px;">Online vs. In-Person</p>
+            <p style="color:#666; font-size:0.85rem; line-height:1.65; margin:0;"><strong style="color:#333;">E-Seva / E-Kanike</strong> (above) can be booked and paid online from anywhere. <strong style="color:#333;">The sevas listed below</strong> are performed in-person at the temple during the festival — please visit the Samithi counter at the venue to register.</p>
+          </div>
+        </div>
+
+        <!-- Seva cards grid -->
+        <div class="seva-grid">
+
+          <!-- 1. Deep Teal -->
+          <div class="seva-card">
+            <div class="seva-card-header"><h3>Karpoora Aarti</h3></div>
+            <div class="seva-card-body">
+              <p class="seva-kannada">ಕರ್ಪೂರಾರತಿ</p>
+              <p class="seva-price" style="color:#1a2a5e;">₹10</p>
+            </div>
+          </div>
+
+          <!-- 2. Emerald Green -->
+          <div class="seva-card">
+            <div class="seva-card-header"><h3>Panchakajjaya</h3></div>
+            <div class="seva-card-body">
+              <p class="seva-kannada">ಪಂಚಕಜ್ಜಾಯ</p>
+              <p class="seva-price" style="color:#1a2a5e;">₹10</p>
+            </div>
+          </div>
+
+          <!-- 3. Royal Purple -->
+          <div class="seva-card">
+            <div class="seva-card-header"><h3>Kumkumarchana</h3></div>
+            <div class="seva-card-body">
+              <p class="seva-kannada">ಕುಂಕುಮಾರ್ಚನೆ</p>
+              <p class="seva-price" style="color:#1a2a5e;">₹100</p>
+            </div>
+          </div>
+
+          <!-- 4. Ocean Blue -->
+          <div class="seva-card">
+            <div class="seva-card-header"><h3>Laddu Prasada</h3></div>
+            <div class="seva-card-body">
+              <p class="seva-kannada">ಲಡ್ಡು ಪ್ರಸಾದ</p>
+              <p class="seva-price" style="color:#1a2a5e;">₹100</p>
+            </div>
+          </div>
+
+          <!-- 5. Crimson -->
+          <div class="seva-card">
+            <div class="seva-card-header"><h3>Vidyarambha</h3></div>
+            <div class="seva-card-body">
+              <p class="seva-kannada">ವಿದ್ಯಾರಂಭ</p>
+              <p class="seva-price" style="color:#1a2a5e;">₹400</p>
+            </div>
+          </div>
+
+          <!-- 6. Copper Bronze -->
+          <div class="seva-card">
+            <div class="seva-card-header"><h3>Alankara Pooja</h3></div>
+            <div class="seva-card-body">
+              <p class="seva-kannada">ಅಲಂಕಾರ ಪೂಜೆ</p>
+              <p class="seva-price" style="color:#1a2a5e;">₹600</p>
+            </div>
+          </div>
+
+          <!-- 7. Peacock Blue-Green -->
+          <div class="seva-card">
+            <div class="seva-card-header"><h3>Vishesha Seva</h3></div>
+            <div class="seva-card-body">
+              <p class="seva-kannada">ವಿಶೇಷ ಸೇವೆ</p>
+              <p class="seva-price" style="color:#1a2a5e;">₹1,000</p>
+            </div>
+          </div>
+
+          <!-- 8. Olive Forest -->
+          <div class="seva-card">
+            <div class="seva-card-header"><h3>Ranga Pooja</h3></div>
+            <div class="seva-card-body">
+              <p class="seva-kannada">ರಂಗ ಪೂಜೆ</p>
+              <p class="seva-price" style="color:#1a2a5e;">₹6,000</p>
+            </div>
+          </div>
+
+          <!-- 9. Midnight Navy -->
+          <div class="seva-card">
+            <div class="seva-card-header"><h3>Visarjana Dina Vishesha Alankara Pooja</h3></div>
+            <div class="seva-card-body">
+              <p class="seva-kannada">ವಿಸರ್ಜನಾ ದಿನ ವಿಶೇಷ ಅಲಂಕಾರ ಪೂಜೆ</p>
+              <p class="seva-price" style="color:#1a2a5e;">₹2,000</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
     </section>
 
     <!-- Donation Section -->
-    <section class="donation-section" style="padding: 24px 0 64px; background: #f8f9fa;">
+    <section class="donation-section" style="padding: 40px 0 64px; background: #fdf6f0;">
         <div class="container">
 
             <!-- Main Content Grid -->
@@ -109,12 +291,8 @@
                 <!-- Left Column - Banking Details -->
                 <div id="bank-details" class="bank-details" style="background: linear-gradient(135deg, #ff6b35, #ff8c42); color: white; padding: 36px; border-radius: 16px; box-shadow: 0 10px 28px rgba(255,107,53,0.25);">
                     <h2 style="font-size: 2em; margin: 0 0 20px 0; font-weight: 700; text-align: center;">BANK DETAILS</h2>
-                    
-                    <!-- Bank List removed: single bank details below -->
 
                     <h3 style="font-size: 1.2em; margin: 6px 0 18px 0; font-weight: 600; text-align: center; letter-spacing:.3px; opacity:.95;">ALL ONLINE PAYMENTS ONLY AT</h3>
-                    
-                    <!-- Banking Details Table -->
                     <div style="background: rgba(255,255,255,0.1); border-radius: 10px; overflow: hidden; border: 2px solid rgba(255,255,255,0.2);">
                         <table style="width: 100%; border-collapse: collapse;">
                             <tr style="background: rgba(255,255,255,0.1);">
@@ -139,32 +317,17 @@
                             </tr>
                         </table>
                     </div>
-
-                    <!-- QR Pay Section -->
-                   
                 </div>
-
-                
             </div>
-
-            
-        </div>
-    </section>
-
-    <!-- Contact Us Section -->
-    <section class="contact-us-section" id="contact">
-        <div class="container">
-            <h2 class="contact-heading">FOR QUERIES</h2>
-            <a href="contact.html" class="contact-btn">CONTACT US</a>
         </div>
     </section>
 
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
-            <div class="footer-content">
+      <div class="footer-content">
                 <div class="footer-section">
-                    <h3>📍 ADDRESS</h3>
+                    <h3><a href="https://www.google.com/maps?q=Acharya+Mutt+Premises,+Sri+Venkatramana+Temple,+Carstreet,+Mangalore+575001" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;">📍 ADDRESS</a></h3>
                     <a href="https://www.google.com/maps?q=Acharya+Mutt+Premises,+Sri+Venkatramana+Temple,+Carstreet,+Mangalore+575001" target="_blank" rel="noopener" class="map-link">
                         <p>Acharya Mutt Premises, Sri Venkatramana Temple, Carstreet,Mangalore - 575001.</p>
                         <p>Karnataka,India</p>
@@ -172,7 +335,7 @@
                 </div>
 
                 <div class="footer-section">
-                    <h3>📧 EMAIL</h3>
+                    <h3><a href="mailto:ssms_mangalore@gmail.com" style="color:inherit;text-decoration:none;">📧 EMAIL</a></h3>
                     <a href="mailto:ssms_mangalore@gmail.com" class="email-link">
                         <p class="email-with-logo">
                             <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTIwIDRINEMyLjkgNCAyIDQuOSAyIDZWMThDMiAxOS4xIDIuOSAyMCA0IDIwSDIwQzIxLjEgMjAgMjIgMTkuMSAyMiAxOFY2QzIyIDQuOSAyMS4xIDQgMjAgNFoiIGZpbGw9IiNFQTQzMzUiLz4KPHBhdGggZD0iTTIwIDZMMTIgMTNMNCA2SDE2SDIwWiIgZmlsbD0iI0ZCQkMwNCIvPgo8cGF0aCBkPSJNMjAgNkwxMiAxM0w0IDZWMThIMjBWNloiIGZpbGw9IiMzNEE4NTMiLz4KPHBhdGggZD0iTTQgNkwxMiAxM0wyMCA2SDE2SDRaIiBmaWxsPSIjRkJCQzA0Ii8+Cjwvc3ZnPgo=" alt="Gmail" class="gmail-icon">
@@ -200,26 +363,33 @@
     </footer>
 
     <script src="script.js" defer></script>
-    <style>
-        @media (max-width: 768px) {
-            .e-services-grid {
-                grid-template-columns: 1fr !important;
-                gap: 20px !important;
-            }
-            .e-service-card {
-                padding: 25px !important;
-            }
-            .e-service-card h3 {
-                font-size: 20px !important;
-            }
-        }
-        
-        .e-service-card a:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(255,107,53,0.4) !important;
-        }
-    </style>
     <script>
+      (function () {
+        var cards = document.querySelectorAll('.seva-card');
+        if (!cards.length || !window.IntersectionObserver) return;
+        cards.forEach(function (c) { c.style.opacity = '0'; });
+        var observer = new IntersectionObserver(function (entries) {
+          var entering = entries.filter(function (e) { return e.isIntersecting; });
+          var leaving  = entries.filter(function (e) { return !e.isIntersecting; });
+          leaving.forEach(function (e) {
+            e.target.classList.remove('card-visible');
+            e.target.style.opacity = '0';
+            e.target.style.animationDelay = '0s';
+          });
+          entering.sort(function (a, b) {
+            return a.target.getBoundingClientRect().top - b.target.getBoundingClientRect().top;
+          }).forEach(function (e, i) {
+            e.target.style.animationDelay = (i * 0.1) + 's';
+            e.target.classList.add('card-visible');
+            e.target.addEventListener('animationend', function () {
+              e.target.classList.remove('card-visible');
+              e.target.style.opacity = '1';
+              e.target.style.animationDelay = '0s';
+            }, { once: true });
+          });
+        }, { threshold: 0.1 });
+        cards.forEach(function (c) { observer.observe(c); });
+      })();
     </script>
 </body>
 </html>

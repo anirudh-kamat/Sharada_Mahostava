@@ -79,7 +79,10 @@ document.addEventListener('DOMContentLoaded', function() {
     // Initialize YouTube embeds safely with current origin
     initializeYouTubeEmbeds();
 
-    // Skip loading YouTube API since we're using a local video for the featured slot
+    // Inject global UI enhancements
+    injectWhatsApp();
+    injectBackToTop();
+    injectTicker();
 });
 
 // Gallery Image Modal with carousel support
@@ -104,9 +107,6 @@ function cacheGalleryImages() {
 }
 
 function openImageModal(imageSrc, imageTitle) {
-    const modal = document.getElementById('imageModal');
-    const modalImage = document.getElementById('modalImage');
-
     if (!galleryMediaSources || galleryMediaSources.length === 0) {
         cacheGalleryImages();
     }
@@ -182,7 +182,9 @@ function prevGalleryImage() {
 
 function closeImageModal() {
     const modal = document.getElementById('imageModal');
-    modal.style.display = 'none';
+    if (modal) modal.style.display = 'none';
+    const videoModal = document.getElementById('videoModal');
+    if (videoModal) videoModal.style.display = 'none';
     document.body.style.overflow = 'auto';
 }
 
@@ -522,8 +524,62 @@ document.addEventListener('click', function(e) {
     }
 });
 
+// Inject Instagram floating button on all pages
+function injectWhatsApp() {
+  var ig = document.createElement('a');
+  ig.id = 'instagram-float';
+  ig.href = 'https://www.instagram.com/ssms_mangaluru?igsh=MTY3Mnc0YWtleXlraA==';
+  ig.target = '_blank';
+  ig.rel = 'noopener noreferrer';
+  ig.setAttribute('aria-label', 'Follow on Instagram');
+  ig.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.5" fill="white" stroke="none"/></svg>';
+  document.body.appendChild(ig);
+}
+
+// Inject back-to-top button on all pages
+function injectBackToTop() {
+  var btn = document.createElement('button');
+  btn.id = 'back-to-top';
+  btn.setAttribute('aria-label', 'Back to top');
+  btn.innerHTML = '&#8679;';
+  btn.addEventListener('click', function() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+  document.body.appendChild(btn);
+  window.addEventListener('scroll', function() {
+    btn.classList.toggle('visible', window.scrollY > 300);
+  }, { passive: true });
+}
+
+// Inject scrolling announcement ticker on all pages except homepage
+function injectTicker() {
+  var path = window.location.pathname || '';
+  if (path.endsWith('index.html') || path === '/' || path === '') return;
+  var items = [
+    '🪔 Grand Arrival: October 15, 2026 at 8:00 PM',
+    '· E-Seva &amp; E-Kanike Booking Now Open',
+    '· 104th Mangaluru Sarvajanika Shree Sharada Mahotsava',
+    '· Follow us on WhatsApp for live updates',
+    '· Sri Venkataramana Temple, Carstreet, Mangaluru',
+  ];
+  var bar = document.createElement('div');
+  bar.className = 'ticker-bar';
+  var html = '<div class="ticker-track">';
+  var doubled = items.concat(items);
+  doubled.forEach(function(item) {
+    html += '<span class="ticker-item">' + item + '</span>';
+  });
+  html += '</div>';
+  bar.innerHTML = html;
+  var nav = document.querySelector('.navbar');
+  if (nav) nav.insertAdjacentElement('afterend', bar);
+}
+
 // Make functions globally available
 window.changeSlide = changeSlide;
+window.showSlide = showSlide;
+window.startSlideshow = startSlideshow;
+window.stopSlideshow = stopSlideshow;
 window.openImageModal = openImageModal;
 window.closeImageModal = closeImageModal;
 window.nextGalleryImage = nextGalleryImage;

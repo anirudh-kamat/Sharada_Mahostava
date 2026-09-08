@@ -3,10 +3,135 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Temple History - Sri Venkataramana Temple</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>History | Mangaluru Sarvajanika Shree Sharada Mahotsava</title>
+    <meta name="description" content="History of Sri Venkataramana Temple, Carstreet, Mangaluru and the Mangaluru Sarvajanika Shree Sharada Mahotsava festival." />
+    <link rel="icon" type="image/webp" href="images/L1.webp" />
+    <meta property="og:type"        content="website" />
+    <meta property="og:url"         content="https://www.mangalurusharadhe.org/history.html" />
+    <meta property="og:title"       content="History — Mangaluru Sarvajanika Shree Sharada Mahotsava" />
+    <meta property="og:description" content="A century-old celebration of Goddess Sharada at Sri Venkataramana Temple, Carstreet, Mangaluru — history of the Sharada Mahotsava festival." />
+    <meta property="og:image"       content="https://www.mangalurusharadhe.org/images/SO15.webp" />
+    <meta name="twitter:card"       content="summary_large_image" />
+    <meta name="twitter:image"     content="https://www.mangalurusharadhe.org/images/SO15.webp" />
+    <link rel="canonical"          href="https://www.mangalurusharadhe.org/history.html" />
+    <link rel="stylesheet" href="styles.css?v=20260908">
+    <link rel="stylesheet" href="styles.mobile.css?v=20260908" media="(max-width: 768px)">
+    <link rel="stylesheet" href="styles.desktop.css?v=20260908" media="(min-width: 1024px)">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="preload" as="image" href="images/SO15.webp">
+    <style>
+        .hist-card {
+            background: #fff;
+            border-radius: 14px;
+            box-shadow: 0 6px 24px rgba(13,110,110,0.10);
+            overflow: hidden;
+            transition: transform 0.25s, box-shadow 0.25s;
+            border-bottom: 3px solid #0f9d95;
+        }
+        .hist-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 14px 40px rgba(13,110,110,0.18);
+        }
+        .hist-card-header {
+            background: linear-gradient(135deg, #0a4a47 0%, #0d6e6e 50%, #0f9d95 100%);
+            padding: 16px 20px 14px;
+        }
+        .hist-card-header h2 {
+            color: #fff;
+            font-size: 1rem;
+            font-weight: 700;
+            margin: 0;
+            letter-spacing: 0.3px;
+            text-transform: uppercase;
+        }
+        .hist-card-body {
+            padding: 18px 20px 20px;
+            color: #555;
+            font-size: 0.92rem;
+            line-height: 1.75;
+        }
+        .hist-card-body ul { margin: 0; padding-left: 18px; }
+        .hist-card-body p { margin: 0; }
+
+        /* ── Hero image ── */
+        .history-hero { position: relative; overflow: hidden; }
+
+        /* ── Scroll hint arrow ── */
+        @keyframes scrollBounce {
+          0%, 100% { transform: translateX(-50%) translateY(0); }
+          50%       { transform: translateX(-50%) translateY(10px); }
+        }
+        .scroll-hint {
+          position: absolute;
+          bottom: 18px; left: 50%;
+          transform: translateX(-50%);
+          width: 40px; height: 40px;
+          border-radius: 50%;
+          background: rgba(255,255,255,0.18);
+          backdrop-filter: blur(4px);
+          border: 2px solid rgba(255,255,255,0.5);
+          display: flex; align-items: center; justify-content: center;
+          animation: scrollBounce 1.6s ease-in-out infinite;
+          text-decoration: none;
+          z-index: 10;
+        }
+        .scroll-hint::after {
+          content: '';
+          display: block;
+          width: 10px; height: 10px;
+          border-right: 2.5px solid #fff;
+          border-bottom: 2.5px solid #fff;
+          transform: rotate(45deg) translateY(-3px);
+        }
+
+        /* ── Milestone strip ── */
+        .milestone-strip {
+            display: flex;
+            align-items: stretch;
+            justify-content: center;
+            gap: 0;
+            margin: 28px 0 36px;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 18px rgba(0,0,0,0.08);
+        }
+        .milestone-item {
+            flex: 1;
+            text-align: center;
+            padding: 18px 12px;
+            background: #fff;
+            border-right: 1px solid #f0e8e0;
+        }
+        .milestone-item:last-child { border-right: none; }
+        .milestone-year {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.45rem;
+            font-weight: 800;
+            color: #b5451b;
+            line-height: 1;
+            margin-bottom: 5px;
+        }
+        .milestone-label {
+            font-size: 0.8rem;
+            color: #777;
+            font-weight: 500;
+            letter-spacing: 0.3px;
+        }
+        .milestone-dot {
+            width: 8px; height: 8px;
+            background: #ffd700;
+            border-radius: 50%;
+            margin: 6px auto 0;
+        }
+        @keyframes cardReveal {
+            from { opacity: 0; transform: translateY(40px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+        .hist-card.card-visible {
+            animation: cardReveal 0.55s ease forwards;
+        }
+    </style>
 </head>
 <body>
     <!-- Header Section -->
@@ -37,44 +162,7 @@
                             <li><a href="contact.html" class="dropdown-link">CONTACT US</a></li>
                         </ul>
                     </li>
-                    <li class="dropdown">
-                        <a href="#" class="nav-link dropdown-toggle">SEVA LIST</a>
-                        <ul class="dropdown-menu seva-menu">
-                            <li><a href="#" class="dropdown-link seva-item">
-                                <span class="seva-name">Karpoora Aarti (ಕರ್ಪೂರಾರತಿ)</span>
-                                <span class="seva-price">₹10.00</span>
-                            </a></li>
-                            <li><a href="#" class="dropdown-link seva-item">
-                                <span class="seva-name">Panchakajjaya (ಪಂಚಕಜ್ಜಾಯ)</span>
-                                <span class="seva-price">₹10.00</span>
-                            </a></li>
-                            <li><a href="#" class="dropdown-link seva-item">
-                                <span class="seva-name">Kumkumarchana (ಕುಂಕುಮಾರ್ಚನೆ)</span>
-                                <span class="seva-price">₹100.00</span>
-                            </a></li>
-                            <li><a href="#" class="dropdown-link seva-item">
-                                <span class="seva-name">Laddu Prasada (ಲಡ್ಡು ಪ್ರಸಾದ)</span>
-                                <span class="seva-price">₹100.00</span>
-                            </a></li>
-                            <li><a href="#" class="dropdown-link seva-item">
-                                <span class="seva-name">Alankara Pooja (ಅಲಂಕಾರ ಪೂಜೆ)</span>
-                                <span class="seva-price">₹600.00</span>
-                            </a></li>
-                            <li><a href="#" class="dropdown-link seva-item">
-                                <span class="seva-name">Vishesha Seva (ವಿಶೇಷ ಸೇವೆ)</span>
-                                <span class="seva-price">₹1000.00</span>
-                            </a></li>
-                            <li><a href="#" class="dropdown-link seva-item">
-                                <span class="seva-name">Ranga Pooja (ರಂಗ ಪೂಜೆ)</span>
-                                <span class="seva-price">₹6000.00</span>
-                            </a></li>
-                            <li><a href="#" class="dropdown-link seva-item special">
-                                <span class="seva-name">ವಿಸರ್ಜನಾ ದಿನ ವಿಶೇಷ ಅಲಂಕಾರ ಪೂಜೆ</span>
-                                <span class="seva-price">₹2000.00</span>
-                            </a></li>
-                        </ul>
-                    </li>
-                    <li><a href="donation.html" class="nav-link">KANIKE</a></li>
+                    <li><a href="donation.html" class="nav-link">E-SEVA/KANIKE</a></li>
                     <li class="dropdown">
                         <a href="#" class="nav-link dropdown-toggle">GALLERY</a>
                         <ul class="dropdown-menu">
@@ -90,103 +178,136 @@
     </nav>
 
     <!-- History Content Section (Rewritten) -->
-    <section class="history-section" style="padding: 0 0 56px 0; background: #f8f9fa;">
+    <section class="history-section" style="padding: 0 0 56px 0; background: #fdf6f0;">
         <div class="container" style="max-width: 1200px;">
-            <!-- Cover Image FIRST -->
-            <div class="history-hero" style="margin: 0 0 16px; overflow:hidden; width:100vw; position: relative; left: 50%; right: 50%; margin-left: -50vw; margin-right: -50vw; border-radius:0; box-shadow:none;">
-                <img src="images/SO15.webp" alt="Shree Sharada Mahotsava" style="width: 100%; height: 72vh; object-fit: cover; display: block;">
+            <!-- Cover Image -->
+            <div class="history-hero" style="margin: 0 0 16px; width:100vw; position:relative; left:50%; right:50%; margin-left:-50vw; margin-right:-50vw; border-radius:0; box-shadow:none;">
+                <img src="images/SO15.webp" alt="Shree Sharada Mahotsava – Grand festival view at Sri Venkataramana Temple, Carstreet" style="width:100%; height:35vh; min-height:220px; max-height:380px; object-fit:cover; object-position:center 22%; display:block;" loading="lazy">
             </div>
 
-            <!-- Title AFTER photo -->
-            <div style="text-align: center; margin: 0 0 24px 0;">
-                <p style="color: #ff6b35; font-weight: 700; margin: 0; letter-spacing: .6px;">Sri Venkataramana Temple, Acharya Mutt Vasanth Mantap</p>
-                <h1 style="margin: 12px 0 8px 0; font-size: 40px; font-weight: 800; color: #333;">Shree Sharada Mahotsava — History</h1>
-                <div style="width: 70px; height: 4px; background: #ff6b35; margin: 0 auto; border-radius: 2px;"></div>
+            <!-- Page Title -->
+            <div id="history-content" style="text-align:center; padding:36px 20px 0; background:#fdf6f0;">
+                <h1 style="margin:0 0 8px; font-size:1.9rem; font-weight:800; color:#3d0c02;">Shree Sharada Mahotsava — History</h1>
+                <p style="color:#888; font-size:0.92rem; margin:0;">Sri Venkataramana Temple &nbsp;&middot;&nbsp; Acharya Mutt Vasanth Mantap, Mangaluru</p>
+            </div>
+
+            <!-- Milestone Strip -->
+            <div class="milestone-strip">
+                <div class="milestone-item">
+                    <div class="milestone-year">1920s</div>
+                    <div class="milestone-label">Festival Founded</div>
+                    <div class="milestone-dot"></div>
+                </div>
+                <div class="milestone-item">
+                    <div class="milestone-year">2022</div>
+                    <div class="milestone-label">Centenary Edition</div>
+                    <div class="milestone-dot"></div>
+                </div>
+                <div class="milestone-item">
+                    <div class="milestone-year">2026</div>
+                    <div class="milestone-label">104th Mahotsava</div>
+                    <div class="milestone-dot"></div>
+                </div>
             </div>
 
             <!-- Content Cards -->
-            <div class="history-cards" style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px; align-items: start;">
-                <div style="background: #fff; border: 6px solid #ff6b35; border-radius: 12px; padding: 28px; box-shadow: 0 8px 24px rgba(0,0,0,0.08);">
-                    <h2 style="margin: 0 0 12px 0; color: #ff6b35; font-size: 22px;">INTRODUCTION</h2>
-                    <p style="margin: 0; color: #555; line-height: 1.8;">
-                        Mangaluru Sarvajanika Shree Sharadha Mahotsava is a century-old public celebration at Acharya Mutt Vasantha Mantap, Carstreet—Sri Venkataramana Temple, Mangalore. Renowned for vibrant devotion to Goddess Sharada (Saraswati), it features rich cultural participation and draws thousands annually.The festival lasts 5-10 days, starting with the ceremonial installation of a beautifully adorned clay idol of Goddess Sharada. Each day features devotional rituals, artistic alankars (including unique jasmine ‘son-phool’ hair arrangements), and vibrant deepalankara (lamp lighting) ceremonies.
-                    </p>
-                </div>
-                <div style="background: #fff; border: 6px solid #ff6b35; border-radius: 12px; padding: 28px; box-shadow: 0 8px 24px rgba(0,0,0,0.08);">
-                    <h2 style="margin: 0 0 12px 0; color: #ff6b35; font-size: 22px;">History and Importance</h2>
-                    <ul style="margin: 0; padding-left: 18px; color: #555; line-height: 1.8;">
-                        <li>Began in the early 1920s through the Gowda Saraswat Brahmin (GSB) community, inspired by Ganeshotsav movements to foster unity and devotion during colonial times.</li>
-                        <li>Expanded from a GSB event to a major festival for all citizens, spawning similar Dasara and Sharada celebrations across coastal Karnataka.</li>
-                        <li>Celebrated its centenary in 2022 with grand rituals and cultural highlights; continues with increasing grandeur and inclusivity.</li>
-                    </ul>
+            <div class="history-cards" style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px;">
+
+                <div class="hist-card">
+                    <div class="hist-card-header"><h2>Introduction</h2></div>
+                    <div class="hist-card-body">
+                        <p>Mangaluru Sarvajanika Shree Sharadha Mahotsava is a century-old public celebration at Acharya Mutt Vasantha Mantap, Carstreet—Sri Venkataramana Temple, Mangalore. Renowned for vibrant devotion to Goddess Sharada (Saraswati), it features rich cultural participation and draws thousands annually. The festival lasts 5–10 days, starting with the ceremonial installation of a beautifully adorned clay idol of Goddess Sharada. Each day features devotional rituals, artistic alankars (including unique jasmine ‘son-phool’ hair arrangements), and vibrant deepalankara (lamp lighting) ceremonies.</p>
+                    </div>
                 </div>
 
-                <div style="background: #fff; border: 6px solid #ff6b35; border-radius: 12px; padding: 28px; box-shadow: 0 8px 24px rgba(0,0,0,0.08);">
-                    <h2 style="margin: 0 0 12px 0; color: #ff6b35; font-size: 22px;">Rituals and Events</h2>
-                    <ul style="margin: 0; padding-left: 18px; color: #555; line-height: 1.8;">
-                        <li>The fest spans 5–10 days during Sharan Navaratri, featuring daily poojas and unique alankaras.</li>
-                        <li>The clay idol of Goddess Sharada, created by a local artist, is installed and worshipped in various alankaras, including Kali on select year.</li>
-                        <li>Signature ceremonies: Vidyarambha (learning initiation for children), Rangapuja, Deepalankara, and late-night processions (Shobha Yatra).</li>
-                    </ul>
-                </div>
-                <div style="background: #fff; border: 6px solid #ff6b35; border-radius: 12px; padding: 28px; box-shadow: 0 8px 24px rgba(0,0,0,0.08);">
-                    <h2 style="margin: 0 0 12px 0; color: #ff6b35; font-size: 22px;">Community and Cultural Roots</h2>
-                    <ul style="margin: 0; padding-left: 18px; color: #555; line-height: 1.8;">
-                        <li>Devotees contribute voluntary donations (grain, groceries, artistry, ornaments) in large processions, reinforcing communal bonds.</li>
-                        <li>The Mahotsava is a hub for traditional arts, classical music, plays, and public feasts.</li>
-                        <li>The closing immersion (visarjan) procession is an emotional city-wide event with music, dance, and inclusive rituals.</li>
-                    </ul>
+                <div class="hist-card">
+                    <div class="hist-card-header"><h2>History and Importance</h2></div>
+                    <div class="hist-card-body">
+                        <ul>
+                            <li>Began in the early 1920s through the Gowda Saraswat Brahmin (GSB) community, inspired by Ganeshotsav movements to foster unity and devotion during colonial times.</li>
+                            <li>Expanded from a GSB event to a major festival for all citizens, spawning similar Dasara and Sharada celebrations across coastal Karnataka.</li>
+                            <li>Celebrated its centenary in 2022 with grand rituals and cultural highlights; continues with increasing grandeur and inclusivity.</li>
+                        </ul>
+                    </div>
                 </div>
 
-                <div style="background: #fff; border: 6px solid #ff6b35; border-radius: 12px; padding: 28px; box-shadow: 0 8px 24px rgba(0,0,0,0.08);">
-                    <h2 style="margin: 0 0 12px 0; color: #ff6b35; font-size: 22px;">Location & Recent Celebrations</h2>
-                    <p style="margin: 0; color: #555; line-height: 1.8;">
-                        Held primarily at Acharya Mutt Vasanth Mantap, Sri Venkataramana Temple, Carstreet. Artistic tradition flourishes annually, with specially woven sarees, gold and silver ornaments, and innovative floral alankars for the idol. The centenary year saw record offerings, special events, and recognition for thousands of meritorious students.
-                    </p>
-                </div>
-                <div style="background: #fff; border: 6px solid #ff6b35; border-radius: 12px; padding: 28px; box-shadow: 0 8px 24px rgba(0,0,0,0.08);">
-                    <h2 style="margin: 0 0 12px 0; color: #ff6b35; font-size: 22px;">Origins and Expansion</h2>
-                    <p style="margin: 0; color: #555; line-height: 1.8;">
-                        Worship of Goddess Sharada traces back to GSB migration from Goa to Karnataka in the 16th century, connecting ancestry to the Saraswati river. Public-format Sharada Mahotsava began in 1922–23, inspired by Raja Ravi Varma’s artistic vision for the idol. The festival’s popularity led to the evolution of broader citywide celebrations and inspired the famed Mangaluru Dasara.
-                    </p>
+                <div class="hist-card">
+                    <div class="hist-card-header"><h2>Rituals and Events</h2></div>
+                    <div class="hist-card-body">
+                        <ul>
+                            <li>The fest spans 5–10 days during Sharan Navaratri, featuring daily poojas and unique alankaras.</li>
+                            <li>The clay idol of Goddess Sharada, created by a local artist, is installed and worshipped in various alankaras, including Kali on select years.</li>
+                            <li>Signature ceremonies: Vidyarambha (learning initiation for children), Rangapuja, Deepalankara, and late-night processions (Shobha Yatra).</li>
+                        </ul>
+                    </div>
                 </div>
 
-                <div style="grid-column: 1 / -1; background: #fff; border: 6px solid #ff6b35; border-radius: 12px; padding: 24px; box-shadow: 0 8px 24px rgba(0,0,0,0.08);">
-                    <h2 style="margin: 0 0 12px 0; color: #ff6b35; font-size: 22px;">Cultural Significance</h2>
-                    <p style="margin: 0; color: #555; line-height: 1.8;">
-                        The festival embodies the GSB commitment to education, art, and collective spirit, engaging broader society beyond the community. Rituals like Vidyarambha and spectacular processions reinforce its status as both a spiritual and social cornerstone. The festival is recognized for fostering belonging, charity, and devotion in Mangaluru, with genuine public participation and voluntary giving.
-                    </p>
+                <div class="hist-card">
+                    <div class="hist-card-header"><h2>Community and Cultural Roots</h2></div>
+                    <div class="hist-card-body">
+                        <ul>
+                            <li>Devotees contribute voluntary donations (grain, groceries, artistry, ornaments) in large processions, reinforcing communal bonds.</li>
+                            <li>The Mahotsava is a hub for traditional arts, classical music, plays, and public feasts.</li>
+                            <li>The closing immersion (visarjan) procession is an emotional city-wide event with music, dance, and inclusive rituals.</li>
+                        </ul>
+                    </div>
                 </div>
 
-                <div style="grid-column: 1 / -1; background: #fff; border: 6px solid #ff6b35; border-radius: 12px; padding: 24px; box-shadow: 0 8px 24px rgba(0,0,0,0.08);">
-                    <h2 style="margin: 0 0 12px 0; color: #ff6b35; font-size: 22px;">Vishesha Deepalankar</h2>
-                    <p style="margin: 0; color: #555; line-height: 1.8;">
-                        Vishesha Deepalankar is an elaborate evening ritual where the venue and the idol of Goddess Sharada are adorned with hundreds of lamps and vibrant lighting, creating a truly sacred and celebratory atmosphere. Held on one of the festival evenings, this event draws large crowds of devotees, all participating in lighting lamps and singing hymns, marking a deeply communal moment of unity and devotion. The ritual is often accompanied by music, prayer, and decorated arrangements, reinforcing the symbolism of dispelling darkness and invoking divine blessings for knowledge and prosperity. This ceremony enhances the spiritual and cultural aura of the Mahotsava, making the festival's evenings especially memorable for participants and visitors alike.
-                    </p>
+                <div class="hist-card">
+                    <div class="hist-card-header"><h2>Location &amp; Recent Celebrations</h2></div>
+                    <div class="hist-card-body">
+                        <p>Held primarily at Acharya Mutt Vasanth Mantap, Sri Venkataramana Temple, Carstreet. Artistic tradition flourishes annually, with specially woven sarees, gold and silver ornaments, and innovative floral alankars for the idol. The centenary year saw record offerings, special events, and recognition for thousands of meritorious students.</p>
+                    </div>
                 </div>
+
+                <div class="hist-card">
+                    <div class="hist-card-header"><h2>Origins and Expansion</h2></div>
+                    <div class="hist-card-body">
+                        <p>Worship of Goddess Sharada traces back to GSB migration from Goa to Karnataka in the 16th century, connecting ancestry to the Saraswati river. Public-format Sharada Mahotsava began in 1922–23, inspired by Raja Ravi Varma’s artistic vision for the idol. The festival’s popularity led to the evolution of broader citywide celebrations and inspired the famed Mangaluru Dasara.</p>
+                    </div>
+                </div>
+
+                <div class="hist-card" style="grid-column: 1 / -1;">
+                    <div class="hist-card-header"><h2>Cultural Significance</h2></div>
+                    <div class="hist-card-body">
+                        <p>The festival embodies the GSB commitment to education, art, and collective spirit, engaging broader society beyond the community. Rituals like Vidyarambha and spectacular processions reinforce its status as both a spiritual and social cornerstone. The festival is recognized for fostering belonging, charity, and devotion in Mangaluru, with genuine public participation and voluntary giving.</p>
+                    </div>
+                </div>
+
+                <div class="hist-card" style="grid-column: 1 / -1;">
+                    <div class="hist-card-header"><h2>Vishesha Deepalankar</h2></div>
+                    <div class="hist-card-body">
+                        <p>Vishesha Deepalankar is an elaborate evening ritual where the venue and the idol of Goddess Sharada are adorned with hundreds of lamps and vibrant lighting, creating a truly sacred and celebratory atmosphere. Held on one of the festival evenings, this event draws large crowds of devotees, all participating in lighting lamps and singing hymns, marking a deeply communal moment of unity and devotion. The ritual is often accompanied by music, prayer, and decorated arrangements, reinforcing the symbolism of dispelling darkness and invoking divine blessings for knowledge and prosperity.</p>
+                    </div>
+                </div>
+
             </div>
 
             <!-- Photo Gallery with modal like main gallery -->
-            <div style="margin-top: 32px;">
-                <h2 style="margin: 0 0 14px 0; color: #333; font-size: 24px; font-weight: 700; text-align: center;">Festival Moments</h2>
+            <div style="margin-top: 48px;">
+                <div style="text-align:center; margin-bottom:24px;">
+                    <p style="color:#ff6b35; font-weight:600; font-size:0.9rem; letter-spacing:1px; margin:0 0 6px; text-transform:uppercase;">Through the Lens</p>
+                    <h2 style="margin:0 0 10px; color:#2c3e50; font-size:1.8rem; font-weight:800;">Festival Moments</h2>
+                    <div style="width:50px; height:3px; background:#ff6b35; border-radius:2px; margin:0 auto;"></div>
+                </div>
                 <div class="history-gallery-grid">
                     <div class="gallery-item history-gallery-item" onclick="openImageModal('images/SO32.webp','SO32')">
-                        <img src="images/SO32.webp" alt="Festival photo 1" class="gallery-image history-gallery-image">
+                        <img src="images/SO32.webp" alt="Shree Sharada Mahotsava – Festival Celebration" class="gallery-image history-gallery-image" loading="lazy" decoding="async">
                     </div>
                     <div class="gallery-item history-gallery-item" onclick="openImageModal('images/SO5.webp','SO5')">
-                        <img src="images/SO5.webp" alt="Festival photo 2" class="gallery-image history-gallery-image">
+                        <img src="images/SO5.webp" alt="Shree Sharada Mahotsava – Pooja Ceremony" class="gallery-image history-gallery-image" loading="lazy" decoding="async">
                     </div>
                     <div class="gallery-item history-gallery-item" onclick="openImageModal('images/SO10.webp','SO10')">
-                        <img src="images/SO10.webp" alt="Festival photo 3" class="gallery-image history-gallery-image">
+                        <img src="images/SO10.webp" alt="Shree Sharada Mahotsava – Devotees at the Festival" class="gallery-image history-gallery-image" loading="lazy" decoding="async">
                     </div>
                     <div class="gallery-item history-gallery-item" onclick="openImageModal('images/SO14.webp','SO14')">
-                        <img src="images/SO14.webp" alt="Festival photo 4" class="gallery-image history-gallery-image" loading="lazy" decoding="async">
+                        <img src="images/SO14.webp" alt="Shree Sharada Mahotsava – Grand Festival Scene" class="gallery-image history-gallery-image" loading="lazy" decoding="async">
                     </div>
                     <div class="gallery-item history-gallery-item" onclick="openImageModal('images/SO23.webp','SO23')">
-                        <img src="images/SO23.webp" alt="Festival photo 5" class="gallery-image history-gallery-image" loading="lazy" decoding="async">
+                        <img src="images/SO23.webp" alt="Shree Sharada Mahotsava – Sacred Festival Ritual" class="gallery-image history-gallery-image" loading="lazy" decoding="async">
                     </div>
                     <div class="gallery-item history-gallery-item" onclick="openImageModal('images/SO30.webp','SO30')">
-                        <img src="images/SO30.webp" alt="Festival photo 6" class="gallery-image history-gallery-image" loading="lazy" decoding="async">
+                        <img src="images/SO30.webp" alt="Shree Sharada Mahotsava – Temple Festival Moment" class="gallery-image history-gallery-image" loading="lazy" decoding="async">
                     </div>
                 </div>
             </div>
@@ -197,7 +318,7 @@
                     <span class="close" onclick="closeImageModal()">&times;</span>
                     <button class="modal-nav prev" onclick="prevGalleryImage()" aria-label="Previous image">‹</button>
                     <div class="modal-image-container">
-                        <img id="modalImage" src="" alt="" class="modal-image">
+                        <img id="modalImage" src="" alt="" class="modal-image" loading="lazy">
                     </div>
                     <button class="modal-nav next" onclick="nextGalleryImage()" aria-label="Next image">›</button>
                 </div>
@@ -215,20 +336,12 @@
         </div>
     </section>
 
-    <!-- Contact Us Section -->
-    <section class="contact-us-section" id="contact">
-        <div class="container">
-            <h2 class="contact-heading">FOR QUERIES</h2>
-            <a href="contact.html" class="contact-btn">CONTACT US</a>
-        </div>
-    </section>
-
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
-            <div class="footer-content">
+      <div class="footer-content">
                 <div class="footer-section">
-                    <h3>📍 ADDRESS</h3>
+                    <h3><a href="https://www.google.com/maps?q=Acharya+Mutt+Premises,+Sri+Venkatramana+Temple,+Carstreet,+Mangalore+575001" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;">📍 ADDRESS</a></h3>
                     <a href="https://www.google.com/maps?q=Acharya+Mutt+Premises,+Sri+Venkatramana+Temple,+Carstreet,+Mangalore+575001" target="_blank" rel="noopener" class="map-link">
                         <p>Acharya Mutt Premises, Sri Venkatramana Temple, Carstreet,Mangalore - 575001.</p>
                         <p>Karnataka,India</p>
@@ -236,7 +349,7 @@
                 </div>
 
                 <div class="footer-section">
-                    <h3>📧 EMAIL</h3>
+                    <h3><a href="mailto:ssms_mangalore@gmail.com" style="color:inherit;text-decoration:none;">📧 EMAIL</a></h3>
                     <a href="mailto:ssms_mangalore@gmail.com" class="email-link">
                         <p class="email-with-logo">
                             <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTIwIDRINEMyLjkgNCAyIDQuOSAyIDZWMThDMiAxOS4xIDIuOSAyMCA0IDIwSDIwQzIxLjEgMjAgMjIgMTkuMSAyMiAxOFY2QzIyIDQuOSAyMS4xIDQgMjAgNFoiIGZpbGw9IiNFQTQzMzUiLz4KPHBhdGggZD0iTTIwIDZMMTIgMTNMNCA2SDE2SDIwWiIgZmlsbD0iI0ZCQkMwNCIvPgo8cGF0aCBkPSJNMjAgNkwxMiAxM0w0IDZWMThIMjBWNloiIGZpbGw9IiMzNEE4NTMiLz4KPHBhdGggZD0iTTQgNkwxMiAxM0wyMCA2SDE2SDRaIiBmaWxsPSIjRkJCQzA0Ii8+Cjwvc3ZnPgo=" alt="Gmail" class="gmail-icon">
@@ -264,5 +377,33 @@
     </footer>
 
     <script src="script.js" defer></script>
+    <script>
+      (function () {
+        var cards = document.querySelectorAll('.hist-card');
+        if (!cards.length || !window.IntersectionObserver) return;
+        cards.forEach(function (c) { c.style.opacity = '0'; });
+        var observer = new IntersectionObserver(function (entries) {
+          var entering = entries.filter(function (e) { return e.isIntersecting; });
+          var leaving  = entries.filter(function (e) { return !e.isIntersecting; });
+          leaving.forEach(function (e) {
+            e.target.classList.remove('card-visible');
+            e.target.style.opacity = '0';
+            e.target.style.animationDelay = '0s';
+          });
+          entering.sort(function (a, b) {
+            return a.target.getBoundingClientRect().top - b.target.getBoundingClientRect().top;
+          }).forEach(function (e, i) {
+            e.target.style.animationDelay = (i * 0.12) + 's';
+            e.target.classList.add('card-visible');
+            e.target.addEventListener('animationend', function () {
+              e.target.classList.remove('card-visible');
+              e.target.style.opacity = '1';
+              e.target.style.animationDelay = '0s';
+            }, { once: true });
+          });
+        }, { threshold: 0.1 });
+        cards.forEach(function (c) { observer.observe(c); });
+      })();
+    </script>
 </body>
 </html>

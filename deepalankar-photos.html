@@ -3,11 +3,32 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Deepalankar Photos - Sri Venkataramana Temple</title>
-    <link rel="stylesheet" href="styles.css" />
-    <link rel="stylesheet" href="styles.mobile.css" media="(max-width: 768px)" />
+    <title>Deepalankar Gallery | Mangaluru Sarvajanika Shree Sharada Mahotsava</title>
+    <meta name="description" content="Deepalankar photo gallery from Mangaluru Sarvajanika Shree Sharada Mahotsava at Sri Venkataramana Temple, Carstreet, Mangaluru." />
+    <link rel="icon" type="image/webp" href="images/L1.webp" />
+    <meta property="og:type"        content="website" />
+    <meta property="og:url"         content="https://www.mangalurusharadhe.org/deepalankar-photos.html" />
+    <meta property="og:title"       content="Deepalankar Gallery — Mangaluru Sharada Mahotsava" />
+    <meta property="og:description" content="Deepalankar photo gallery — the grand illumination ceremony of Shree Sharada Mata at Sri Venkataramana Temple, Mangaluru." />
+    <meta property="og:image"       content="https://www.mangalurusharadhe.org/images/D1.webp" />
+    <meta name="twitter:card"       content="summary_large_image" />
+    <meta name="twitter:image"     content="https://www.mangalurusharadhe.org/images/D1.webp" />
+    <link rel="canonical"          href="https://www.mangalurusharadhe.org/deepalankar-photos.html" />
+    <link rel="stylesheet" href="styles.css?v=20260908" />
+    <link rel="stylesheet" href="styles.mobile.css?v=20260908" media="(max-width: 768px)" />
+    <link rel="stylesheet" href="styles.desktop.css?v=20260908" media="(min-width: 1024px)" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <style>
+        @keyframes galleryReveal {
+            from { opacity: 0; transform: translateY(28px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+        .gallery-item.item-visible {
+            animation: galleryReveal 0.45s ease forwards;
+        }
+    </style>
+    <link rel="preload" as="image" href="images/D1.webp" />
 </head>
 <body>
     <div class="header">
@@ -36,20 +57,7 @@
                             <li><a href="contact.html" class="dropdown-link">CONTACT US</a></li>
                         </ul>
                     </li>
-                    <li class="dropdown">
-                        <a href="#" class="nav-link dropdown-toggle">SEVA LIST</a>
-                        <ul class="dropdown-menu seva-menu">
-                            <li><a href="#" class="dropdown-link seva-item"><span class="seva-name">Karpoora Aarti (ಕರ್ಪೂರಾರತಿ)</span><span class="seva-price">₹10.00</span></a></li>
-                            <li><a href="#" class="dropdown-link seva-item"><span class="seva-name">Panchakajjaya (ಪಂಚಕಜ್ಜಾಯ)</span><span class="seva-price">₹10.00</span></a></li>
-                            <li><a href="#" class="dropdown-link seva-item"><span class="seva-name">Kumkumarchana (ಕುಂಕುಮಾರ್ಚನೆ)</span><span class="seva-price">₹100.00</span></a></li>
-                            <li><a href="#" class="dropdown-link seva-item"><span class="seva-name">Laddu Prasada (ಲಡ್ಡು ಪ್ರಸಾದ)</span><span class="seva-price">₹100.00</span></a></li>
-                            <li><a href="#" class="dropdown-link seva-item"><span class="seva-name">Alankara Pooja (ಅಲಂಕಾರ ಪೂಜೆ)</span><span class="seva-price">₹600.00</span></a></li>
-                            <li><a href="#" class="dropdown-link seva-item"><span class="seva-name">Vishesha Seva (ವಿಶೇಷ ಸೇವೆ)</span><span class="seva-price">₹1000.00</span></a></li>
-                            <li><a href="#" class="dropdown-link seva-item"><span class="seva-name">Ranga Pooja (ರಂಗ ಪೂಜೆ)</span><span class="seva-price">₹6000.00</span></a></li>
-                            <li><a href="#" class="dropdown-link seva-item special"><span class="seva-name">ಜಲಕರ ದಿನ ವಿಶೇಷ ವಿನ ಪೂಜೆ</span><span class="seva-price">₹2000.00</span></a></li>
-                        </ul>
-                    </li>
-                    <li><a href="donation.html" class="nav-link">KANIKE</a></li>
+                    <li><a href="donation.html" class="nav-link">E-SEVA/KANIKE</a></li>
                     <li class="dropdown">
                         <a href="#" class="nav-link dropdown-toggle active">GALLERY</a>
                         <ul class="dropdown-menu">
@@ -64,38 +72,46 @@
         </div>
     </nav>
 
+    <!-- Gallery Intro Header -->
+    <section style="padding:52px 20px 44px; background:linear-gradient(135deg,#0a1a2e,#1a2c4e,#0d2060); text-align:center;">
+      <p style="color:#ffd700; font-weight:700; font-size:0.8rem; letter-spacing:2.5px; text-transform:uppercase; margin:0 0 10px; display:flex; align-items:center; justify-content:center; gap:10px;">
+        <span style="display:inline-block;width:32px;height:2px;background:#ffd700;opacity:0.6;border-radius:2px;"></span>
+        Mangaluru Sarvajanika Shree Sharada Mahotsava
+        <span style="display:inline-block;width:32px;height:2px;background:#ffd700;opacity:0.6;border-radius:2px;"></span>
+      </p>
+      <h2 style="color:#fff; font-size:2rem; font-weight:800; margin:0 0 10px;">Deepalankara – an evening where light meets divinity.</h2>
+      <p style="color:rgba(255,255,255,0.65); font-size:0.95rem; max-width:520px; margin:0 auto; line-height:1.7;">Deepalankara offered in devotion to Shree Sharada Mata, glowing with countless lamps.</p>
+    </section>
+
     <section class="gallery-section">
         <div class="container">
-            <div class="gallery-header">
-                <h1>Deepalankara – an evening where light meets divinity.</h1>
-                <p>Deepalankara offered in devotion to Shree Sharada Mata, glowing with countless lamps</p>
-            </div>
             <div class="gallery-grid">
                 <!-- Deepalankara set: D1 - D15 -->
-                <div class="gallery-item" onclick="openImageModal('images/D1.webp','D1')"><img src="images/D1.webp" alt="D1" class="gallery-image" fetchpriority="high" /></div>
-                <div class="gallery-item" onclick="openImageModal('images/D2.webp','D2')"><img src="images/D2.webp" alt="D2" class="gallery-image" /></div>
-                <div class="gallery-item" onclick="openImageModal('images/D3.webp','D3')"><img src="images/D3.webp" alt="D3" class="gallery-image" /></div>
-                <div class="gallery-item" onclick="openImageModal('images/D4.webp','D4')"><img src="images/D4.webp" alt="D4" class="gallery-image" loading="lazy" decoding="async" /></div>
-                <div class="gallery-item" onclick="openImageModal('images/D5.webp','D5')"><img src="images/D5.webp" alt="D5" class="gallery-image" loading="lazy" decoding="async" /></div>
-                <div class="gallery-item" onclick="openImageModal('images/D6.webp','D6')"><img src="images/D6.webp" alt="D6" class="gallery-image" loading="lazy" decoding="async" /></div>
-                <div class="gallery-item" onclick="openImageModal('images/D7.webp','D7')"><img src="images/D7.webp" alt="D7" class="gallery-image" loading="lazy" decoding="async" /></div>
-                <div class="gallery-item" onclick="openImageModal('images/D8.webp','D8')"><img src="images/D8.webp" alt="D8" class="gallery-image" loading="lazy" decoding="async" /></div>
-                <div class="gallery-item" onclick="openImageModal('images/D9.webp','D9')"><img src="images/D9.webp" alt="D9" class="gallery-image" loading="lazy" decoding="async" /></div>
-                <div class="gallery-item" onclick="openImageModal('images/D10.webp','D10')"><img src="images/D10.webp" alt="D10" class="gallery-image" loading="lazy" decoding="async" /></div>
-                <div class="gallery-item" onclick="openImageModal('images/D11.webp','D11')"><img src="images/D11.webp" alt="D11" class="gallery-image" loading="lazy" decoding="async" /></div>
-                <div class="gallery-item" onclick="openImageModal('images/D12.webp','D12')"><img src="images/D12.webp" alt="D12" class="gallery-image" loading="lazy" decoding="async" /></div>
-                <div class="gallery-item" onclick="openImageModal('images/D13.webp','D13')"><img src="images/D13.webp" alt="D13" class="gallery-image" loading="lazy" decoding="async" /></div>
-                <div class="gallery-item" onclick="openImageModal('images/D14.webp','D14')"><img src="images/D14.webp" alt="D14" class="gallery-image" loading="lazy" decoding="async" /></div>
-                <div class="gallery-item" onclick="openImageModal('images/D15.webp','D15')"><img src="images/D15.webp" alt="D15" class="gallery-image" loading="lazy" decoding="async" /></div>
+                <div class="gallery-item" onclick="openImageModal('images/D1.webp','D1')"><img src="images/D1.webp" alt="Deepalankar Lamp Illumination – Photo 1" class="gallery-image" fetchpriority="high" /></div>
+                <div class="gallery-item" onclick="openImageModal('images/D2.webp','D2')"><img src="images/D2.webp" alt="Deepalankar Lamp Illumination – Photo 2" class="gallery-image" loading="lazy" decoding="async" /></div>
+                <div class="gallery-item" onclick="openImageModal('images/D3.webp','D3')"><img src="images/D3.webp" alt="Deepalankar Lamp Illumination – Photo 3" class="gallery-image" loading="lazy" decoding="async" /></div>
+                <div class="gallery-item" onclick="openImageModal('images/D4.webp','D4')"><img src="images/D4.webp" alt="Deepalankar Lamp Illumination – Photo 4" class="gallery-image" loading="lazy" decoding="async" /></div>
+                <div class="gallery-item" onclick="openImageModal('images/D5.webp','D5')"><img src="images/D5.webp" alt="Deepalankar Lamp Illumination – Photo 5" class="gallery-image" loading="lazy" decoding="async" /></div>
+                <div class="gallery-item" onclick="openImageModal('images/D6.webp','D6')"><img src="images/D6.webp" alt="Deepalankar Lamp Illumination – Photo 6" class="gallery-image" loading="lazy" decoding="async" /></div>
+                <div class="gallery-item" onclick="openImageModal('images/D7.webp','D7')"><img src="images/D7.webp" alt="Deepalankar Lamp Illumination – Photo 7" class="gallery-image" loading="lazy" decoding="async" /></div>
+                <div class="gallery-item" onclick="openImageModal('images/D8.webp','D8')"><img src="images/D8.webp" alt="Deepalankar Lamp Illumination – Photo 8" class="gallery-image" loading="lazy" decoding="async" /></div>
+                <div class="gallery-item" onclick="openImageModal('images/D9.webp','D9')"><img src="images/D9.webp" alt="Deepalankar Lamp Illumination – Photo 9" class="gallery-image" loading="lazy" decoding="async" /></div>
+                <div class="gallery-item" onclick="openImageModal('images/D10.webp','D10')"><img src="images/D10.webp" alt="Deepalankar Lamp Illumination – Photo 10" class="gallery-image" loading="lazy" decoding="async" /></div>
+                <div class="gallery-item" onclick="openImageModal('images/D11.webp','D11')"><img src="images/D11.webp" alt="Deepalankar Lamp Illumination – Photo 11" class="gallery-image" loading="lazy" decoding="async" /></div>
+                <div class="gallery-item" onclick="openImageModal('images/D12.webp','D12')"><img src="images/D12.webp" alt="Deepalankar Lamp Illumination – Photo 12" class="gallery-image" loading="lazy" decoding="async" /></div>
+                <div class="gallery-item" onclick="openImageModal('images/D13.webp','D13')"><img src="images/D13.webp" alt="Deepalankar Lamp Illumination – Photo 13" class="gallery-image" loading="lazy" decoding="async" /></div>
+                <div class="gallery-item" onclick="openImageModal('images/D14.webp','D14')"><img src="images/D14.webp" alt="Deepalankar Lamp Illumination – Photo 14" class="gallery-image" loading="lazy" decoding="async" /></div>
+                <div class="gallery-item" onclick="openImageModal('images/D15.webp','D15')"><img src="images/D15.webp" alt="Deepalankar Lamp Illumination – Photo 15" class="gallery-image" loading="lazy" decoding="async" /></div>
             </div>
         </div>
     </section>
 
-    <footer class="footer">
+
+            <footer class="footer">
         <div class="container">
-            <div class="footer-content">
+      <div class="footer-content">
                 <div class="footer-section">
-                    <h3>📍 ADDRESS</h3>
+                    <h3><a href="https://www.google.com/maps?q=Acharya+Mutt+Premises,+Sri+Venkatramana+Temple,+Carstreet,+Mangalore+575001" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;">📍 ADDRESS</a></h3>
                     <a href="https://www.google.com/maps?q=Acharya+Mutt+Premises,+Sri+Venkatramana+Temple,+Carstreet,+Mangalore+575001" target="_blank" rel="noopener" class="map-link">
                         <p>Acharya Mutt Premises, Sri Venkatramana Temple, Carstreet,Mangalore - 575001.</p>
                         <p>Karnataka,India</p>
@@ -103,22 +119,22 @@
                 </div>
 
                 <div class="footer-section">
-                    <h3>📧 EMAIL</h3>
+                    <h3><a href="mailto:ssms_mangalore@gmail.com" style="color:inherit;text-decoration:none;">📧 EMAIL</a></h3>
                     <a href="mailto:ssms_mangalore@gmail.com" class="email-link">
                         <p class="email-with-logo">
-                            <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTIwIDRINEMyLjkgNCAyIDQuOSAyIDZWMThDMiAxOS4xIDIuOSAyMCA0IDIwSDIwQzIxLjEgMjAgMjIgMTkuMSAyMiAxOFY2QzIyIDQuOSAyMS4xIDQgMjAgNFoiIGZpbGw9IiNFQTQzMzUiLz4KPHBhdGggZD0iTTIwIDZMMTIgMTNMNCA2SDE2SDIwWiIgZmlsbD0iI0ZCQkMwNCIvPgo8cGF0aCBkPSJNMjAgNkwxMiAxM0w0IDZWMThIMjBWNloiIGZpbGw9IiMzNEE4NTMiLz4KPHBhdGggZD0iTTQgNkwxMiAxM0wyMCA2SDE2SDRaIiBmaWxsPSIjRkJCQzA0Ii8+Cjwvc3ZnPgo=" alt="Gmail" class="gmail-icon" />
+                            <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTIwIDRINEMyLjkgNCAyIDQuOSAyIDZWMThDMiAxOS4xIDIuOSAyMCA0IDIwSDIwQzIxLjEgMjAgMjIgMTkuMSAyMiAxOFY2QzIyIDQuOSAyMS4xIDQgMjAgNFoiIGZpbGw9IiNFQTQzMzUiLz4KPHBhdGggZD0iTTIwIDZMMTIgMTNMNCA2SDE2SDIwWiIgZmlsbD0iI0ZCQkMwNCIvPgo8cGF0aCBkPSJNMjAgNkwxMiAxM0w0IDZWMThIMjBWNloiIGZpbGw9IiMzNEE4NTMiLz4KPHBhdGggZD0iTTQgNkwxMiAxM0wyMCA2SDE2SDRaIiBmaWxsPSIjRkJCQzA0Ii8+Cjwvc3ZnPgo=" alt="Gmail" class="gmail-icon">
                             ssms_mangalore@gmail.com
                         </p>
                     </a>
                     <div class="social-icons">
                         <a href="https://www.facebook.com/share/1NVFAXvu71/" target="_blank" class="social-icon facebook">
-                            <img class="social-logo" src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGNpcmNsZSBjeD0iMTIiIGN5PSIxMiIgcj0iMTIiIGZpbGw9IiMxODc3RjIiLz4KPHBhdGggZD0iTTE1LjUgMTJIMTMuNVYyMEg5LjVWMTJIOFY4LjVIOS41VjYuNUM5LjUgNC44IDEwLjggMy41IDEyLjUgMy41SDE1VjdIMTMuNUM5LjUgNyAxMy41IDcgMTMuNSA4LjVWOC41SDE1LjVMMTUgMTJaIiBmaWxsPSJ3aGl0ZSIvPgo8L3N2Zz4K" />
+                            <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGNpcmNsZSBjeD0iMTIiIGN5PSIxMiIgcj0iMTIiIGZpbGw9IiMxODc3RjIiLz4KPHBhdGggZD0iTTE1LjUgMTJIMTMuNVYyMEg5LjVWMTJIOFY4LjVIOS41VjYuNUM5LjUgNC44IDEwLjggMy41IDEyLjUgMy41SDE1VjdIMTMuNUM5LjUgNyAxMy41IDcgMTMuNSA4LjVWOC41SDE1LjVMMTUgMTJaIiBmaWxsPSJ3aGl0ZSIvPgo8L3N2Zz4K" alt="Facebook" class="social-logo">
                         </a>
                         <a href="https://youtube.com/@mangalurusarvajanikashrees3669?feature=shared" target="_blank" class="social-icon youtube">
-                            <img class="social-logo" src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjI0IiBoZWlnaHQ9IjI0IiByeD0iNCIgZmlsbD0iI0ZGMDAwMCIvPgo8cGF0aCBkPSJNMTAuNSA4LjVMMTUuNSAxMkwxMC41IDE1LjVWOC41WiIgZmlsbD0id2hpdGUiLz4KPC9zdmc+Cg==" />
+                            <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjI0IiBoZWlnaHQ9IjI0IiByeD0iNCIgZmlsbD0iI0ZGMDAwMCIvPgo8cGF0aCBkPSJNMTAuNSA4LjVMMTUuNSAxMkwxMC41IDE1LjVWOC41WiIgZmlsbD0id2hpdGUiLz4KPC9zdmc+Cg==" alt="YouTube" class="social-logo">
                         </a>
                         <a href="https://www.instagram.com/ssms_mangaluru?igsh=MTY3Mnc0YWtleXlraA==" target="_blank" class="social-icon instagram">
-                            <img class="social-logo" src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGRlZnM+CjxsaW5lYXJHcmFkaWVudCBpZD0iaW5zdGFncmFtIiB4MT0iMCUiIHkxPSIwJSIgeDI9IjEwMCUiIHkyPSIxMDAlIj4KPHN0b3Agb2Zmc2V0PSIwJSIgc3R5bGU9InN0b3AtY29sb3I6IzgzNEE5QiIvPgo8c3RvcCBvZmZzZXQ9IjUwJSIgc3R5bGU9InN0b3AtY29sb3I6I0Q2Mjk3NiIvPgo8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0eWxlPSJzdG9wLWNvbG9yOiNGNTY0NDAiLz4KPC9saW5lYXJHcmFkaWVudD4KPC9kZWZzPgo8cmVjdCB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHJ4PSI2IiBmaWxsPSJ1cmwoI2luc3RhZ3JhbSkiLz4KPGNpcmNsZSBjeD0iMTIiIGN5PSIxMiIgcj0iNCIgc3Ryb2tlPSJ3aGl0ZSIgc3Ryb2tlLXdpZHRoPSIyIiBmaWxsPSJub25lIi8+CjxjaXJjbGUgY3g9IjE4IiBjeT0iNiIgcj0iMS41IiBmaWxsPSJ3aGl0ZSIvPgo8L3N2Zz4K" />
+                            <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGRlZnM+CjxsaW5lYXJHcmFkaWVudCBpZD0iaW5zdGFncmFtIiB4MT0iMCUiIHkxPSIwJSIgeDI9IjEwMCUiIHkyPSIxMDAlIj4KPHN0b3Agb2Zmc2V0PSIwJSIgc3R5bGU9InN0b3AtY29sb3I6IzgzNEE5QiIvPgo8c3RvcCBvZmZzZXQ9IjUwJSIgc3R5bGU9InN0b3AtY29sb3I6I0Q2Mjk3NiIvPgo8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0eWxlPSJzdG9wLWNvbG9yOiNGNTY0NDAiLz4KPC9saW5lYXJHcmFkaWVudD4KPC9kZWZzPgo8cmVjdCB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHJ4PSI2IiBmaWxsPSJ1cmwoI2luc3RhZ3JhbSkiLz4KPGNpcmNsZSBjeD0iMTIiIGN5PSIxMiIgcj0iNCIgc3Ryb2tlPSJ3aGl0ZSIgc3Ryb2tlLXdpZHRoPSIyIiBmaWxsPSJub25lIi8+CjxjaXJjbGUgY3g9IjE4IiBjeT0iNiIgcj0iMS41IiBmaWxsPSJ3aGl0ZSIvPgo8L3N2Zz4K" alt="Instagram" class="social-logo">
                         </a>
                     </div>
                 </div>
@@ -136,7 +152,7 @@
             <span class="close" onclick="closeImageModal()">&times;</span>
             <button class="modal-nav prev" onclick="prevGalleryImage()" aria-label="Previous image">‹</button>
             <div class="modal-image-container">
-                <img id="modalImage" src="" alt="" class="modal-image">
+                <img id="modalImage" src="" alt="" class="modal-image" loading="lazy">
             </div>
             <button class="modal-nav next" onclick="nextGalleryImage()" aria-label="Next image">›</button>
         </div>
@@ -155,5 +171,28 @@
     </div>
 
     <script src="script.js" defer></script>
+    <script>
+      (function () {
+        var items = document.querySelectorAll('.gallery-item');
+        if (!items.length || !window.IntersectionObserver) return;
+        items.forEach(function (el) { el.style.opacity = '0'; });
+        var obs = new IntersectionObserver(function (entries) {
+          var entering = entries.filter(function (e) { return e.isIntersecting; });
+          var leaving  = entries.filter(function (e) { return !e.isIntersecting; });
+          leaving.forEach(function (e) {
+            e.target.classList.remove('item-visible');
+            e.target.style.opacity = '0';
+            e.target.style.animationDelay = '0s';
+          });
+          entering.sort(function (a, b) {
+            return a.target.getBoundingClientRect().top - b.target.getBoundingClientRect().top;
+          }).forEach(function (e, i) {
+            e.target.style.animationDelay = Math.min(i * 0.07, 0.28) + 's';
+            e.target.classList.add('item-visible');
+          });
+        }, { threshold: 0.08 });
+        items.forEach(function (el) { obs.observe(el); });
+      })();
+    </script>
 </body>
 </html>
