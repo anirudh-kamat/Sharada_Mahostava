@@ -22,7 +22,7 @@
       "@type": "Event",
       "name": "104th Mangaluru Sarvajanika Shree Sharada Mahotsava 2026",
       "startDate": "2026-10-15T20:00:00+05:30",
-      "endDate": "2026-10-20T23:00:00+05:30",
+      "endDate": "2026-10-22T23:00:00+05:30",
       "location": {
         "@type": "Place",
         "name": "Sri Venkataramana Temple, Acharya Mutt Vasantha Mantap",
@@ -47,9 +47,9 @@
       "isAccessibleForFree": true
     }
     </script>
-    <link rel="stylesheet" href="styles.css?v=20260908">
-    <link rel="stylesheet" href="styles.mobile.css?v=20260908" media="only screen and (max-width: 768px)">
-    <link rel="stylesheet" href="styles.desktop.css?v=20260908" media="only screen and (min-width: 1024px)">
+    <link rel="stylesheet" href="styles.css?v=20260924">
+    <link rel="stylesheet" href="styles.mobile.css?v=20260924" media="only screen and (max-width: 768px)">
+    <link rel="stylesheet" href="styles.desktop.css?v=20260924" media="only screen and (min-width: 1024px)">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="preload" as="image" href="images/SLIDE1.webp">
@@ -64,6 +64,7 @@
         gap: 20px;
         padding: 10px 20px;
         flex-wrap: wrap;
+        min-height: 62px;
       }
       .cd-title {
         color: #ff6b35;
@@ -112,6 +113,21 @@
         .cd-title { font-size: 0.7rem; }
         .cd-unit span { font-size: 1.15rem; }
         .cd-unit { min-width: 34px; }
+      }
+      @media (max-width: 375px) {
+        #countdown-bar { gap: 6px; padding: 6px 8px; flex-wrap: wrap; justify-content: center; }
+        .cd-title { font-size: 0.62rem; letter-spacing: 0.5px; text-align: center; width: 100%; }
+        .cd-unit span { font-size: 1rem; }
+        .cd-unit { min-width: 28px; }
+        .cd-sep { font-size: 1rem; }
+      }
+
+      @keyframes cdGlow {
+        0%, 100% { opacity: 0.65; } 50% { opacity: 1; }
+      }
+      @keyframes cdPulse {
+        0%, 100% { transform: scale(1); opacity: 1; }
+        50% { transform: scale(1.2); opacity: 0.7; }
       }
 
       #welcome-backdrop {
@@ -590,7 +606,7 @@
       <div id="welcome-modal">
         <button id="welcome-modal-close" onclick="closeWelcomeModal()" aria-label="Close">&#x2715;</button>
         <div id="welcome-modal-header">
-          <span>Mangaluru Sharade 2026 &mdash; Coming Soon</span>
+          <span>Mangaluru Sharade 2026 &mdash; October 15 to 22</span>
         </div>
         <img src="images/splash2026.webp" alt="Mangaluru Sharade 2026" loading="lazy">
         <div id="welcome-modal-footer">
@@ -644,8 +660,8 @@
 
     <!-- Countdown Timer -->
     <div id="countdown-bar">
-      <span class="cd-title">Sharade 2026 &mdash; Coming Soon</span>
-      <div class="cd-units">
+      <span class="cd-title" id="cd-title">Shree Sharade 2026 &mdash; Grand Arrival In</span>
+      <div class="cd-units" id="cd-units">
         <div class="cd-unit"><span id="cd-days">--</span><small>Days</small></div>
         <div class="cd-sep">:</div>
         <div class="cd-unit"><span id="cd-hours">--</span><small>Hours</small></div>
@@ -661,7 +677,7 @@
         <div class="slideshow-wrapper">
             <div class="slideshow-container">
                 <div class="slide active">
-                    <img src="images/SLIDE1.webp" alt="Shree Sharada Mahotsava – Grand Arrival" class="slide-image" loading="lazy">
+                    <img src="images/SLIDE1.webp" alt="Shree Sharada Mahotsava – Grand Arrival" class="slide-image" loading="eager" fetchpriority="high">
                     <span class="slide-name">Grand Arrival</span>
                 </div>
                 <div class="slide">
@@ -687,8 +703,8 @@
               <div id="hero-overlay-inner">
                 <p class="hero-tagline">104th Mangaluru Sarvajanika Shree Sharada Mahotsava</p>
                 <h2 class="hero-event-title">Mangaluru Sharade 2026</h2>
-                <p class="hero-event-date">🪔 Grand Arrival · October 15, 2026 · 8:00 PM</p>
-                <a href="announcements.html" class="hero-cta-btn">View Schedule →</a>
+                <p class="hero-event-date" id="hero-event-date">🪔 Grand Arrival · October 15, 2026 · 8:00 PM</p>
+                <a href="announcements.html" class="hero-cta-btn" id="hero-cta-btn">View Schedule →</a>
               </div>
             </div>
 
@@ -730,12 +746,12 @@
           <a href="donation.html" class="ql-card">
             <div class="ql-icon">🙏</div>
             <div class="ql-label">E-Seva</div>
-            <div class="ql-sub">Book Sevas Online</div>
+            <div class="ql-sub">Offer Your Seva</div>
           </a>
           <a href="live.html" class="ql-card">
             <div class="ql-icon">📺</div>
             <div class="ql-label">Live Stream</div>
-            <div class="ql-sub">Watch Live</div>
+            <div class="ql-sub">Watch Live Darshan</div>
           </a>
         </div>
       </div>
@@ -764,7 +780,7 @@
                 <!-- Content Section -->
                 <div class="history-content" style="padding-left: 20px;">
                     <p style="font-size: 1.1em; line-height: 1.8; color: #555; margin-bottom: 16px;">
-                        Shree Sharada Mahotsava at Acharya Mutt Vasantha Mantap, Carstreet is a century-old public celebration of Goddess Sharada (Saraswati) held at Sri Venkataramana Temple, Mangaluru. The festival blends devotion, culture and community participation, drawing thousands every year.
+                        Shree Sharada Mahotsava at Acharya Mutt Vasantha Mantap, Carstreet is a century-old public celebration of Goddess Sharada (Saraswati) held at Sri Venkataramana Temple, Mangaluru. The festival is a sacred offering of devotion, culture, and community — drawing thousands of faithful devotees every year to seek Her blessings.
                     </p>
 
                     <ul class="hist-list">
@@ -889,6 +905,9 @@
                         <a href="https://www.instagram.com/ssms_mangaluru?igsh=MTY3Mnc0YWtleXlraA==" target="_blank" class="social-icon instagram">
                             <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGRlZnM+CjxsaW5lYXJHcmFkaWVudCBpZD0iaW5zdGFncmFtIiB4MT0iMCUiIHkxPSIwJSIgeDI9IjEwMCUiIHkyPSIxMDAlIj4KPHN0b3Agb2Zmc2V0PSIwJSIgc3R5bGU9InN0b3AtY29sb3I6IzgzNEE5QiIvPgo8c3RvcCBvZmZzZXQ9IjUwJSIgc3R5bGU9InN0b3AtY29sb3I6I0Q2Mjk3NiIvPgo8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0eWxlPSJzdG9wLWNvbG9yOiNGNTY0NDAiLz4KPC9saW5lYXJHcmFkaWVudD4KPC9kZWZzPgo8cmVjdCB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHJ4PSI2IiBmaWxsPSJ1cmwoI2luc3RhZ3JhbSkiLz4KPGNpcmNsZSBjeD0iMTIiIGN5PSIxMiIgcj0iNCIgc3Ryb2tlPSJ3aGl0ZSIgc3Ryb2tlLXdpZHRoPSIyIiBmaWxsPSJub25lIi8+CjxjaXJjbGUgY3g9IjE4IiBjeT0iNiIgcj0iMS41IiBmaWxsPSJ3aGl0ZSIvPgo8L3N2Zz4K" alt="Instagram" class="social-logo">
                         </a>
+                        <a href="https://whatsapp.com/channel/0029VbAvEE8LCoX5lnLyXW37" target="_blank" class="social-icon whatsapp">
+                            <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48Y2lyY2xlIGN4PSIxMiIgY3k9IjEyIiByPSIxMiIgZmlsbD0iIzI1RDM2NiIvPjxwYXRoIGQ9Ik0xNy40NzIgMTQuMzgyYy0uMjk3LS4xNDktMS43NTgtLjg2Ny0yLjAzLS45NjctLjI3My0uMDk5LS40NzEtLjE0OC0uNjcuMTUtLjE5Ny4yOTctLjc2Ny45NjYtLjk0IDEuMTY0LS4xNzMuMTk5LS4zNDcuMjIzLS42NDQuMDc1LS4yOTctLjE1LTEuMjU1LS40NjMtMi4zOS0xLjQ3NS0uODgzLS43ODgtMS40OC0xLjc2MS0xLjY1My0yLjA1OS0uMTczLS4yOTctLjAxOC0uNDU4LjEzLS42MDYuMTM0LS4xMzMuMjk4LS4zNDcuNDQ2LS41Mi4xNDktLjE3NC4xOTgtLjI5OC4yOTgtLjQ5Ny4wOTktLjE5OC4wNS0uMzcxLS4wMjUtLjUyLS4wNzUtLjE0OS0uNjY5LTEuNjEyLS45MTYtMi4yMDctLjI0Mi0uNTc5LS40ODctLjUtLjY2OS0uNTEtLjE3My0uMDA4LS4zNzEtLjAxLS41Ny0uMDEtLjE5OCAwLS41Mi4wNzQtLjc5Mi4zNzItLjI3Mi4yOTctMS4wNCAxLjAxNi0xLjA0IDIuNDc5IDAgMS40NjIgMS4wNjUgMi44NzUgMS4yMTMgMy4wNzQuMTQ5LjE5OCAyLjA5NiAzLjIgNS4wNzcgNC40ODcuNzA5LjMwNiAxLjI2Mi40ODkgMS42OTQuNjI1LjcxMi4yMjcgMS4zNi4xOTUgMS44NzEuMTE4LjU3MS0uMDg1IDEuNzU4LS43MTkgMi4wMDYtMS40MTMuMjQ4LS42OTQuMjQ4LTEuMjg5LjE3My0xLjQxMy0uMDc0LS4xMjQtLjI3Mi0uMTk4LS41Ny0uMzQ3eiIgZmlsbD0id2hpdGUiLz48L3N2Zz4K" alt="WhatsApp" class="social-logo">
+                        </a>
                     </div>
                 </div>
             </div>
@@ -945,29 +964,59 @@
 
       /* Countdown timer */
       (function () {
-        var target = new Date('2026-10-15T20:00:00');
+        var festivalStart = new Date('2026-10-15T20:00:00+05:30');
+        var festivalEnd   = new Date('2026-10-23T00:00:00+05:30');
+        var now = new Date();
+        var bar     = document.getElementById('countdown-bar');
+        var title   = document.getElementById('cd-title');
+        var units   = document.getElementById('cd-units');
+
+        if (now >= festivalEnd) {
+          /* Update hero overlay */
+          var heroDate = document.getElementById('hero-event-date');
+          var heroBtn  = document.getElementById('hero-cta-btn');
+          if (heroDate) heroDate.textContent = '🙏 May Her Divine Grace guide us always';
+          if (heroBtn)  { heroBtn.textContent = 'View Gallery →'; heroBtn.href = 'gallery.html'; }
+
+          title.textContent = '🙏  ಶ್ರೀ ಶಾರದಾ ಮಹೋತ್ಸವ 2026';
+          units.innerHTML =
+            '<span style="color:rgba(255,220,160,0.72);font-family:Poppins,sans-serif;font-size:0.88rem;font-weight:400;letter-spacing:0.4px;">' +
+            'Heartfelt gratitude to all devotees who were part of this celebration &nbsp;·&nbsp; See you next year</span>';
+          units.style.cssText = 'display:flex;align-items:center;gap:10px;';
+          return;
+        }
+
+        if (now >= festivalStart) {
+          title.textContent = '🪔  ಶ್ರೀ ಶಾರದಾ ಮಹೋತ್ಸವ 2026';
+          units.innerHTML =
+            '<span style="color:rgba(255,220,160,0.55);font-size:1rem;animation:cdGlow 2.5s ease-in-out infinite;display:inline-block;">✦</span>' +
+            '<span style="color:#e8c97a;font-family:Poppins,sans-serif;font-size:0.88rem;font-weight:500;letter-spacing:0.5px;">Bow at Her Lotus Feet &nbsp;·&nbsp; Seek Her Divine Grace &nbsp;·&nbsp; October 15 to 22, 2026</span>' +
+            '<span style="color:rgba(255,220,160,0.55);font-size:1rem;animation:cdGlow 2.5s ease-in-out infinite 1.25s;display:inline-block;">✦</span>';
+          units.style.cssText = 'display:flex;align-items:center;gap:10px;';
+          return;
+        }
+
         function pad(n) { return String(n).padStart(2, '0'); }
         function tick() {
-          var diff = target - new Date();
+          var diff = festivalStart - new Date();
           if (diff <= 0) {
-            ['cd-days','cd-hours','cd-mins','cd-secs'].forEach(function(id) {
-              var el = document.getElementById(id);
-              if (el) el.textContent = '00';
-            });
+            title.textContent = 'ಶ್ರೀ ಶಾರದಾ ಮಹೋತ್ಸವ 2026';
+            units.innerHTML =
+              '<span style="width:10px;height:10px;background:#ff4444;border-radius:50%;display:inline-block;flex-shrink:0;animation:cdPulse 1.2s ease-in-out infinite;"></span>' +
+              '<span style="color:#ffd700;font-family:Poppins,sans-serif;font-weight:700;font-size:0.88rem;letter-spacing:1px;text-transform:uppercase;">Celebrations On · Oct 15 – 22, 2026</span>';
+            units.style.display = 'flex';
+            units.style.alignItems = 'center';
+            units.style.gap = '10px';
             return;
           }
           var d = Math.floor(diff / 864e5);
           var h = Math.floor((diff % 864e5) / 36e5);
           var m = Math.floor((diff % 36e5) / 6e4);
           var s = Math.floor((diff % 6e4) / 1e3);
-          var days = document.getElementById('cd-days');
-          var hours = document.getElementById('cd-hours');
-          var mins  = document.getElementById('cd-mins');
-          var secs  = document.getElementById('cd-secs');
-          if (days)  days.textContent  = d;
-          if (hours) hours.textContent = pad(h);
-          if (mins)  mins.textContent  = pad(m);
-          if (secs)  secs.textContent  = pad(s);
+          document.getElementById('cd-days').textContent  = d;
+          document.getElementById('cd-hours').textContent = pad(h);
+          document.getElementById('cd-mins').textContent  = pad(m);
+          document.getElementById('cd-secs').textContent  = pad(s);
         }
         tick();
         setInterval(tick, 1000);
@@ -977,14 +1026,19 @@
       (function () {
         var backdrop = document.getElementById('welcome-backdrop');
         if (!backdrop) return;
-        if (sessionStorage.getItem('welcomeSeen')) {
+        /* Hide permanently once festival is over */
+        if (new Date() >= new Date('2026-10-23T00:00:00+05:30')) {
+          backdrop.style.display = 'none';
+          return;
+        }
+        if (sessionStorage.getItem('splashSeen')) {
           backdrop.style.display = 'none';
           return;
         }
         function closeWelcomeModal() {
           backdrop.classList.add('modal-fade');
           setTimeout(function () { backdrop.style.display = 'none'; }, 400);
-          sessionStorage.setItem('welcomeSeen', '1');
+          sessionStorage.setItem('splashSeen', '1');
         }
         window.closeWelcomeModal = closeWelcomeModal;
         backdrop.addEventListener('click', function (e) {

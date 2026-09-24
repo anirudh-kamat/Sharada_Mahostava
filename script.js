@@ -80,9 +80,10 @@ document.addEventListener('DOMContentLoaded', function() {
     initializeYouTubeEmbeds();
 
     // Inject global UI enhancements
-    injectWhatsApp();
+    injectInstagram();
     injectBackToTop();
     injectTicker();
+    updateNavAfterFestival();
 });
 
 // Gallery Image Modal with carousel support
@@ -525,7 +526,7 @@ document.addEventListener('click', function(e) {
 });
 
 // Inject Instagram floating button on all pages
-function injectWhatsApp() {
+function injectInstagram() {
   var ig = document.createElement('a');
   ig.id = 'instagram-float';
   ig.href = 'https://www.instagram.com/ssms_mangaluru?igsh=MTY3Mnc0YWtleXlraA==';
@@ -551,12 +552,28 @@ function injectBackToTop() {
   }, { passive: true });
 }
 
+// Update nav E-SEVA/KANIKE → DONATION on all pages after Oct 22
+function updateNavAfterFestival() {
+  if (new Date() < new Date('2026-10-23T00:00:00+05:30')) return;
+  var link = document.querySelector('a[href="donation.html"].nav-link');
+  if (link) link.textContent = 'DONATION';
+}
+
 // Inject scrolling announcement ticker on all pages except homepage
 function injectTicker() {
   var path = window.location.pathname || '';
   if (path.endsWith('index.html') || path === '/' || path === '') return;
-  var items = [
+  var festivalOver = new Date() >= new Date('2026-10-23T00:00:00+05:30');
+  var items = festivalOver ? [
+    '🙏 Thank you for being part of Sharada Mahotsava 2026',
+    '· Watch highlights on our YouTube channel',
+    '· View the Alankar Gallery on this website',
+    '· Follow us on WhatsApp &amp; Instagram for updates',
+    '· See you next year — Sharada Mahotsava 2027',
+    '· Sri Venkataramana Temple, Carstreet, Mangaluru',
+  ] : [
     '🪔 Grand Arrival: October 15, 2026 at 8:00 PM',
+    '· Visarjan Shobhayatra: October 22, 2026 at 8:00 PM',
     '· E-Seva &amp; E-Kanike Booking Now Open',
     '· 104th Mangaluru Sarvajanika Shree Sharada Mahotsava',
     '· Follow us on WhatsApp for live updates',

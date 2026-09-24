@@ -14,15 +14,15 @@
     <meta name="twitter:card"       content="summary_large_image" />
     <meta name="twitter:image"     content="https://www.mangalurusharadhe.org/images/sharade2026-banner.webp" />
     <link rel="canonical"          href="https://www.mangalurusharadhe.org/live.html" />
-    <link rel="stylesheet" href="styles.css?v=20260908">
+    <link rel="stylesheet" href="styles.css?v=20260924">
     <style>
       @keyframes livePulse {
         0%, 100% { opacity: 1; transform: scale(1); }
         50%       { opacity: 0.4; transform: scale(0.85); }
       }
     </style>
-    <link rel="stylesheet" href="styles.mobile.css?v=20260908" media="(max-width: 768px)">
-    <link rel="stylesheet" href="styles.desktop.css?v=20260908" media="(min-width: 1024px)">
+    <link rel="stylesheet" href="styles.mobile.css?v=20260924" media="(max-width: 768px)">
+    <link rel="stylesheet" href="styles.desktop.css?v=20260924" media="(min-width: 1024px)">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
@@ -64,7 +64,7 @@
                         </ul>
                     </li>
                     <li><a href="announcements.html" class="nav-link">ANNOUNCEMENTS</a></li>
-                    <li><a href="live.html" class="live-btn active">LIVE</a></li>
+                    <li><a href="live.html" class="live-btn">LIVE</a></li>
                 </ul>
             </div>
         </div>
@@ -78,31 +78,45 @@
       </div>
       <script>
         (function(){
-          var go = new Date('2026-10-15T20:00:00+05:30');
-          if(new Date() >= go){
-            document.getElementById('live-dot').style.background = '#ff4444';
-            document.getElementById('live-dot').style.animation = 'livePulse 1.5s ease infinite';
-            document.getElementById('live-label').textContent = 'Live Stream';
+          var start = new Date('2026-10-15T20:00:00+05:30');
+          var end   = new Date('2026-10-23T00:00:00+05:30');
+          var now   = new Date();
+          var dot   = document.getElementById('live-dot');
+          var label = document.getElementById('live-label');
+          if (now >= end) {
+            dot.style.background = '#aaa';
+            label.textContent = 'Stream Ended';
+            document.addEventListener('DOMContentLoaded', function() {
+              var h2  = document.getElementById('live-hero-title');
+              var sub = document.getElementById('live-hero-sub');
+              if (h2)  h2.textContent  = '🙏 Thank You for Celebrating With Us';
+              if (sub) sub.textContent = 'Heartfelt gratitude to all devotees who joined the 104th Mangaluru Sharada Mahotsava. See you next year!';
+            });
+          } else if (now >= start) {
+            dot.style.background = '#ff4444';
+            dot.style.animation = 'livePulse 1.5s ease infinite';
+            label.textContent = 'Live Now';
           } else {
-            document.getElementById('live-label').textContent = 'Oct 15 · 8 PM IST';
+            dot.style.background = '#aaa';
+            label.textContent = 'Oct 15 · 8 PM IST';
           }
         })();
       </script>
-      <h2 style="color:#fff; font-size:2rem; font-weight:800; margin:0 0 10px; text-shadow:0 2px 12px rgba(0,0,0,0.4);">104th Mangaluru Sharade 2026</h2>
-      <p style="color:rgba(255,255,255,0.72); font-size:0.95rem; max-width:480px; margin:0 auto 24px; line-height:1.7;">Watch the divine celebrations of Shree Sharada Mata live from Sri Venkataramana Temple, Carstreet, Mangaluru.</p>
+      <h2 id="live-hero-title" style="color:#fff; font-size:2rem; font-weight:800; margin:0 0 10px; text-shadow:0 2px 12px rgba(0,0,0,0.4);">104th Mangaluru Sharade 2026</h2>
+      <p id="live-hero-sub" style="color:rgba(255,255,255,0.72); font-size:0.95rem; max-width:480px; margin:0 auto 24px; line-height:1.7;">Watch the divine celebrations of Shree Sharada Mata live from Sri Venkataramana Temple, Carstreet, Mangaluru.</p>
       <div style="display:flex; gap:12px; justify-content:center; flex-wrap:wrap;">
         <a href="announcements.html" style="background:#ffd700; color:#3d0c02; font-weight:800; font-size:0.85rem; padding:11px 24px; border-radius:25px; text-decoration:none; letter-spacing:0.3px;">View Schedule →</a>
         <a href="https://whatsapp.com/channel/0029VbAvEE8LCoX5lnLyXW37" target="_blank" rel="noopener" style="background:rgba(255,255,255,0.12); color:#fff; font-weight:700; font-size:0.85rem; padding:11px 24px; border-radius:25px; text-decoration:none; border:1.5px solid rgba(255,255,255,0.28);">Join WhatsApp Channel</a>
       </div>
     </section>
 
-    <!-- Pre-festival notice -->
-    <section style="padding:20px; background:#1a0505; border-bottom:1px solid rgba(255,107,53,0.2);">
+    <!-- Pre-festival notice (hidden automatically once festival starts) -->
+    <section id="prefestival-notice" style="padding:20px; background:#1a0505; border-bottom:1px solid rgba(255,107,53,0.2);">
       <div style="max-width:700px; margin:0 auto; background:rgba(255,107,53,0.08); border:1px solid rgba(255,107,53,0.25); border-radius:12px; padding:16px 20px; display:flex; align-items:center; gap:16px; flex-wrap:wrap;">
         <span style="font-size:1.6rem; flex-shrink:0;">🪔</span>
         <div style="flex:1; min-width:200px;">
           <p style="color:#ffd700; font-weight:700; font-size:0.85rem; margin:0 0 2px;">Stream begins October 15, 2026 &middot; 8:00 PM IST</p>
-          <p style="color:rgba(255,255,255,0.6); font-size:0.8rem; margin:0;">The live stream will go live on Grand Arrival day. Subscribe to our YouTube channel to get notified.</p>
+          <p style="color:rgba(255,255,255,0.6); font-size:0.8rem; margin:0;">The live stream begins on Grand Arrival day. Subscribe to our YouTube channel and receive the blessing of Her darshan from wherever you are.</p>
         </div>
         <div style="display:flex; gap:8px; align-items:center; flex-shrink:0;" id="live-cd-wrap">
           <div style="text-align:center; background:rgba(255,255,255,0.06); border-radius:8px; padding:6px 10px; min-width:44px;">
@@ -119,41 +133,85 @@
             <div id="live-cd-mins" style="color:#fff; font-weight:800; font-size:1.1rem; font-family:'Poppins',sans-serif; line-height:1;">--</div>
             <div style="color:rgba(255,255,255,0.4); font-size:0.58rem; letter-spacing:1px; text-transform:uppercase; margin-top:2px;">Mins</div>
           </div>
+          <span style="color:#ff6b35; font-weight:700;">:</span>
+          <div style="text-align:center; background:rgba(255,255,255,0.06); border-radius:8px; padding:6px 10px; min-width:44px;">
+            <div id="live-cd-secs" style="color:#fff; font-weight:800; font-size:1.1rem; font-family:'Poppins',sans-serif; line-height:1;">--</div>
+            <div style="color:rgba(255,255,255,0.4); font-size:0.58rem; letter-spacing:1px; text-transform:uppercase; margin-top:2px;">Secs</div>
+          </div>
         </div>
       </div>
     </section>
     <script>
     (function(){
       var t = new Date('2026-10-15T20:00:00+05:30');
+      var notice = document.getElementById('prefestival-notice');
+      if (new Date() >= t) {
+        if (notice) notice.style.display = 'none';
+        return;
+      }
       function pad(n){ return String(n).padStart(2,'0'); }
       function tick(){
         var diff = t - new Date();
-        if(diff <= 0){ var w = document.getElementById('live-cd-wrap'); if(w) w.style.display='none'; return; }
+        if(diff <= 0){ if(notice) notice.style.display='none'; return; }
         var d = Math.floor(diff/864e5);
         var h = Math.floor((diff%864e5)/36e5);
         var m = Math.floor((diff%36e5)/6e4);
+        var s = Math.floor((diff%6e4)/1e3);
         document.getElementById('live-cd-days').textContent  = d;
         document.getElementById('live-cd-hours').textContent = pad(h);
         document.getElementById('live-cd-mins').textContent  = pad(m);
+        if (document.getElementById('live-cd-secs'))
+          document.getElementById('live-cd-secs').textContent = pad(s);
       }
-      tick(); setInterval(tick, 6e4);
+      tick(); setInterval(tick, 1000);
     })();
     </script>
 
     <!-- Video Embed -->
     <section id="live" class="live-section" style="background:#0f0303;">
         <div class="live-video-container">
-            <iframe class="yt-embed" data-video-id="U6MYSXriDm0"
+            <iframe class="yt-embed" id="main-yt-embed" data-video-id="U6MYSXriDm0"
                     title="Sharada Mahotsava Live"
                     frameborder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                     allowfullscreen></iframe>
         </div>
     </section>
+    <script>
+    (function(){
+      /* Add video IDs here as you receive them — leave blank if not available */
+      var videoIds = {
+        '2026-10-15': '',   /* Grand Arrival — paste ID here */
+        '2026-10-16': '',   /* Oct 16 — paste ID here */
+        '2026-10-17': '',   /* Oct 17 — paste ID here */
+        '2026-10-18': '',   /* Oct 18 — paste ID here */
+        '2026-10-19': '',   /* Oct 19 — paste ID here */
+        '2026-10-20': '',   /* Oct 20 — paste ID here */
+        '2026-10-21': '',   /* Oct 21 — paste ID here */
+        '2026-10-22': '',   /* Visarjan — paste ID here */
+      };
+
+      /* Find today's video ID, falling back to most recent previous day */
+      var now = new Date();
+      var todayStr = now.toLocaleDateString('en-CA', { timeZone: 'Asia/Kolkata' });
+      var dates = Object.keys(videoIds).sort();
+      var activeId = '';
+      for (var i = 0; i < dates.length; i++) {
+        if (dates[i] <= todayStr && videoIds[dates[i]]) {
+          activeId = videoIds[dates[i]];
+        }
+      }
+
+      if (activeId) {
+        var el = document.getElementById('main-yt-embed');
+        if (el) el.setAttribute('data-video-id', activeId);
+      }
+    })();
+    </script>
 
     <!-- Below video actions -->
     <section style="padding:36px 20px 48px; background:#fdf6f0; text-align:center;">
-      <p style="color:#6b3a10; font-size:0.9rem; margin:0 0 20px; font-weight:500;">Can't watch now? Subscribe to our YouTube channel to get notified when we go live.</p>
+      <p style="color:#6b3a10; font-size:0.9rem; margin:0 0 20px; font-weight:500;">Miss the darshan? Subscribe to our YouTube channel and be the first to receive Her blessings through the live stream.</p>
       <div style="display:flex; gap:14px; justify-content:center; flex-wrap:wrap;">
         <a href="https://youtube.com/@mangalurusarvajanikashrees3669?feature=shared" target="_blank" rel="noopener"
            style="display:inline-flex; align-items:center; gap:9px; background:#ff0000; color:#fff; font-weight:700; font-size:0.88rem; padding:12px 26px; border-radius:25px; text-decoration:none; box-shadow:0 4px 16px rgba(255,0,0,0.35);">
@@ -279,6 +337,9 @@
                         </a>
                         <a href="https://www.instagram.com/ssms_mangaluru?igsh=MTY3Mnc0YWtleXlraA==" target="_blank" class="social-icon instagram">
                             <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGRlZnM+CjxsaW5lYXJHcmFkaWVudCBpZD0iaW5zdGFncmFtIiB4MT0iMCUiIHkxPSIwJSIgeDI9IjEwMCUiIHkyPSIxMDAlIj4KPHN0b3Agb2Zmc2V0PSIwJSIgc3R5bGU9InN0b3AtY29sb3I6IzgzNEE5QiIvPgo8c3RvcCBvZmZzZXQ9IjUwJSIgc3R5bGU9InN0b3AtY29sb3I6I0Q2Mjk3NiIvPgo8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0eWxlPSJzdG9wLWNvbG9yOiNGNTY0NDAiLz4KPC9saW5lYXJHcmFkaWVudD4KPC9kZWZzPgo8cmVjdCB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHJ4PSI2IiBmaWxsPSJ1cmwoI2luc3RhZ3JhbSkiLz4KPGNpcmNsZSBjeD0iMTIiIGN5PSIxMiIgcj0iNCIgc3Ryb2tlPSJ3aGl0ZSIgc3Ryb2tlLXdpZHRoPSIyIiBmaWxsPSJub25lIi8+CjxjaXJjbGUgY3g9IjE4IiBjeT0iNiIgcj0iMS41IiBmaWxsPSJ3aGl0ZSIvPgo8L3N2Zz4K" alt="Instagram" class="social-logo">
+                        </a>
+                        <a href="https://whatsapp.com/channel/0029VbAvEE8LCoX5lnLyXW37" target="_blank" class="social-icon whatsapp">
+                            <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48Y2lyY2xlIGN4PSIxMiIgY3k9IjEyIiByPSIxMiIgZmlsbD0iIzI1RDM2NiIvPjxwYXRoIGQ9Ik0xNy40NzIgMTQuMzgyYy0uMjk3LS4xNDktMS43NTgtLjg2Ny0yLjAzLS45NjctLjI3My0uMDk5LS40NzEtLjE0OC0uNjcuMTUtLjE5Ny4yOTctLjc2Ny45NjYtLjk0IDEuMTY0LS4xNzMuMTk5LS4zNDcuMjIzLS42NDQuMDc1LS4yOTctLjE1LTEuMjU1LS40NjMtMi4zOS0xLjQ3NS0uODgzLS43ODgtMS40OC0xLjc2MS0xLjY1My0yLjA1OS0uMTczLS4yOTctLjAxOC0uNDU4LjEzLS42MDYuMTM0LS4xMzMuMjk4LS4zNDcuNDQ2LS41Mi4xNDktLjE3NC4xOTgtLjI5OC4yOTgtLjQ5Ny4wOTktLjE5OC4wNS0uMzcxLS4wMjUtLjUyLS4wNzUtLjE0OS0uNjY5LTEuNjEyLS45MTYtMi4yMDctLjI0Mi0uNTc5LS40ODctLjUtLjY2OS0uNTEtLjE3My0uMDA4LS4zNzEtLjAxLS41Ny0uMDEtLjE5OCAwLS41Mi4wNzQtLjc5Mi4zNzItLjI3Mi4yOTctMS4wNCAxLjAxNi0xLjA0IDIuNDc5IDAgMS40NjIgMS4wNjUgMi44NzUgMS4yMTMgMy4wNzQuMTQ5LjE5OCAyLjA5NiAzLjIgNS4wNzcgNC40ODcuNzA5LjMwNiAxLjI2Mi40ODkgMS42OTQuNjI1LjcxMi4yMjcgMS4zNi4xOTUgMS44NzEuMTE4LjU3MS0uMDg1IDEuNzU4LS43MTkgMi4wMDYtMS40MTMuMjQ4LS42OTQuMjQ4LTEuMjg5LjE3My0xLjQxMy0uMDc0LS4xMjQtLjI3Mi0uMTk4LS41Ny0uMzQ3eiIgZmlsbD0id2hpdGUiLz48L3N2Zz4K" alt="WhatsApp" class="social-logo">
                         </a>
                     </div>
                 </div>

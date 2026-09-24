@@ -76,9 +76,6 @@ img, video { max-width: 100%; height: auto; }
   .temple-subtitle { font-size: 20px; }
   /* Reduce white space after the history image */
   .history-section { padding-bottom: 36px !important; }
-  /* Kanike page hero (reuse contact hero) - ensure full cover and proper focus */
-  .contact-hero-photo { height: 64vh; }
-  .contact-hero-image { object-position: center -10px; }
   /* Kanike bank details card spacing */
   .bank-details { padding: 22px !important; }
   .bank-details h2 { font-size: 1.6rem !important; }
@@ -240,7 +237,7 @@ img, video { max-width: 100%; height: auto; }
     border-left: 3px solid transparent;
 }
 
-.dropdown-link:hover { background-color: #f3f6fb; color: #3498db; border-left-color: #3498db; }
+.dropdown-link:hover { background: #f3f6fb; color: #3498db; border-left-color: #3498db; }
 
 .dropdown-link:first-child {
     border-top-left-radius: 6px;
@@ -506,34 +503,6 @@ img, video { max-width: 100%; height: auto; }
     transform: translate(-50%, -50%) rotate(270deg) scale(1.06) !important;
 }
 
-
-/* Contact Hero (contact.html) */
-.contact-hero-photo { background: linear-gradient(135deg, #0b1220, #111827); padding: 0; overflow: hidden; position: relative; height: 88vh; }
-/* Remove container padding within banner so image touches edges */
-.contact-hero-photo .container { padding: 0; max-width: none; }
-/* Full-bleed cover image only for Contact Us */
-.contact-hero-image {
-  position: absolute; inset: 0;
-  width: 100%; height: 100%;
-  object-fit: cover;
-  object-position: center -240px;
-  display: block; border-radius: 0; box-shadow: none;
-}
-
-/* Kanike page only (desktop): raise goddess slightly to hide bottom items */
-@media (min-width: 1024px) {
-  .kanike-hero .contact-hero-image { object-position: center -300px; }
-}
-
-/* Mobile-only: remove banner background, keep image full, and overlay arrow */
-@media (max-width: 768px) {
-  .contact-hero-photo { background: none; height: 76vh; }
-  .contact-hero-image { object-position: center -160px; }
-  .contact-hero-photo .down-arrow { position: absolute; bottom: 10px; left: 50%; transform: translateX(-50%); margin-top: 0; }
-}
-/* history-hero styles consolidated below */
-.down-arrow { display:flex; align-items:center; justify-content:center; width:44px; height:44px; border-radius:50%; border:2px solid rgba(255,255,255,.6); color:#fff; text-decoration:none; position: relative; left: 50%; transform: translateX(-50%); margin-top: 14px; background: rgba(255,255,255,.12); backdrop-filter: blur(2px); box-shadow: 0 10px 26px rgba(0,0,0,.35); font-size:26px; transition: transform .2s ease, background .2s ease; }
-.down-arrow:hover { transform: translateY(2px); background: rgba(255,255,255,.2); }
 
 /* Contact Cards */
 .contact-cards { background: #fff; padding: 18px 0 54px; }
@@ -942,7 +911,6 @@ img, video { max-width: 100%; height: auto; }
 /* Dropdown polish */
 .dropdown-menu { box-shadow: 0 16px 40px rgba(0,0,0,.12); border: 1px solid rgba(0,0,0,.06); }
 .dropdown-link { color: var(--ink); }
-.dropdown-link:hover { background: rgba(14,165,233,0.08); }
 
 /* Hero enhancement */
 .hero-slideshow::after { content: ""; position: absolute; inset: 0; pointer-events: none; background: linear-gradient(180deg, rgba(0,0,0,0.10) 0%, rgba(0,0,0,0.05) 40%, rgba(0,0,0,0.10) 100%); }
@@ -1018,14 +986,6 @@ img, video { max-width: 100%; height: auto; }
     .slide-image { object-fit: cover; object-position: center -60px; transform: scale(1.06); }
 }
 
-/* Desktop: hide down-arrow only on contact and donation hero banners */
-@media (min-width: 1024px) {
-    .contact-hero-photo .down-arrow { display: none; }
-    .contact-hero-photo { padding: 0 0 12px; height: 72vh; }
-    .contact-hero-image { object-position: center -100px; }
-    .contact-hero-photo:not(.kanike-hero) .contact-hero-image { object-position: center -180px; }
-}
-
 /* History banner: full-bleed, no side gaps */
 .history-hero {
   margin: 0 0 24px;
@@ -1085,14 +1045,11 @@ img, video { max-width: 100%; height: auto; }
     border: none;
 }
   
-  /* Mobile - make it card size */
 @media (max-width: 768px) {
     .live-video-container {
-      max-width: 380px;  /* similar to your screenshot */
-      padding-top: 210px; /* fixed height instead of auto aspect ratio */
-      margin: 20px auto;  /* center it with spacing */
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      max-width: 100%;
+      height: 210px;
+      margin: 20px auto;
     }
   }
 

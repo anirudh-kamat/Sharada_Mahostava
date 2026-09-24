@@ -1,0 +1,30 @@
+name: Bump CSS cache version
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '**.css'
+
+jobs:
+  bump-version:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Replace CSS version string in all HTML files
+        run: |
+          VERSION=$(date +%Y%m%d)
+          find . -name "*.html" -exec sed -i "s/?v=[0-9]\{8\}/?v=$VERSION/g" {} +
+
+      - name: Commit if anything changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git diff --quiet && echo "No version change needed" || (
+            git add -A &&
+            git commit -m "chore: bump CSS cache version to $(date +%Y%m%d) [skip ci]"
+          )
+          git push

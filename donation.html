@@ -14,9 +14,9 @@
     <meta name="twitter:card"       content="summary_large_image" />
     <meta name="twitter:image"     content="https://www.mangalurusharadhe.org/images/A4.webp" />
     <link rel="canonical"          href="https://www.mangalurusharadhe.org/donation.html" />
-    <link rel="stylesheet" href="styles.css?v=20260908">
-    <link rel="stylesheet" href="styles.mobile.css?v=20260908" media="only screen and (max-width: 768px)">
-    <link rel="stylesheet" href="styles.desktop.css?v=20260908" media="only screen and (min-width: 1024px)">
+    <link rel="stylesheet" href="styles.css?v=20260924">
+    <link rel="stylesheet" href="styles.mobile.css?v=20260924" media="only screen and (max-width: 768px)">
+    <link rel="stylesheet" href="styles.desktop.css?v=20260924" media="only screen and (min-width: 1024px)">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="preload" as="image" href="images/A4.webp">
@@ -49,7 +49,7 @@
             box-shadow: 0 14px 40px rgba(41,128,185,0.22);
         }
         .seva-card-header {
-            background: linear-gradient(135deg, #050a1a, #1a2a5e, #2980b9);
+            background: linear-gradient(135deg, #3d0c02, #6b1218, #b5451b);
             padding: 15px 18px 13px;
         }
         .seva-card-header h3 {
@@ -81,9 +81,109 @@
         .seva-card.card-visible {
             animation: sevaReveal 0.55s ease forwards;
         }
+
+        /* ── Donation page welcome modal ── */
+        #donation-welcome-backdrop {
+            position: fixed;
+            inset: 0;
+            z-index: 9999;
+            background: rgba(0,0,0,0.78);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 1;
+            transition: opacity 0.4s ease;
+        }
+        #donation-welcome-backdrop.modal-fade {
+            opacity: 0;
+            pointer-events: none;
+        }
+        #donation-welcome-modal {
+            position: relative;
+            background: #1a0a00;
+            border-radius: 14px;
+            box-shadow: 0 32px 80px rgba(0,0,0,0.75);
+            max-width: min(88vw, 580px);
+            width: 100%;
+            overflow: hidden;
+            animation: dwModalIn 0.4s ease;
+        }
+        @keyframes dwModalIn {
+            from { transform: translateY(28px); opacity: 0; }
+            to   { transform: translateY(0);    opacity: 1; }
+        }
+        #donation-welcome-modal img {
+            width: 100%;
+            display: block;
+            object-fit: cover;
+            max-height: 300px;
+        }
+        #donation-welcome-modal-body {
+            padding: 18px 20px 20px;
+            text-align: center;
+        }
+        #donation-welcome-modal-body p {
+            color: rgba(255,255,255,0.78);
+            font-family: 'Poppins', sans-serif;
+            font-size: 0.85rem;
+            font-weight: 500;
+            letter-spacing: 0.4px;
+            line-height: 1.55;
+            margin: 0 0 16px;
+        }
+        #donation-welcome-modal-body a {
+            display: inline-block;
+            background: #ff6b35;
+            color: #fff;
+            text-decoration: none;
+            font-family: 'Poppins', sans-serif;
+            font-size: 0.85rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            padding: 11px 28px;
+            border-radius: 25px;
+            cursor: pointer;
+            border: none;
+            transition: background 0.2s;
+        }
+        #donation-welcome-modal-body a:hover { background: #e55a2b; }
+        #donation-welcome-modal-close {
+            position: absolute;
+            top: 10px; right: 10px;
+            width: 32px; height: 32px;
+            border-radius: 50%;
+            background: rgba(0,0,0,0.55);
+            color: #fff;
+            border: 1.5px solid rgba(255,255,255,0.5);
+            font-size: 1rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.2s;
+            z-index: 2;
+        }
+        #donation-welcome-modal-close:hover { background: #ff6b35; border-color: #ff6b35; }
+        @media (max-width: 480px) {
+            #donation-welcome-modal img { max-height: 220px; }
+            #donation-welcome-modal-body p { font-size: 0.78rem; }
+            #donation-welcome-modal-body a { font-size: 0.78rem; padding: 9px 22px; }
+        }
     </style>
 </head>
 <body>
+    <!-- Donation Page Welcome Modal -->
+    <div id="donation-welcome-backdrop">
+      <div id="donation-welcome-modal">
+        <button id="donation-welcome-modal-close" onclick="closeDonationWelcome()" aria-label="Close">&#x2715;</button>
+        <img src="images/splash2026.webp" alt="Mangaluru Sharade 2026">
+        <div id="donation-welcome-modal-body">
+          <p>Welcome to the Official Website of<br><strong style="color:#ff6b35;">Mangaluru Sarvajanika Shree Sharada Mahotsava 2026</strong></p>
+          <a onclick="closeDonationWelcome(); return false;" href="#">Book E-Seva &amp; Kanike &rarr;</a>
+        </div>
+      </div>
+    </div>
+
     <!-- Header Section -->
     <div class="header">
         <p>Welcome to Official Website Of  Mangaluru Sarvajanika Shree Sharada Mahotsava</p>
@@ -137,13 +237,25 @@
           104th Mahotsava &nbsp;·&nbsp; Sri Venkataramana Temple
           <span style="display:inline-block;width:28px;height:1.5px;background:rgba(255,215,0,0.6);border-radius:2px;"></span>
         </p>
-        <h1 style="color:#fff; font-size:2.1rem; font-weight:800; margin:0 0 8px; text-shadow:0 2px 14px rgba(0,0,0,0.5);">E-Seva &amp; E-Kanike</h1>
-        <p style="color:rgba(255,255,255,0.75); font-size:0.9rem; margin:0; text-shadow:0 1px 6px rgba(0,0,0,0.4);">Offer your devotion from anywhere in the world</p>
+        <h1 id="hero-title" style="color:#fff; font-size:2.1rem; font-weight:800; margin:0 0 8px; text-shadow:0 2px 14px rgba(0,0,0,0.5);">E-Seva &amp; E-Kanike</h1>
+        <p id="hero-sub" style="color:rgba(255,255,255,0.75); font-size:0.9rem; margin:0; text-shadow:0 1px 6px rgba(0,0,0,0.4);">Offer your devotion from anywhere in the world</p>
+      </div>
+    </div>
+
+    <!-- E-Seva Closed Banner (shown only after Oct 22) -->
+    <div id="eseva-closed-banner" style="display:none; background:linear-gradient(135deg,#3d0c02,#6b1218,#b5451b); padding:48px 20px 52px; text-align:center;">
+      <div style="max-width:620px; margin:0 auto;">
+        <div style="font-size:2.8rem; margin-bottom:16px;">🙏</div>
+        <h2 style="color:#ffd700; font-family:'Poppins',sans-serif; font-size:1.45rem; font-weight:800; margin:0 0 12px; letter-spacing:0.3px;">E-Seva &amp; E-Kanike Bookings Closed</h2>
+        <p style="color:rgba(255,255,255,0.82); font-size:0.95rem; line-height:1.75; margin:0 0 10px;">Online seva bookings for <strong style="color:#fff;">Sharada Mahotsava 2026</strong> are now closed.<br>We thank you for your devotion and overwhelming support this year.</p>
+        <p style="color:rgba(255,215,100,0.85); font-size:0.88rem; font-style:italic; margin:0;">We look forward to serving you again next year. &nbsp;·&nbsp; ಮುಂದಿನ ವರ್ಷ ಮತ್ತೆ ಭೇಟಿ ನೀಡಿ 🙏</p>
+        <div style="margin-top:28px; width:48px; height:2px; background:rgba(255,215,0,0.4); border-radius:2px; margin-left:auto; margin-right:auto;"></div>
+        <p style="color:rgba(255,255,255,0.5); font-size:0.8rem; margin:16px 0 0;">You can still make a donation directly via bank transfer below.</p>
       </div>
     </div>
 
     <!-- E-Seva / E-Kanike Booking Buttons -->
-    <section style="padding:40px 20px 56px; background:linear-gradient(135deg,#3d0c02,#6b1218,#b5451b); text-align:center;">
+    <section id="eseva-booking-section" style="padding:40px 20px 56px; background:linear-gradient(135deg,#3d0c02,#6b1218,#b5451b); text-align:center;">
       <div style="display:flex; gap:20px; justify-content:center; flex-wrap:wrap; max-width:700px; margin:0 auto;">
         <a href="https://ssms.3ionetra.com/bookings/sevas?type=utsav" target="_blank" rel="noopener"
            style="flex:1; min-width:160px; max-width:300px; display:flex; flex-direction:column; align-items:center; gap:8px; background:linear-gradient(135deg,#ff6b35,#e55a2b); color:#fff; text-decoration:none; padding:26px 20px; border-radius:16px; box-shadow:0 8px 28px rgba(255,107,53,0.45); text-align:center; transition:transform 0.2s,box-shadow 0.2s;"
@@ -151,7 +263,7 @@
            onmouseout="this.style.transform='';this.style.boxShadow='0 8px 28px rgba(255,107,53,0.45)'">
           <span style="font-size:2.2rem;">🙏</span>
           <span style="font-size:1.15rem; font-weight:800; letter-spacing:0.5px;">E-SEVA</span>
-          <span style="font-size:0.8rem; opacity:0.88;">Book Seva Online</span>
+          <span style="font-size:0.8rem; opacity:0.88;">Offer Seva Online</span>
         </a>
         <a href="https://ssms.3ionetra.com/bookings/donations" target="_blank" rel="noopener"
            style="flex:1; min-width:160px; max-width:300px; display:flex; flex-direction:column; align-items:center; gap:8px; background:linear-gradient(135deg,#d4af37,#b8860b); color:#fff; text-decoration:none; padding:26px 20px; border-radius:16px; box-shadow:0 8px 28px rgba(212,175,55,0.4); text-align:center; transition:transform 0.2s,box-shadow 0.2s;"
@@ -180,7 +292,11 @@
           <span style="font-size:1.8rem; line-height:1; flex-shrink:0;">🪔</span>
           <div>
             <p style="color:#ffd700; font-weight:700; font-size:0.85rem; letter-spacing:0.5px; margin:0 0 4px;">When can these sevas be performed?</p>
-            <p style="color:rgba(255,255,255,0.82); font-size:0.88rem; line-height:1.65; margin:0;">These sevas may be performed at the temple from the day of <strong style="color:#fff;">Grand Arrival (October 15, 2026)</strong> through <strong style="color:#fff;">Visarjan Day</strong>. Visit Sri Venkataramana Temple, Acharya Mutt Vasanth Mantap, Carstreet, Mangaluru to participate.</p>
+            <p style="color:rgba(255,255,255,0.82); font-size:0.88rem; line-height:1.65; margin:0;">
+              <strong style="color:#fff;">October 16 – 21:</strong> 10:30 AM – 1:00 PM &nbsp;&amp;&nbsp; 4:00 PM – 9:00 PM<br>
+              <strong style="color:#fff;">October 22 (Visarjan Day):</strong> Visarjana Dina Vishesha Alankara Pooja — 5:30 PM – 7:00 PM<br><br>
+              Visit Sri Venkataramana Temple, Acharya Mutt Vasanth Mantap, Carstreet, Mangaluru to offer your seva and receive Her blessings.
+            </p>
           </div>
         </div>
 
@@ -189,14 +305,15 @@
           <span style="font-size:1.5rem; line-height:1; flex-shrink:0;">ℹ️</span>
           <div>
             <p style="color:#3d0c02; font-weight:700; font-size:0.88rem; margin:0 0 4px;">Online vs. In-Person</p>
-            <p style="color:#666; font-size:0.85rem; line-height:1.65; margin:0;"><strong style="color:#333;">E-Seva / E-Kanike</strong> (above) can be booked and paid online from anywhere. <strong style="color:#333;">The sevas listed below</strong> are performed in-person at the temple during the festival — please visit the Samithi counter at the venue to register.</p>
+            <p style="color:#666; font-size:0.85rem; line-height:1.65; margin:0 0 8px;"><strong style="color:#333;">E-Seva / E-Kanike</strong> (above) can be booked and paid online from anywhere. <strong style="color:#333;">The sevas listed below</strong> are performed in-person at the temple during the festival — please visit the Samithi counter at the venue to register.</p>
+          <p style="color:#666; font-size:0.85rem; line-height:1.65; margin:0;"><strong style="color:#c0392b;">Note:</strong> Prasad received through E-Seva / E-Kanike will be dispatched to your registered address by courier. It cannot be collected in person at the festival venue or the E-Seva counter.</p>
           </div>
         </div>
 
         <!-- Seva cards grid -->
         <div class="seva-grid">
 
-          <!-- 1. Deep Teal -->
+          <!-- 1. Brand Orange -->
           <div class="seva-card">
             <div class="seva-card-header"><h3>Karpoora Aarti</h3></div>
             <div class="seva-card-body">
@@ -205,7 +322,7 @@
             </div>
           </div>
 
-          <!-- 2. Emerald Green -->
+          <!-- 2. Deep Crimson -->
           <div class="seva-card">
             <div class="seva-card-header"><h3>Panchakajjaya</h3></div>
             <div class="seva-card-body">
@@ -223,7 +340,7 @@
             </div>
           </div>
 
-          <!-- 4. Ocean Blue -->
+          <!-- 4. Forest Green -->
           <div class="seva-card">
             <div class="seva-card-header"><h3>Laddu Prasada</h3></div>
             <div class="seva-card-body">
@@ -232,16 +349,17 @@
             </div>
           </div>
 
-          <!-- 5. Crimson -->
+          <!-- 5. Dark Gold -->
           <div class="seva-card">
             <div class="seva-card-header"><h3>Vidyarambha</h3></div>
             <div class="seva-card-body">
               <p class="seva-kannada">ವಿದ್ಯಾರಂಭ</p>
               <p class="seva-price" style="color:#1a2a5e;">₹400</p>
+              <p style="font-size:0.78rem; color:#888; margin:6px 0 0; line-height:1.5;">Register at the seva counter <strong>one day in advance</strong>.</p>
             </div>
           </div>
 
-          <!-- 6. Copper Bronze -->
+          <!-- 6. Ocean Teal -->
           <div class="seva-card">
             <div class="seva-card-header"><h3>Alankara Pooja</h3></div>
             <div class="seva-card-body">
@@ -250,7 +368,7 @@
             </div>
           </div>
 
-          <!-- 7. Peacock Blue-Green -->
+          <!-- 7. Burnt Amber -->
           <div class="seva-card">
             <div class="seva-card-header"><h3>Vishesha Seva</h3></div>
             <div class="seva-card-body">
@@ -259,16 +377,27 @@
             </div>
           </div>
 
-          <!-- 8. Olive Forest -->
+          <!-- 8. Maroon -->
+          <div class="seva-card">
+            <div class="seva-card-header"><h3>Durga Namaskar Seva</h3></div>
+            <div class="seva-card-body">
+              <p class="seva-kannada">ದುರ್ಗಾ ನಮಸ್ಕಾರ ಸೇವೆ</p>
+              <p class="seva-price" style="color:#1a2a5e;">₹500</p>
+              <p style="font-size:0.78rem; color:#888; margin:6px 0 0; line-height:1.5;">Only on <strong>October 17, 2026</strong>.</p>
+            </div>
+          </div>
+
+          <!-- 9. Navy Blue (original) -->
           <div class="seva-card">
             <div class="seva-card-header"><h3>Ranga Pooja</h3></div>
             <div class="seva-card-body">
               <p class="seva-kannada">ರಂಗ ಪೂಜೆ</p>
               <p class="seva-price" style="color:#1a2a5e;">₹6,000</p>
+              <p style="font-size:0.78rem; color:#888; margin:6px 0 0; line-height:1.5;">Register at the seva counter <strong>one day in advance</strong>.</p>
             </div>
           </div>
 
-          <!-- 9. Midnight Navy -->
+          <!-- 10. Deep Charcoal -->
           <div class="seva-card">
             <div class="seva-card-header"><h3>Visarjana Dina Vishesha Alankara Pooja</h3></div>
             <div class="seva-card-body">
@@ -352,6 +481,9 @@
                         <a href="https://www.instagram.com/ssms_mangaluru?igsh=MTY3Mnc0YWtleXlraA==" target="_blank" class="social-icon instagram">
                             <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGRlZnM+CjxsaW5lYXJHcmFkaWVudCBpZD0iaW5zdGFncmFtIiB4MT0iMCUiIHkxPSIwJSIgeDI9IjEwMCUiIHkyPSIxMDAlIj4KPHN0b3Agb2Zmc2V0PSIwJSIgc3R5bGU9InN0b3AtY29sb3I6IzgzNEE5QiIvPgo8c3RvcCBvZmZzZXQ9IjUwJSIgc3R5bGU9InN0b3AtY29sb3I6I0Q2Mjk3NiIvPgo8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0eWxlPSJzdG9wLWNvbG9yOiNGNTY0NDAiLz4KPC9saW5lYXJHcmFkaWVudD4KPC9kZWZzPgo8cmVjdCB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHJ4PSI2IiBmaWxsPSJ1cmwoI2luc3RhZ3JhbSkiLz4KPGNpcmNsZSBjeD0iMTIiIGN5PSIxMiIgcj0iNCIgc3Ryb2tlPSJ3aGl0ZSIgc3Ryb2tlLXdpZHRoPSIyIiBmaWxsPSJub25lIi8+CjxjaXJjbGUgY3g9IjE4IiBjeT0iNiIgcj0iMS41IiBmaWxsPSJ3aGl0ZSIvPgo8L3N2Zz4K" alt="Instagram" class="social-logo">
                         </a>
+                        <a href="https://whatsapp.com/channel/0029VbAvEE8LCoX5lnLyXW37" target="_blank" class="social-icon whatsapp">
+                            <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48Y2lyY2xlIGN4PSIxMiIgY3k9IjEyIiByPSIxMiIgZmlsbD0iIzI1RDM2NiIvPjxwYXRoIGQ9Ik0xNy40NzIgMTQuMzgyYy0uMjk3LS4xNDktMS43NTgtLjg2Ny0yLjAzLS45NjctLjI3My0uMDk5LS40NzEtLjE0OC0uNjcuMTUtLjE5Ny4yOTctLjc2Ny45NjYtLjk0IDEuMTY0LS4xNzMuMTk5LS4zNDcuMjIzLS42NDQuMDc1LS4yOTctLjE1LTEuMjU1LS40NjMtMi4zOS0xLjQ3NS0uODgzLS43ODgtMS40OC0xLjc2MS0xLjY1My0yLjA1OS0uMTczLS4yOTctLjAxOC0uNDU4LjEzLS42MDYuMTM0LS4xMzMuMjk4LS4zNDcuNDQ2LS41Mi4xNDktLjE3NC4xOTgtLjI5OC4yOTgtLjQ5Ny4wOTktLjE5OC4wNS0uMzcxLS4wMjUtLjUyLS4wNzUtLjE0OS0uNjY5LTEuNjEyLS45MTYtMi4yMDctLjI0Mi0uNTc5LS40ODctLjUtLjY2OS0uNTEtLjE3My0uMDA4LS4zNzEtLjAxLS41Ny0uMDEtLjE5OCAwLS41Mi4wNzQtLjc5Mi4zNzItLjI3Mi4yOTctMS4wNCAxLjAxNi0xLjA0IDIuNDc5IDAgMS40NjIgMS4wNjUgMi44NzUgMS4yMTMgMy4wNzQuMTQ5LjE5OCAyLjA5NiAzLjIgNS4wNzcgNC40ODcuNzA5LjMwNiAxLjI2Mi40ODkgMS42OTQuNjI1LjcxMi4yMjcgMS4zNi4xOTUgMS44NzEuMTE4LjU3MS0uMDg1IDEuNzU4LS43MTkgMi4wMDYtMS40MTMuMjQ4LS42OTQuMjQ4LTEuMjg5LjE3My0xLjQxMy0uMDc0LS4xMjQtLjI3Mi0uMTk4LS41Ny0uMzQ3eiIgZmlsbD0id2hpdGUiLz48L3N2Zz4K" alt="WhatsApp" class="social-logo">
+                        </a>
                     </div>
                 </div>
             </div>
@@ -364,6 +496,58 @@
 
     <script src="script.js" defer></script>
     <script>
+      /* Donation page welcome modal */
+      (function () {
+        var backdrop = document.getElementById('donation-welcome-backdrop');
+        if (!backdrop) return;
+        if (new Date() >= new Date('2026-10-23T00:00:00+05:30')) {
+          backdrop.style.display = 'none';
+          return;
+        }
+        if (sessionStorage.getItem('splashSeen')) {
+          backdrop.style.display = 'none';
+          return;
+        }
+        function closeDonationWelcome() {
+          backdrop.classList.add('modal-fade');
+          setTimeout(function () { backdrop.style.display = 'none'; }, 400);
+          sessionStorage.setItem('splashSeen', '1');
+        }
+        window.closeDonationWelcome = closeDonationWelcome;
+        backdrop.addEventListener('click', function (e) {
+          if (e.target === backdrop) closeDonationWelcome();
+        });
+      })();
+
+      /* E-Seva closed after Oct 22 */
+      (function () {
+        var sevaCloseDate = new Date('2026-10-23T00:00:00+05:30');
+        if (new Date() < sevaCloseDate) return;
+
+        /* Hide booking buttons and seva list */
+        var bookingSection = document.getElementById('eseva-booking-section');
+        if (bookingSection) bookingSection.style.display = 'none';
+        var sevaList = document.getElementById('seva-list');
+        if (sevaList) sevaList.style.display = 'none';
+
+        /* Show closed banner */
+        var banner = document.getElementById('eseva-closed-banner');
+        if (banner) banner.style.display = 'block';
+
+        /* Update hero */
+        var heroTitle = document.getElementById('hero-title');
+        var heroSub   = document.getElementById('hero-sub');
+        if (heroTitle) heroTitle.textContent = 'Donation';
+        if (heroSub)   heroSub.textContent   = 'Your generosity keeps this tradition alive';
+
+        /* Update nav link */
+        var navLink = document.querySelector('a[href="donation.html"].nav-link');
+        if (navLink) navLink.textContent = 'DONATION';
+
+        /* Update page title */
+        document.title = 'Donation | Mangaluru Sarvajanika Shree Sharada Mahotsava 2026';
+      })();
+
       (function () {
         var cards = document.querySelectorAll('.seva-card');
         if (!cards.length || !window.IntersectionObserver) return;

@@ -15,9 +15,9 @@
     <meta name="twitter:card"       content="summary_large_image" />
     <meta name="twitter:image"     content="https://www.mangalurusharadhe.org/images/sharade2026-banner.webp" />
     <link rel="canonical"          href="https://www.mangalurusharadhe.org/announcements.html" />
-    <link rel="stylesheet" href="styles.css?v=20260908" />
-    <link rel="stylesheet" href="styles.mobile.css?v=20260908" media="(max-width: 768px)" />
-    <link rel="stylesheet" href="styles.desktop.css?v=20260908" media="(min-width: 1024px)" />
+    <link rel="stylesheet" href="styles.css?v=20260924" />
+    <link rel="stylesheet" href="styles.mobile.css?v=20260924" media="(max-width: 768px)" />
+    <link rel="stylesheet" href="styles.desktop.css?v=20260924" media="(min-width: 1024px)" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
     <link rel="preload" as="image" href="images/sharade2026-banner.webp">
@@ -44,9 +44,9 @@
         padding: 28px 0 64px;
         background: #fdf6f0;
       }
-      .events-section .section-label {
+      .events-section .section-label,
+      .invitations-section .section-label {
         text-align: center;
-        color: #b5451b;
         font-weight: 700;
         font-size: 0.8rem;
         letter-spacing: 2.5px;
@@ -57,16 +57,22 @@
         justify-content: center;
         gap: 10px;
       }
+      .events-section .section-label { color: #b5451b; }
+      .invitations-section .section-label { color: #ffd700; }
       .events-section .section-label::before,
-      .events-section .section-label::after {
+      .events-section .section-label::after,
+      .invitations-section .section-label::before,
+      .invitations-section .section-label::after {
         content: '';
         display: inline-block;
         width: 32px;
         height: 2px;
-        background: #b5451b;
         border-radius: 2px;
-        opacity: 0.5;
       }
+      .events-section .section-label::before,
+      .events-section .section-label::after { background: #b5451b; opacity: 0.5; }
+      .invitations-section .section-label::before,
+      .invitations-section .section-label::after { background: #ffd700; opacity: 0.6; }
       .events-section h2 {
         text-align: center;
         color: #2c3e50;
@@ -140,29 +146,6 @@
         padding: 60px 0 56px;
         background: linear-gradient(135deg, #3d0c02 0%, #6b1218 45%, #b5451b 100%);
       }
-      .invitations-section .section-label {
-        text-align: center;
-        color: #ffd700;
-        font-weight: 700;
-        font-size: 0.8rem;
-        letter-spacing: 2.5px;
-        text-transform: uppercase;
-        margin: 0 0 8px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 10px;
-      }
-      .invitations-section .section-label::before,
-      .invitations-section .section-label::after {
-        content: '';
-        display: inline-block;
-        width: 32px;
-        height: 2px;
-        background: #ffd700;
-        border-radius: 2px;
-        opacity: 0.6;
-      }
       .invitations-section h2 {
         text-align: center;
         color: #fff;
@@ -234,9 +217,130 @@
         transition: transform 0.2s, box-shadow 0.2s;
       }
       .inv-btn:hover { transform: translateY(-2px); box-shadow: 0 5px 16px rgba(0,0,0,0.25); }
+      .inv-btn-view {
+        display: inline-block;
+        background: rgba(255,255,255,0.12);
+        color: #fff;
+        border: 1.5px solid rgba(255,255,255,0.4);
+        font-family: 'Poppins', sans-serif;
+        font-size: 0.8rem;
+        font-weight: 700;
+        padding: 9px 18px;
+        border-radius: 25px;
+        white-space: nowrap;
+        cursor: pointer;
+        transition: transform 0.2s, background 0.2s;
+        text-decoration: none;
+      }
+      .inv-btn-view:hover { background: rgba(255,255,255,0.22); transform: translateY(-2px); }
+      .inv-btn-group { display: flex; gap: 8px; flex-wrap: wrap; justify-content: flex-end; align-items: center; }
       @media (max-width: 480px) {
         .invitation-row { padding: 16px; gap: 12px; }
         .inv-row-icon { width: 42px; height: 42px; min-width: 42px; }
+        .inv-btn-group { width: 100%; justify-content: flex-start; }
+      }
+
+      /* ── PDF Book Viewer Modal ── */
+      #pdf-modal {
+        display: none;
+        position: fixed;
+        inset: 0;
+        z-index: 9999;
+        background: rgba(0,0,0,0.52);
+        backdrop-filter: blur(4px);
+        -webkit-backdrop-filter: blur(4px);
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+      }
+      #pdf-modal.open { display: flex; }
+      .pdf-modal-inner {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        max-width: 920px;
+        border-radius: 16px;
+        overflow: hidden;
+        box-shadow: 0 28px 90px rgba(0,0,0,0.75), 0 0 0 1px rgba(255,215,0,0.14);
+      }
+      .pdf-modal-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 13px 20px;
+        background: linear-gradient(135deg, #3d0c02, #6b1218);
+        border-bottom: 1px solid rgba(255,215,0,0.16);
+        flex-shrink: 0;
+      }
+      .pdf-modal-header h3 {
+        color: #ffd700; font-size: 0.95rem; font-weight: 700; margin: 0;
+        min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+      }
+      .pdf-modal-header-actions { display: flex; gap: 8px; align-items: center; flex-shrink: 0; }
+      .pdf-dl-btn {
+        background: rgba(255,215,0,0.13);
+        color: #ffd700;
+        border: 1px solid rgba(255,215,0,0.36);
+        font-family: 'Poppins', sans-serif;
+        font-size: 0.74rem; font-weight: 700;
+        padding: 6px 13px; border-radius: 20px;
+        text-decoration: none; white-space: nowrap;
+        transition: background 0.2s;
+      }
+      .pdf-dl-btn:hover { background: rgba(255,215,0,0.24); }
+      .pdf-modal-close {
+        background: rgba(255,255,255,0.1); border: none; color: #fff;
+        width: 32px; height: 32px; border-radius: 50%; font-size: 1.25rem;
+        cursor: pointer; display: flex; align-items: center; justify-content: center;
+        transition: background 0.2s; line-height: 1; flex-shrink: 0;
+      }
+      .pdf-modal-close:hover { background: rgba(255,255,255,0.22); }
+      .pdf-book-area {
+        width: 100%; background: #1a0a05;
+        display: flex; align-items: center; justify-content: center;
+        height: clamp(260px, 68vh, 580px);
+        position: relative; overflow: hidden;
+      }
+      .pdf-page-el { background: #fff; overflow: hidden; box-shadow: 0 0 0 12px #fff, 0 4px 24px rgba(0,0,0,0.4); }
+      .pdf-page-el img { width: 100%; height: 100%; object-fit: fill; display: block; -webkit-user-drag: none; pointer-events: none; }
+      .pdf-loading {
+        display: flex; flex-direction: column; align-items: center;
+        gap: 14px; color: rgba(255,215,0,0.55); font-size: 0.88rem; position: absolute;
+      }
+      .pdf-spinner {
+        width: 40px; height: 40px;
+        border: 3px solid rgba(255,215,0,0.14); border-top-color: #ffd700;
+        border-radius: 50%; animation: pdfSpin 0.75s linear infinite;
+      }
+      @keyframes pdfSpin { to { transform: rotate(360deg); } }
+      .pdf-book-nav {
+        width: 100%; display: none; align-items: center; justify-content: center;
+        gap: 14px; padding: 10px 20px; background: #0e0505;
+        border-top: 1px solid rgba(255,255,255,0.055); flex-shrink: 0;
+      }
+      .book-nav-btn {
+        background: rgba(255,215,0,0.1); border: 1px solid rgba(255,215,0,0.26);
+        color: #ffd700; font-family: 'Poppins', sans-serif;
+        font-size: 0.82rem; font-weight: 600;
+        padding: 7px 18px; border-radius: 20px;
+        cursor: pointer; transition: background 0.2s; white-space: nowrap;
+      }
+      .book-nav-btn:hover:not(:disabled) { background: rgba(255,215,0,0.2); }
+      .book-nav-btn:disabled { opacity: 0.28; cursor: default; }
+      .book-page-info { color: rgba(255,255,255,0.35); font-size: 0.8rem; min-width: 70px; text-align: center; }
+      .book-hint { color: rgba(255,255,255,0.22); font-size: 0.7rem; }
+      @media (max-width: 600px) {
+        #pdf-modal { padding: 8px; }
+        .pdf-modal-inner { border-radius: 12px; }
+        .pdf-modal-header { padding: 10px 12px; }
+        .pdf-modal-header h3 { font-size: 0.88rem; }
+        .pdf-dl-btn { font-size: 0.7rem; padding: 5px 10px; }
+        .pdf-book-area { height: clamp(240px, 60vh, 480px); }
+        .pdf-book-nav { padding: 8px 10px; gap: 8px; }
+        .book-nav-btn { padding: 6px 12px; font-size: 0.76rem; }
+        .book-page-info { font-size: 0.75rem; min-width: 56px; }
+        .book-hint { display: none; }
       }
 
       /* ── Share section ── */
@@ -405,38 +509,68 @@
             </div>
           </div>
 
+          <div class="event-card" data-cat="cultural">
+            <div class="event-card-header">
+              <h3>Bhajan Seva</h3>
+              <div class="event-datetime">October 16, 2026 &bull; 6:30 AM onwards</div>
+            </div>
+            <div class="event-card-body">
+              Bhajan Seva at the lotus feet of Shree Sharadha Matha by <strong>Veera Venkatesha Yuva Bhajana Mandali</strong> commencing at <strong>6:30 AM</strong> on <strong>October 16, 2026 (Friday)</strong>.
+            </div>
+          </div>
+
           <div class="event-card" data-cat="puja">
             <div class="event-card-header">
               <h3>Vigraha Prathista</h3>
-              <div class="event-datetime">September 29, 2025 &bull; 6:00 AM</div>
+              <div class="event-datetime">October 16, 2026 &bull; 7:00 AM</div>
             </div>
             <div class="event-card-body">
               <div class="sanskrit-verse">
                 नमस्ते शारदा देवी काश्मीरपुरवासिनि ।<br>
                 त्वामहं प्रार्थये नित्यं विद्यादानं च देहि मे ॥
               </div>
-              Shree Sharada Matha's Vigraha Prathishta Pooja begins at <strong>6:00 AM</strong> on <strong>September 29, 2025</strong>.
+              Shree Sharada Matha's Vigraha Prathishta Pooja begins at <strong>7:00 AM</strong> on <strong>October 16, 2026</strong>.
+            </div>
+          </div>
+
+          <div class="event-card" data-cat="puja">
+            <div class="event-card-header">
+              <h3>Mahapuje &amp; Deepalankar Seva</h3>
+              <div class="event-datetime">October 16, 2026 &bull; 1:00 PM</div>
+            </div>
+            <div class="event-card-body">
+              Mahapuje and Deepalankar Seva with Ranga Pooje commences at <strong>1:00 PM</strong> on <strong>October 16, 2026</strong>. Ratri Puje at <strong>10:00 PM</strong>. Darshana open daily from <strong>10:00 AM</strong> through to Ratri Puje, October 16–21.
             </div>
           </div>
 
           <div class="event-card" data-cat="puja">
             <div class="event-card-header">
               <h3>Durga Namaskar</h3>
-              <div class="event-datetime">September 29, 2025 &bull; 8:00 PM</div>
+              <div class="event-datetime">October 17, 2026 &bull; 8:00 PM</div>
             </div>
             <div class="event-card-body">
               <div class="sanskrit-verse">
                 सर्वमङ्गलमाङ्गल्ये शिवे सर्वार्थसाधिके।<br>
                 शरण्ये त्र्यम्बके गौरि नारायणि नमोऽस्तु ते॥
               </div>
-              Durga Namaskara Seva at <strong>8:00 PM</strong> on <strong>September 29, 2025</strong>.
+              Durga Namaskara Seva at <strong>8:00 PM</strong> on <strong>October 17, 2026</strong>.
+            </div>
+          </div>
+
+          <div class="event-card" data-cat="cultural">
+            <div class="event-card-header">
+              <h3>Sarvajanika Annasantarpane</h3>
+              <div class="event-datetime">October 17, 2026 &bull; 8:30 PM – 10:00 PM</div>
+            </div>
+            <div class="event-card-body">
+              ಸಾರ್ವಜನಿಕ ಅನ್ನಸಂತರ್ಪಣೆ on <strong>October 17, 2026 (Saturday)</strong>, from <strong>8:30 PM to 10:00 PM</strong>.
             </div>
           </div>
 
           <div class="event-card" data-cat="puja">
             <div class="event-card-header">
               <h3>Vidyarambha Seva</h3>
-              <div class="event-datetime">September 29, 2025 &bull; 11:00 AM</div>
+              <div class="event-datetime">October 21, 2026 &bull; 11:00 AM</div>
             </div>
             <div class="event-card-body">
               <div class="sanskrit-verse">
@@ -444,54 +578,74 @@
                 विद्यारम्भं करिष्यामि सिद्धिर्भवतु मे सदा॥
               </div>
               Salutations to you, O Saraswati, the giver of all boons and the fulfiller of desires. I am beginning my studies; may I always have success.<br><br>
-              Vidyarambha Seva at <strong>11:00 AM</strong> on <strong>September 29, 2025</strong>.
+              Vidyarambha Seva at <strong>11:00 AM</strong> on <strong>October 21, 2026</strong>. All required materials are provided by the Samithi. Please register at the seva counter <strong>one day in advance</strong>.
             </div>
           </div>
 
           <div class="event-card" data-cat="deepalankar">
             <div class="event-card-header">
               <h3>Vishesha Deepalankar</h3>
-              <div class="event-datetime">October 2, 2025 &bull; 6:00 PM onwards</div>
+              <div class="event-datetime">October 21, 2026 &bull; 6:00 PM onwards</div>
             </div>
             <div class="event-card-body">
               <div class="sanskrit-verse">
                 दीपज्योतिः परब्रह्म दीपज्योतिः जनार्दनः ।<br>
                 दीपेना हरतु पापं संध्यादिपो नमोऽस्तु ते ॥
               </div>
-              Vishesha Deepalankar in the evenings from <strong>6:00 PM</strong> onwards on <strong>October 2, 2025</strong>.
+              Vishesha Deepalankar from <strong>6:00 PM</strong> onwards on <strong>October 21, 2026</strong>.
+            </div>
+          </div>
+
+          <div class="event-card" data-cat="puja">
+            <div class="event-card-header">
+              <h3>Purnalankara Darshana</h3>
+              <div class="event-datetime">October 22, 2026 &bull; 5:00 PM</div>
+            </div>
+            <div class="event-card-body">
+              Devotees may have Darshana of Shri Sharada Matha in full Purnalankara from <strong>5:00 PM</strong> on <strong>October 22, 2026</strong>.
             </div>
           </div>
 
           <div class="event-card" data-cat="puja">
             <div class="event-card-header">
               <h3>Visarjan Pooja</h3>
-              <div class="event-datetime">October 3, 2025 &bull; 5:00 AM</div>
+              <div class="event-datetime">October 20, 2026 &bull; 3:50 PM</div>
             </div>
             <div class="event-card-body">
-              Visarjan Pooja of Shri Sharada Matha at <strong>5:00 AM</strong> on <strong>October 3, 2025</strong>.
+              Visarjan Pooja of Shri Sharada Matha at <strong>3:50 PM</strong> on <strong>October 20, 2026</strong>.
             </div>
           </div>
 
           <div class="event-card" data-cat="procession">
             <div class="event-card-header">
               <h3>Visarjan Shobhayatra</h3>
-              <div class="event-datetime">October 3, 2025 &bull; 8:00 PM</div>
+              <div class="event-datetime">October 22, 2026 &bull; 8:00 PM</div>
             </div>
             <div class="event-card-body">
-              Attend the grand Visarjana Shobhayatra on <strong>October 3, 2025</strong>, at <strong>8:00 PM</strong>, proceeding across Car Street.
+              The grand Visarjana Shobhayatra of Shri Sharada Matha commences at <strong>8:00 PM</strong> on <strong>October 22, 2026</strong>. The procession route: Utsavasthana → Sri Mahamaaya Devasthana, Gaddekeri → Kenara High School Back Road → Manjeshwar Govinda Pai Vrutta → Ammenbala Subbarao Pai Road → Dongarkeri → New Chitra Talkies → Basavana Gudi → Chamaragalli → Rathbidi → Sri Mahamaaya Tirtha (Visarjana).
             </div>
           </div>
 
           <div class="event-card" data-cat="cultural">
             <div class="event-card-header">
               <h3>Cultural Programs</h3>
-              <div class="event-datetime">September 29 – October 2, 2025 &bull; 7:00 PM – 9:00 PM</div>
+              <div class="event-datetime">October 16 – 21, 2026 &bull; 7:00 PM – 9:00 PM</div>
             </div>
             <div class="event-card-body">
-              Vibrant cultural programs take place daily from <strong>7:00 PM to 9:00 PM</strong> at Saraswathi Kalamantapa, <strong>September 29 to October 2, 2025</strong>.
+              Vibrant cultural programs take place daily from <strong>7:00 PM to 9:00 PM</strong> at Saraswathi Kalamantapa, <strong>October 16 to 21, 2026</strong>.
             </div>
           </div>
 
+        </div>
+      </div>
+    </section>
+
+    <!-- Important Notice Section -->
+    <section style="padding: 32px 20px; background: #fdf6f0;">
+      <div class="container" style="max-width: 860px; margin: 0 auto;">
+        <div style="background: #fff; border-left: 4px solid #ff6b35; border-radius: 8px; padding: 20px 24px; box-shadow: 0 2px 10px rgba(0,0,0,0.06);">
+          <p style="color:#ff6b35; font-weight:700; font-size:0.85rem; letter-spacing:1px; text-transform:uppercase; margin:0 0 8px;">Important Notice</p>
+          <p style="color:#2c3e50; font-size:0.92rem; line-height:1.7; margin:0;">The Samithi does <strong>not accept Vantige (sponsorship)</strong> from any individual or group on behalf of the Samithi. Any contributions — Kanike, offerings, or items for the Devi — may only be submitted at the Information Counter during the festival days, with a receipt from the Samithi. The public is kindly requested to take note of this.</p>
         </div>
       </div>
     </section>
@@ -510,10 +664,10 @@
               <h3>Kannada Invitation</h3>
               <p class="inv-lang">ಆಮಂತ್ರಣ ಪತ್ರ · Sharada Mahotsava 2026</p>
             </div>
-            <span class="inv-badge">Coming Soon</span>
-            <!-- When PDF is ready, replace the span above with:
-            <a href="invitation-kannada.pdf" target="_blank" class="inv-btn">↓ Download PDF</a>
-            -->
+            <div class="inv-btn-group">
+              <a href="pdfs/invitation-kannada-2026.pdf" download class="inv-btn">↓ Download</a>
+              <button class="inv-btn-view" onclick="openPdfViewer('pdfs/invitation-kannada-2026.pdf','Kannada Invitation')">&#128065; View</button>
+            </div>
           </div>
           <div class="invitation-row">
             <div class="inv-row-icon">
@@ -523,10 +677,10 @@
               <h3>English Invitation</h3>
               <p class="inv-lang">Invitation Card · Sharada Mahotsava 2026</p>
             </div>
-            <span class="inv-badge">Coming Soon</span>
-            <!-- When PDF is ready, replace the span above with:
-            <a href="invitation-english.pdf" target="_blank" class="inv-btn">↓ Download PDF</a>
-            -->
+            <div class="inv-btn-group">
+              <a href="pdfs/invitation-english-2026.pdf" download class="inv-btn">↓ Download</a>
+              <button class="inv-btn-view" onclick="openPdfViewer('pdfs/invitation-english-2026.pdf','English Invitation')">&#128065; View</button>
+            </div>
           </div>
         </div>
       </div>
@@ -577,6 +731,9 @@
                         <a href="https://www.instagram.com/ssms_mangaluru?igsh=MTY3Mnc0YWtleXlraA==" target="_blank" class="social-icon instagram">
                             <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGRlZnM+CjxsaW5lYXJHcmFkaWVudCBpZD0iaW5zdGFncmFtIiB4MT0iMCUiIHkxPSIwJSIgeDI9IjEwMCUiIHkyPSIxMDAlIj4KPHN0b3Agb2Zmc2V0PSIwJSIgc3R5bGU9InN0b3AtY29sb3I6IzgzNEE5QiIvPgo8c3RvcCBvZmZzZXQ9IjUwJSIgc3R5bGU9InN0b3AtY29sb3I6I0Q2Mjk3NiIvPgo8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0eWxlPSJzdG9wLWNvbG9yOiNGNTY0NDAiLz4KPC9saW5lYXJHcmFkaWVudD4KPC9kZWZzPgo8cmVjdCB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHJ4PSI2IiBmaWxsPSJ1cmwoI2luc3RhZ3JhbSkiLz4KPGNpcmNsZSBjeD0iMTIiIGN5PSIxMiIgcj0iNCIgc3Ryb2tlPSJ3aGl0ZSIgc3Ryb2tlLXdpZHRoPSIyIiBmaWxsPSJub25lIi8+CjxjaXJjbGUgY3g9IjE4IiBjeT0iNiIgcj0iMS41IiBmaWxsPSJ3aGl0ZSIvPgo8L3N2Zz4K" alt="Instagram" class="social-logo">
                         </a>
+                        <a href="https://whatsapp.com/channel/0029VbAvEE8LCoX5lnLyXW37" target="_blank" class="social-icon whatsapp">
+                            <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48Y2lyY2xlIGN4PSIxMiIgY3k9IjEyIiByPSIxMiIgZmlsbD0iIzI1RDM2NiIvPjxwYXRoIGQ9Ik0xNy40NzIgMTQuMzgyYy0uMjk3LS4xNDktMS43NTgtLjg2Ny0yLjAzLS45NjctLjI3My0uMDk5LS40NzEtLjE0OC0uNjcuMTUtLjE5Ny4yOTctLjc2Ny45NjYtLjk0IDEuMTY0LS4xNzMuMTk5LS4zNDcuMjIzLS42NDQuMDc1LS4yOTctLjE1LTEuMjU1LS40NjMtMi4zOS0xLjQ3NS0uODgzLS43ODgtMS40OC0xLjc2MS0xLjY1My0yLjA1OS0uMTczLS4yOTctLjAxOC0uNDU4LjEzLS42MDYuMTM0LS4xMzMuMjk4LS4zNDcuNDQ2LS41Mi4xNDktLjE3NC4xOTgtLjI5OC4yOTgtLjQ5Ny4wOTktLjE5OC4wNS0uMzcxLS4wMjUtLjUyLS4wNzUtLjE0OS0uNjY5LTEuNjEyLS45MTYtMi4yMDctLjI0Mi0uNTc5LS40ODctLjUtLjY2OS0uNTEtLjE3My0uMDA4LS4zNzEtLjAxLS41Ny0uMDEtLjE5OCAwLS41Mi4wNzQtLjc5Mi4zNzItLjI3Mi4yOTctMS4wNCAxLjAxNi0xLjA0IDIuNDc5IDAgMS40NjIgMS4wNjUgMi44NzUgMS4yMTMgMy4wNzQuMTQ5LjE5OCAyLjA5NiAzLjIgNS4wNzcgNC40ODcuNzA5LjMwNiAxLjI2Mi40ODkgMS42OTQuNjI1LjcxMi4yMjcgMS4zNi4xOTUgMS44NzEuMTE4LjU3MS0uMDg1IDEuNzU4LS43MTkgMi4wMDYtMS40MTMuMjQ4LS42OTQuMjQ4LTEuMjg5LjE3My0xLjQxMy0uMDc0LS4xMjQtLjI3Mi0uMTk4LS41Ny0uMzQ3eiIgZmlsbD0id2hpdGUiLz48L3N2Zz4K" alt="WhatsApp" class="social-logo">
+                        </a>
                     </div>
                 </div>
             </div>
@@ -587,17 +744,320 @@
         </div>
     </footer>
 
-    <!-- Image Modal for Gallery -->
-    <div id="imageModal" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeImageModal()">&times;</span>
-            <button class="modal-nav prev" onclick="prevGalleryImage()" aria-label="Previous image">‹</button>
-            <div class="modal-image-container">
-                <img id="modalImage" src="" alt="" class="modal-image" loading="lazy">
-            </div>
-            <button class="modal-nav next" onclick="nextGalleryImage()" aria-label="Next image">›</button>
+    <!-- PDF Book Viewer Modal -->
+    <div id="pdf-modal" role="dialog" aria-modal="true" aria-labelledby="pdf-modal-title">
+      <div class="pdf-modal-inner">
+        <div class="pdf-modal-header">
+          <h3 id="pdf-modal-title">Invitation</h3>
+          <div class="pdf-modal-header-actions">
+            <a id="pdf-dl-link" href="#" download class="pdf-dl-btn">&#8595; Download</a>
+            <button class="pdf-modal-close" onclick="closePdfViewer()" aria-label="Close">&times;</button>
+          </div>
         </div>
+        <div class="pdf-book-area" id="pdf-book-area">
+          <div class="pdf-loading" id="pdf-loading">
+            <div class="pdf-spinner"></div>
+            <span>Loading invitation&hellip;</span>
+          </div>
+        </div>
+        <div class="pdf-book-nav" id="pdf-book-nav">
+          <button id="book-btn-prev" class="book-nav-btn" onclick="pdfFlipPrev()" disabled>&#8249; Prev</button>
+          <span class="book-page-info">Page <span id="pdf-page-num">1</span> / <span id="pdf-page-total">1</span></span>
+          <button id="book-btn-next" class="book-nav-btn" onclick="pdfFlipNext()">Next &#8250;</button>
+          <span class="book-hint">Tap page or use buttons</span>
+        </div>
+      </div>
     </div>
+
+    <script>
+      /* ── PDF Book Viewer — one PageFlip instance per PDF, never reused ── */
+      var _scrollY = 0;
+      var _pv = {
+        token: 0,
+        activeInst: null,  /* inst currently shown */
+        instances:  {},    /* src → { pf, container, total, curPage } */
+        pendingSrc: null,  /* src currently being rendered */
+        fbTimer:    null,
+        libsLoaded: false, libsLoading: false, libCbs: []
+      };
+
+      function _loadLibs(cb) {
+        var p = _pv;
+        if (p.libsLoaded) { cb(); return; }
+        p.libCbs.push(cb);
+        if (p.libsLoading) return;
+        p.libsLoading = true;
+        function load(url, next) {
+          var s = document.createElement('script');
+          s.src = url; s.onload = next;
+          s.onerror = function() {
+            p.libsLoading = false;
+            p.libCbs.forEach(function(f){ f('err'); }); p.libCbs = [];
+          };
+          document.head.appendChild(s);
+        }
+        load('https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js', function() {
+          pdfjsLib.GlobalWorkerOptions.workerSrc =
+            'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+          load('https://cdn.jsdelivr.net/npm/page-flip@2.0.7/dist/js/page-flip.browser.js', function() {
+            p.libsLoaded = true;
+            p.libCbs.forEach(function(f){ f(); }); p.libCbs = [];
+          });
+        });
+      }
+
+      /* Remove everything from pdf-book-area except the loading spinner */
+      function _clearBookArea() {
+        var area = document.getElementById('pdf-book-area');
+        Array.prototype.slice.call(area.children).forEach(function(el) {
+          if (el.id !== 'pdf-loading') area.removeChild(el);
+        });
+      }
+
+      function openPdfViewer(src, title) {
+        var p = _pv;
+        document.getElementById('pdf-modal-title').textContent = title;
+        var dl = document.getElementById('pdf-dl-link');
+        dl.href = src; dl.setAttribute('download', title + '.pdf');
+        _scrollY = window.scrollY;
+        document.body.style.cssText = 'overflow:hidden;position:fixed;top:-' + _scrollY + 'px;width:100%;';
+        document.getElementById('pdf-modal').classList.add('open');
+
+        /*
+         * This PDF was already fully rendered — just swap its container back in.
+         * The old PageFlip instance is preserved exactly as-is; no destroy/reinit.
+         */
+        if (p.instances[src]) {
+          _clearBookArea();
+          var inst = p.instances[src];
+          document.getElementById('pdf-book-area').appendChild(inst.container);
+          p.activeInst = inst;
+          document.getElementById('pdf-loading').style.display = 'none';
+          document.getElementById('pdf-book-nav').style.display = 'flex';
+          document.getElementById('pdf-page-total').textContent = inst.total;
+          _updateNav();
+          return;
+        }
+
+        /* Already rendering this PDF — just show the loading UI */
+        if (p.pendingSrc === src) {
+          _clearBookArea();
+          document.getElementById('pdf-loading').style.display = 'flex';
+          document.getElementById('pdf-book-nav').style.display = 'none';
+          return;
+        }
+
+        /* New render — cancel any previous in-flight render */
+        p.token++;
+        var tok = p.token;
+        if (p.fbTimer) { clearTimeout(p.fbTimer); p.fbTimer = null; }
+        p.activeInst = null;
+        p.pendingSrc = src;
+
+        _clearBookArea();
+        document.getElementById('pdf-loading').style.display = 'flex';
+        document.getElementById('pdf-loading').querySelector('span').textContent = 'Loading invitation…';
+        document.getElementById('pdf-book-nav').style.display = 'none';
+
+        p.fbTimer = setTimeout(function() { if (p.token === tok) _pdfFallback(src); }, 45000);
+
+        _loadLibs(function(err) {
+          if (err || p.token !== tok) return;
+          pdfjsLib.getDocument(src).promise.then(function(pdf) {
+            if (p.token !== tok) { try { pdf.destroy(); } catch(x){} return; }
+            _renderAll(src, tok, pdf);
+          }).catch(function() { if (p.token === tok) _pdfFallback(src); });
+        });
+      }
+
+      function _trimWhite(canvas) {
+        var ctx = canvas.getContext('2d');
+        var w = canvas.width, h = canvas.height;
+        var d = ctx.getImageData(0, 0, w, h).data;
+        var tol = 245;
+        function rowWhite(y) {
+          for (var x = 0; x < w; x++) { var i=(y*w+x)*4; if(d[i]<tol||d[i+1]<tol||d[i+2]<tol) return false; } return true;
+        }
+        function colWhite(x) {
+          for (var y = 0; y < h; y++) { var i=(y*w+x)*4; if(d[i]<tol||d[i+1]<tol||d[i+2]<tol) return false; } return true;
+        }
+        var t=0, b=h, l=0, r=w;
+        while (t<h && rowWhite(t)) t++;
+        while (b>t && rowWhite(b-1)) b--;
+        while (l<w && colWhite(l)) l++;
+        while (r>l && colWhite(r-1)) r--;
+        if (t===0 && b===h && l===0 && r===w) return canvas;
+        var pad=4;
+        t=Math.max(0,t-pad); b=Math.min(h,b+pad);
+        l=Math.max(0,l-pad); r=Math.min(w,r+pad);
+        var c2=document.createElement('canvas');
+        c2.width=r-l; c2.height=b-t;
+        c2.getContext('2d').drawImage(canvas,l,t,r-l,b-t,0,0,r-l,b-t);
+        return c2;
+      }
+
+      function _renderAll(src, tok, pdf) {
+        var p = _pv;
+        var total = pdf.numPages;
+        var imgs  = [];
+        function loop(n) {
+          if (p.token !== tok) return;
+          if (n >= total) {
+            if (p.fbTimer) { clearTimeout(p.fbTimer); p.fbTimer = null; }
+            _createInstance(src, imgs, tok);
+            return;
+          }
+          var loadEl = document.getElementById('pdf-loading');
+          if (loadEl) loadEl.querySelector('span').textContent =
+            'Preparing page ' + (n + 1) + ' of ' + total + '…';
+          pdf.getPage(n + 1).then(function(pg) {
+            if (p.token !== tok) return;
+            var vp = pg.getViewport({ scale: 1.4 });
+            var cv = document.createElement('canvas');
+            cv.width = vp.width; cv.height = vp.height;
+            return pg.render({ canvasContext: cv.getContext('2d'), viewport: vp }).promise.then(function() {
+              if (p.token !== tok) return;
+              imgs.push(_trimWhite(cv).toDataURL('image/jpeg', 0.84));
+              loop(n + 1);
+            });
+          }).catch(function() { if (p.token === tok) _pdfFallback(src); });
+        }
+        loop(0);
+      }
+
+      /*
+       * Create a brand-new PageFlip instance in its own container div.
+       * This container is attached to the DOM once and NEVER removed while
+       * a PageFlip instance lives on it — we only hide/show it via
+       * appending/removing from pdf-book-area.
+       */
+      function _createInstance(src, imgs, tok) {
+        var p = _pv;
+        if (p.token !== tok) return;
+
+        var area = document.getElementById('pdf-book-area');
+        var c = document.createElement('div');
+        c.style.cssText = 'width:100%;height:100%;touch-action:none;';
+
+        imgs.forEach(function(dataUrl) {
+          var div = document.createElement('div');
+          div.className = 'pdf-page-el';
+          var img = document.createElement('img');
+          img.src = dataUrl;
+          div.appendChild(img);
+          c.appendChild(div);
+        });
+
+        /* Attach so PageFlip can measure real dimensions */
+        area.appendChild(c);
+        var areaH = area.offsetHeight || 500;
+        var areaW = area.offsetWidth  || 800;
+        var pageH = Math.min(areaH - 16, 560);
+        var pageW = Math.round(pageH * 0.708);
+        var maxW  = Math.floor((areaW - 60) / 2);
+        if (pageW > maxW) { pageW = maxW; pageH = Math.round(pageW / 0.708); }
+
+        var pf;
+        try {
+          pf = new St.PageFlip(c, {
+            width: pageW, height: pageH,
+            size: 'fixed',
+            drawShadow: true,
+            flippingTime: 800,
+            usePortrait: true,
+            startZIndex: 0,
+            showCover: true,
+            mobileScrollSupport: false,
+            clickEventForward: false,
+          });
+          pf.loadFromHTML(c.querySelectorAll('.pdf-page-el'));
+        } catch(x) {
+          area.removeChild(c);
+          _pdfFallback(src);
+          return;
+        }
+
+        var inst = { pf: pf, container: c, total: imgs.length, curPage: 0 };
+        p.instances[src] = inst;
+        p.activeInst     = inst;
+        p.pendingSrc     = null;
+
+        pf.on('flip', function(e) { inst.curPage = e.data; _updateNav(); });
+        pf.on('changeState', function() {
+          try { inst.curPage = pf.getCurrentPageIndex(); _updateNav(); } catch(x){}
+        });
+
+
+        document.getElementById('pdf-loading').style.display = 'none';
+        document.getElementById('pdf-book-nav').style.display = 'flex';
+        document.getElementById('pdf-page-total').textContent = imgs.length;
+        _updateNav();
+      }
+
+      function _updateNav() {
+        var p = _pv;
+        var inst = p.activeInst;
+        if (!inst) return;
+        var idx = inst.curPage;
+        document.getElementById('pdf-page-num').textContent = idx + 1;
+        document.getElementById('book-btn-prev').disabled = idx === 0;
+        document.getElementById('book-btn-next').disabled = idx === inst.total - 1;
+      }
+
+      function pdfFlipPrev() {
+        var p = _pv;
+        if (!p.activeInst) return;
+        try { p.activeInst.pf.flipPrev(); } catch(x){}
+      }
+      function pdfFlipNext() {
+        var p = _pv;
+        if (!p.activeInst) return;
+        try { p.activeInst.pf.flipNext(); } catch(x){}
+      }
+
+      function _pdfFallback(src) {
+        var p = _pv;
+        if (p.fbTimer) { clearTimeout(p.fbTimer); p.fbTimer = null; }
+        p.pendingSrc = null;
+        document.getElementById('pdf-loading').style.display = 'none';
+        document.getElementById('pdf-book-nav').style.display = 'none';
+        _clearBookArea();
+        var area = document.getElementById('pdf-book-area');
+        var iframe = document.createElement('iframe');
+        iframe.src = src;
+        iframe.style.cssText = 'width:100%;height:100%;border:none;display:block;';
+        area.appendChild(iframe);
+      }
+
+      function closePdfViewer() {
+        document.getElementById('pdf-modal').classList.remove('open');
+        document.body.style.cssText = '';
+        window.scrollTo(0, _scrollY);
+      }
+
+      /* Swipe + keyboard */
+      (function(){
+        var area = document.getElementById('pdf-book-area'), sx = 0, sy = 0;
+        area.addEventListener('touchstart', function(e){ sx = e.touches[0].clientX; sy = e.touches[0].clientY; }, { passive: true });
+        area.addEventListener('touchend', function(e){
+          var dx = e.changedTouches[0].clientX - sx;
+          var dy = e.changedTouches[0].clientY - sy;
+          if (Math.abs(dx) > 40) {
+            dx < 0 ? pdfFlipNext() : pdfFlipPrev();
+          } else if (Math.abs(dx) < 12 && Math.abs(dy) < 12) {
+            var rect = area.getBoundingClientRect();
+            var x = e.changedTouches[0].clientX - rect.left;
+            x < rect.width / 2 ? pdfFlipPrev() : pdfFlipNext();
+          }
+        }, { passive: true });
+      })();
+      document.getElementById('pdf-modal').addEventListener('click', function(e){ if (e.target === this) closePdfViewer(); });
+      document.addEventListener('keydown', function(e){
+        if (e.key === 'Escape')     closePdfViewer();
+        if (e.key === 'ArrowRight') pdfFlipNext();
+        if (e.key === 'ArrowLeft')  pdfFlipPrev();
+      });
+    </script>
 
     <script>
       (function () {
