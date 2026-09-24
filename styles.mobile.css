@@ -51,3 +51,21 @@
     object-fit: cover !important;
     object-position: center center !important;
 }
+
+/* Gallery year tabs — scrollable on mobile */
+.gallery-tabs {
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    padding: 4px 16px 10px;
+    margin: 10px -16px 24px;
+    scrollbar-width: none;
+}
+.gallery-tabs::-webkit-scrollbar { display: none; }
+.gallery-tabs .tab-link {
+    flex-shrink: 0;
+    padding: 8px 16px;
+}
+.gallery-tabs .tab-link .tab-edition { font-size: 0.85rem; }
+.gallery-tabs .tab-link .tab-year { font-size: 0.65rem; }

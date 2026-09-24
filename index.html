@@ -208,11 +208,11 @@
       #welcome-modal-footer {
         padding: 11px 16px 14px;
         display: flex;
-        justify-content: flex-end;
+        justify-content: center;
+        gap: 10px;
+        flex-wrap: wrap;
       }
       #welcome-modal-footer a {
-        background: #ff6b35;
-        color: #fff;
         text-decoration: none;
         font-family: 'Poppins', sans-serif;
         font-size: 0.78rem;
@@ -221,17 +221,35 @@
         padding: 7px 16px;
         border-radius: 5px;
         white-space: nowrap;
-        transition: background 0.2s;
+        transition: background 0.2s, color 0.2s;
       }
-      #welcome-modal-footer a:hover { background: #e55a2b; }
+      #welcome-modal-footer a.btn-primary {
+        background: #ff6b35;
+        color: #fff;
+      }
+      #welcome-modal-footer a.btn-primary:hover { background: #e55a2b; }
+      #welcome-modal-footer a.btn-outline {
+        background: transparent;
+        color: #ff6b35;
+        border: 1.5px solid #ff6b35;
+      }
+      #welcome-modal-footer a.btn-outline:hover { background: rgba(255,107,53,0.12); }
       @media (max-width: 480px) {
         #welcome-modal-header span {
-          font-size: 0.72rem;
-          letter-spacing: 0.3px;
+          font-size: clamp(0.58rem, 2.6vw, 0.72rem);
+          letter-spacing: 0.1px;
+        }
+        #welcome-modal-footer {
+          flex-wrap: nowrap;
+          gap: 8px;
+          padding: 10px 12px 13px;
         }
         #welcome-modal-footer a {
-          font-size: 0.72rem;
-          padding: 6px 12px;
+          flex: 1;
+          text-align: center;
+          font-size: clamp(0.6rem, 2.8vw, 0.72rem);
+          padding: 7px 8px;
+          letter-spacing: 0;
         }
       }
 
@@ -289,12 +307,30 @@
         transition: transform 0.2s, box-shadow 0.2s;
       }
       .hero-cta-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 26px rgba(255,107,53,0.58); }
+      .hero-cta-btn-sec {
+        display: inline-block;
+        background: rgba(255,255,255,0.14);
+        color: #fff;
+        text-decoration: none;
+        font-family: 'Poppins', sans-serif;
+        font-size: 0.85rem;
+        font-weight: 700;
+        letter-spacing: 0.5px;
+        padding: 11px 24px;
+        border-radius: 25px;
+        border: 1.5px solid rgba(255,255,255,0.55);
+        backdrop-filter: blur(4px);
+        transition: background 0.2s, transform 0.2s;
+      }
+      .hero-cta-btn-sec:hover { background: rgba(255,255,255,0.24); transform: translateY(-2px); }
+      .hero-btns { display: flex; gap: 12px; flex-wrap: wrap; align-items: center; }
       @media (max-width: 768px) {
         #hero-overlay { padding: 60px 16px 20px; }
         .hero-event-title { font-size: 1.6rem; }
         .hero-event-date { font-size: 0.82rem; }
         .hero-tagline { font-size: 0.65rem; letter-spacing: 1.5px; }
         .hero-cta-btn { font-size: 0.78rem; padding: 9px 20px; }
+        .hero-cta-btn-sec { font-size: 0.78rem; padding: 9px 18px; }
         .history-grid { grid-template-columns: 1fr !important; gap: 28px !important; }
         .history-content { padding-left: 0 !important; }
       }
@@ -610,7 +646,8 @@
         </div>
         <img src="images/splash2026.webp" alt="Mangaluru Sharade 2026" loading="lazy">
         <div id="welcome-modal-footer">
-          <a href="announcements.html">VIEW ANNOUNCEMENTS</a>
+          <a href="announcements.html" class="btn-primary" onclick="sessionStorage.setItem('splashSeen','1')">VIEW ANNOUNCEMENTS</a>
+          <a href="donation.html" class="btn-primary" onclick="sessionStorage.setItem('splashSeen','1')">🕉️ E-SEVA / KANIKE</a>
         </div>
       </div>
     </div>
@@ -704,7 +741,10 @@
                 <p class="hero-tagline">104th Mangaluru Sarvajanika Shree Sharada Mahotsava</p>
                 <h2 class="hero-event-title">Mangaluru Sharade 2026</h2>
                 <p class="hero-event-date" id="hero-event-date">🪔 Grand Arrival · October 15, 2026 · 8:00 PM</p>
-                <a href="announcements.html" class="hero-cta-btn" id="hero-cta-btn">View Schedule →</a>
+                <div class="hero-btns">
+                  <a href="announcements.html" class="hero-cta-btn" id="hero-cta-btn">View Schedule</a>
+                  <a href="announcements.html#invitation" class="hero-cta-btn" id="hero-inv-btn">📜 Invitation</a>
+                </div>
               </div>
             </div>
 
@@ -791,7 +831,7 @@
 
                     <div class="hist-rituals-card">
                       <div class="hist-rituals-header"><span>Key Rituals</span></div>
-                      <div class="hist-rituals-body">Vidyarambha (learning initiation), Rangapuja, Vishesha Deepalankara and grand night processions (Shobha Yatra).</div>
+                      <div class="hist-rituals-body">Vidyarambha (learning initiation), Rangapuja, Vishesha Deepalankara and Grand Dasara Procession (Shobha Yatra).</div>
                     </div>
                     
                     <div style="text-align: center; margin-top: 6px;">
